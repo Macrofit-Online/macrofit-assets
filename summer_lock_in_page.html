@@ -1,1086 +1,1190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MacroFit Summer Lock In Challenge 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<!--
+  MacroFit Summer Lock In Challenge 2026 — GHL Funnel Page
+  Platform: GoHighLevel (Custom HTML element or page body)
+  Last updated: 2026-06-10
+  Notes:
+    - All sms: href links removed (A2P compliant)
+    - All "Text SHRED to [number]" CTAs replaced with form opt-in buttons
+    - GHL form embed (ID: O3YVMeHBVbmcNwboiJgj) is live in the opt-in section
+    - SMS consent checkbox is present below the form (unchecked by default, required)
+    - Privacy Policy + Terms links in footer
+    - No phone numbers on this page
+    - Mobile-optimized: sticky CTA bar, responsive grids, fluid typography
+    - Paste the full block into a GHL Custom HTML element, or split:
+        CSS → Page Settings → Header Tracking Code (inside <style> tags)
+        HTML → Custom HTML element on the page body
+-->
 
-    :root {
-      --pink: #E8186D;
-      --pink-bg: #fce7f0;
-      --charcoal: #1a1a1a;
-      --dark-section: #1c1c1e;
-      --white: #ffffff;
-      --text-muted: #666;
-      --border-light: #e8e0e8;
+<style>
+  :root {
+    --mf-black: #181416;
+    --mf-charcoal: #2a2427;
+    --mf-pink: #d82f88;
+    --mf-pink-dark: #b91f70;
+    --mf-blush: #fff0f7;
+    --mf-blush-2: #fde3f0;
+    --mf-cream: #fffaf5;
+    --mf-white: #ffffff;
+    --mf-blue: #607f9e;
+    --mf-text: #342c30;
+    --mf-muted: #6c6066;
+    --mf-border: rgba(216, 47, 136, 0.18);
+    --mf-shadow: 0 22px 60px rgba(24, 20, 22, 0.12);
+    --mf-radius: 28px;
+    --mf-radius-sm: 18px;
+    --mf-max: 1180px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--mf-cream);
+  }
+
+  .mf-page, .mf-page * {
+    box-sizing: border-box;
+  }
+
+  .mf-page {
+    margin: 0;
+    color: var(--mf-text);
+    background: var(--mf-cream);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+
+  .mf-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mf-wrap {
+    width: min(var(--mf-max), calc(100% - 36px));
+    margin: 0 auto;
+  }
+
+  .mf-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid var(--mf-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--mf-pink-dark);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .mf-kicker::before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--mf-pink);
+    flex-shrink: 0;
+  }
+
+  .mf-section {
+    padding: 84px 0;
+    position: relative;
+  }
+
+  .mf-section-tight {
+    padding: 64px 0;
+  }
+
+  .mf-section h1,
+  .mf-section h2,
+  .mf-section h3,
+  .mf-section p {
+    margin-top: 0;
+  }
+
+  .mf-h1 {
+    margin: 22px 0 10px;
+    color: var(--mf-black);
+    font-size: clamp(2.8rem, 8.2vw, 6.8rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .mf-h2 {
+    margin: 16px 0 20px;
+    color: var(--mf-black);
+    font-size: clamp(1.9rem, 5.1vw, 4.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    font-weight: 950;
+  }
+
+  .mf-h3 {
+    margin: 0 0 10px;
+    color: var(--mf-black);
+    font-size: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 900;
+  }
+
+  .mf-lede {
+    color: var(--mf-muted);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    line-height: 1.58;
+  }
+
+  .mf-body {
+    color: var(--mf-muted);
+    font-size: 1.05rem;
+  }
+
+  .mf-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .mf-btn {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 14px 24px;
+    border: 2px solid transparent;
+    font-size: 0.94rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    cursor: pointer;
+  }
+
+  .mf-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .mf-btn-primary {
+    color: var(--mf-white);
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    box-shadow: 0 16px 34px rgba(216, 47, 136, 0.28);
+  }
+
+  .mf-btn-secondary {
+    color: var(--mf-black);
+    background: var(--mf-white);
+    border-color: rgba(24, 20, 22, 0.12);
+    box-shadow: 0 12px 28px rgba(24, 20, 22, 0.08);
+  }
+
+  .mf-btn-light {
+    color: var(--mf-white);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ── HERO ── */
+  .mf-hero {
+    min-height: 760px;
+    padding: 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(216, 47, 136, 0.2), transparent 31%),
+      radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.72), transparent 26%),
+      linear-gradient(135deg, #fff7fb 0%, #fffaf5 48%, #fee8f3 100%);
+  }
+
+  .mf-topbar {
+    position: relative;
+    z-index: 2;
+    padding: 8px 0;
+    background: var(--mf-black);
+    color: var(--mf-white);
+  }
+
+  .mf-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 54px;
+  }
+
+  .mf-logo {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .mf-logo img {
+    display: block;
+    width: 58px;
+    max-width: 18vw;
+    height: auto;
+    background: transparent;
+  }
+
+  .mf-topbar-note {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.82rem, 1.2vw, 1.1rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: right;
+    flex: 1;
+  }
+
+  .mf-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.78fr);
+    gap: 48px;
+    align-items: center;
+    min-height: 690px;
+    padding: 72px 0;
+  }
+
+  .mf-hero-copy {
+    max-width: 740px;
+  }
+
+  .mf-hero-sub {
+    color: var(--mf-blue);
+    font-size: clamp(1.3rem, 3.6vw, 3.1rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 950;
+  }
+
+  .mf-hero-card {
+    position: relative;
+    min-height: 520px;
+    border-radius: 38px;
+    padding: 28px;
+    background:
+      linear-gradient(rgba(24, 20, 22, 0.08), rgba(24, 20, 22, 0.18)),
+      url("https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/CfYdTeLgwpNfVuoJ.jpg") center/cover;
+    box-shadow: var(--mf-shadow);
+    overflow: hidden;
+  }
+
+  .mf-hero-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 24px 24px 24px;
+    height: 142px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(16px);
+  }
+
+  .mf-hero-stat {
+    position: absolute;
+    z-index: 1;
+    right: 44px;
+    bottom: 50px;
+    left: 44px;
+  }
+
+  .mf-stat-number {
+    display: block;
+    color: var(--mf-pink);
+    font-size: 3.4rem;
+    line-height: 0.85;
+    letter-spacing: -0.08em;
+    font-weight: 950;
+  }
+
+  .mf-stat-label {
+    display: block;
+    margin-top: 10px;
+    color: var(--mf-black);
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .mf-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .mf-trust-pill {
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--mf-charcoal);
+    border: 1px solid rgba(24, 20, 22, 0.08);
+    font-size: 0.88rem;
+    font-weight: 850;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* ── HOOK ── */
+  .mf-hook {
+    background: var(--mf-white);
+  }
+
+  .mf-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(300px, 1.12fr);
+    gap: 54px;
+    align-items: center;
+  }
+
+  .mf-quote-card {
+    padding: clamp(24px, 5vw, 48px);
+    border-radius: var(--mf-radius);
+    background: var(--mf-black);
+    color: var(--mf-white);
+    box-shadow: var(--mf-shadow);
+  }
+
+  .mf-quote-card p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.1rem;
+  }
+
+  .mf-quote-card strong {
+    display: block;
+    color: var(--mf-white);
+    font-size: clamp(1.8rem, 4vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+    font-weight: 950;
+  }
+
+  /* ── INCLUDED ── */
+  .mf-included {
+    background: var(--mf-cream);
+  }
+
+  .mf-section-head {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+  }
+
+  .mf-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .mf-benefit-card {
+    min-height: 200px;
+    padding: 24px;
+    border-radius: var(--mf-radius);
+    background: var(--mf-white);
+    border: 1px solid rgba(24, 20, 22, 0.07);
+    box-shadow: 0 18px 44px rgba(24, 20, 22, 0.07);
+  }
+
+  .mf-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    color: var(--mf-white);
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    font-size: 0.92rem;
+    font-weight: 950;
+    letter-spacing: -0.04em;
+  }
+
+  .mf-benefit-card p {
+    color: var(--mf-muted);
+    margin-bottom: 0;
+  }
+
+  /* ── CHATS ── */
+  .mf-chats {
+    background: linear-gradient(135deg, var(--mf-black), #30252b);
+    color: var(--mf-white);
+  }
+
+  .mf-chats .mf-kicker {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--mf-white);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .mf-chats .mf-h2,
+  .mf-chats .mf-h3 {
+    color: var(--mf-white);
+  }
+
+  .mf-chats .mf-lede,
+  .mf-chats .mf-body {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .mf-week-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mf-week-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .mf-week-label {
+    color: var(--mf-pink);
+    font-size: 0.88rem;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .mf-week-topic {
+    color: var(--mf-white);
+    font-weight: 850;
+    font-size: 0.95rem;
+  }
+
+  .mf-note {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: var(--mf-blush);
+    color: var(--mf-black);
+    font-weight: 850;
+  }
+
+  /* ── CHALLENGES ── */
+  .mf-challenges {
+    background: var(--mf-blush);
+  }
+
+  .mf-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mf-challenge-card {
+    position: relative;
+    padding: 22px 22px 22px 76px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(216, 47, 136, 0.15);
+    box-shadow: 0 14px 34px rgba(24, 20, 22, 0.06);
+  }
+
+  .mf-challenge-number {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--mf-black);
+    color: var(--mf-white);
+    font-weight: 950;
+    font-size: 0.95rem;
+  }
+
+  /* ── WHO IT'S FOR ── */
+  .mf-for-you {
+    background: var(--mf-white);
+  }
+
+  .mf-check-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .mf-check-item {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--mf-cream);
+    border: 1px solid rgba(24, 20, 22, 0.06);
+    font-weight: 800;
+  }
+
+  .mf-check-dot {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: var(--mf-white);
+    background: var(--mf-pink);
+    font-size: 0.92rem;
+    font-weight: 950;
+    flex-shrink: 0;
+  }
+
+  /* ── CHELSEA ── */
+  .mf-chelsea-photo-card {
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(46, 37, 30, 0.13);
+    box-shadow: var(--mf-shadow);
+    background: var(--mf-cream);
+  }
+
+  .mf-chelsea-photo-card img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  /* ── FAQ ── */
+  .mf-faq {
+    background: var(--mf-white);
+  }
+
+  .mf-faq-list {
+    display: grid;
+    gap: 14px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .mf-faq-item {
+    padding: 22px;
+    border-radius: 22px;
+    background: var(--mf-cream);
+    border: 1px solid rgba(24, 20, 22, 0.07);
+  }
+
+  .mf-faq-item h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+  }
+
+  .mf-faq-item p {
+    margin: 0;
+    color: var(--mf-muted);
+  }
+
+  /* ── FINAL / OPT-IN ── */
+  .mf-final {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(216, 47, 136, 0.26), transparent 32%),
+      radial-gradient(circle at 92% 10%, rgba(255, 255, 255, 0.12), transparent 26%),
+      linear-gradient(135deg, var(--mf-black), #30232a);
+    color: var(--mf-white);
+  }
+
+  .mf-final .mf-h2,
+  .mf-final .mf-h3 {
+    color: var(--mf-white);
+  }
+
+  .mf-final .mf-lede,
+  .mf-final .mf-body {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .mf-final-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .mf-form-box {
+    padding: 24px;
+    border-radius: var(--mf-radius);
+    background: var(--mf-white);
+    color: var(--mf-text);
+    box-shadow: var(--mf-shadow);
+  }
+
+  .mf-fine-print {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.9rem;
+  }
+
+  /* SMS consent block */
+  .mf-sms-consent {
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .mf-sms-consent input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--mf-pink);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .mf-sms-consent label {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  /* ── FOOTER ── */
+  .mf-footer {
+    padding: 28px 0;
+    background: #0f0d0e;
+    color: rgba(255, 255, 255, 0.68);
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  .mf-footer-legal {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .mf-footer-legal a {
+    color: #e8185a;
+  }
+
+  /* ── STICKY MOBILE CTA ── */
+  .mf-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    box-shadow: 0 -4px 24px rgba(216, 47, 136, 0.35);
+  }
+
+  .mf-sticky-cta a {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 0;
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — TABLET (≤ 980px)
+  ══════════════════════════════════════ */
+  @media (max-width: 980px) {
+    .mf-hero-grid,
+    .mf-split,
+    .mf-final-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mf-hero-card {
+      min-height: 420px;
+    }
+
+    .mf-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mf-chelsea-photo-card {
+      max-width: 100%;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — MOBILE (≤ 720px)
+  ══════════════════════════════════════ */
+  @media (max-width: 720px) {
+    /* Spacing */
+    .mf-wrap {
+      width: min(100% - 28px, var(--mf-max));
+    }
+
+    .mf-section {
+      padding: 56px 0;
+    }
+
+    /* Topbar */
+    .mf-topbar-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+    }
+
+    .mf-logo img {
+      width: 42px;
+      max-width: 14vw;
+    }
+
+    .mf-topbar-note {
+      font-size: 0.8rem;
+      line-height: 1.25;
+      text-align: right;
+    }
+
+    /* Hero */
+    .mf-hero {
+      min-height: auto;
+    }
+
+    .mf-hero-grid {
+      min-height: auto;
+      padding: 48px 0 72px;
+      gap: 28px;
+    }
+
+    /* Hide the hero image card on mobile — copy is the focus */
+    .mf-hero-card {
+      display: none;
+    }
+
+    /* Typography */
+    .mf-h1 {
+      font-size: clamp(2.8rem, 16vw, 4.5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .mf-h2 {
+      font-size: clamp(1.75rem, 9vw, 2.8rem);
+    }
+
+    /* Buttons — full width stacked */
+    .mf-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .mf-btn {
+      width: 100%;
+      min-height: 56px;
+      padding: 14px 20px;
+      font-size: 0.92rem;
+    }
+
+    /* Trust pills — wrap naturally */
+    .mf-trust-strip {
+      gap: 8px;
+    }
+
+    .mf-trust-pill {
+      font-size: 0.82rem;
+      padding: 10px 14px;
+    }
+
+    /* Grids → single column */
+    .mf-card-grid,
+    .mf-timeline {
+      grid-template-columns: 1fr;
+    }
+
+    .mf-benefit-card {
+      min-height: auto;
+    }
+
+    /* Week rows — stack label above topic */
+    .mf-week-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    /* Challenge cards — adjust for stacked layout */
+    .mf-challenge-card {
+      padding: 22px 20px 22px 72px;
+    }
+
+    .mf-challenge-number {
+      top: 20px;
+      left: 18px;
+      width: 38px;
+      height: 38px;
+    }
+
+    /* Split sections — reduce gap */
+    .mf-split {
+      gap: 32px;
+    }
+
+    /* Final/form section */
+    .mf-final-grid {
+      gap: 32px;
+    }
+
+    .mf-form-box {
+      padding: 20px 16px;
+    }
+
+    /* FAQ */
+    .mf-faq-item {
+      padding: 18px;
+    }
+
+    /* Section head */
+    .mf-section-head {
+      margin-bottom: 32px;
+    }
+
+    /* Show sticky CTA + add body padding so content isn't hidden behind it */
+    .mf-sticky-cta {
+      display: block;
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--white);
-      color: var(--charcoal);
-      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — SMALL MOBILE (≤ 420px)
+  ══════════════════════════════════════ */
+  @media (max-width: 420px) {
+    .mf-h1 {
+      font-size: clamp(2.5rem, 18vw, 3.5rem);
     }
 
-    /* ── ANNOUNCEMENT BAR ── */
-    .announcement-bar {
-      background: var(--charcoal);
-      color: rgba(255,255,255,0.9);
-      text-align: center;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
+    .mf-topbar-note {
+      font-size: 0.75rem;
     }
 
-    /* ── NAV ── */
-    .nav {
-      background: var(--charcoal);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav-logo img {
-      height: 38px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-cta {
-      background: var(--pink);
-      color: white;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 10px 22px;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--charcoal);
-      padding: 60px 24px 72px;
-    }
-
-    .hero-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(232,24,109,0.15);
-      border: 1px solid rgba(232,24,109,0.3);
-      color: var(--pink);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: var(--pink);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .hero h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(52px, 7vw, 88px);
-      font-weight: 400;
-      line-height: 0.95;
-      color: white;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .hero-sub-headline {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 400;
-      color: var(--pink);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 14px;
-    }
-
-    .hero-date {
-      font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 8px;
-    }
-
-    .hero-desc {
-      font-size: 15px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 28px;
-      max-width: 44ch;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .btn-pink {
-      display: inline-block;
-      background: var(--pink);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .btn-outline-white {
-      display: inline-block;
-      background: transparent;
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 13px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .hero-pill {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.75);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 6px;
-    }
-
-    /* Hero right */
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      max-height: 420px;
-      display: block;
-    }
-
-    .hero-stat-card {
-      position: absolute;
-      bottom: -20px;
-      left: 20px;
-      background: white;
-      border-radius: 10px;
-      padding: 18px 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-    }
-
-    .hero-stat-number {
-      font-family: 'Anton', sans-serif;
-      font-size: 38px;
-      font-weight: 400;
-      color: var(--pink);
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .hero-stat-label {
-      font-size: 13px;
-      color: var(--charcoal);
-      font-weight: 500;
-      margin-top: 4px;
-      max-width: 180px;
-    }
-
-    /* ── PROBLEM ── */
-    .problem-section {
-      background: var(--pink-bg);
-      padding: 80px 24px;
-    }
-
-    .problem-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 16px;
-    }
-
-    .eyebrow-tag::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: var(--pink);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .problem-section h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 400;
-      line-height: 1.0;
-      color: var(--charcoal);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-    }
-
-    .problem-card {
-      background: var(--charcoal);
-      border-radius: 12px;
-      padding: 32px 28px;
-    }
-
-    .problem-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 16px;
-    }
-
-    .problem-card .highlight {
-      font-family: 'Anton', sans-serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .problem-card p:last-child { margin-bottom: 0; }
-
-    /* ── INCLUDED ── */
-    .included-section {
-      background: var(--pink-bg);
-      padding: 80px 24px;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-header h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 400;
-      color: var(--charcoal);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.0;
-      margin-bottom: 12px;
-    }
-
-    .section-header p {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .features-grid {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .feature-card {
-      background: white;
-      border-radius: 10px;
-      padding: 28px 24px;
-      border: 1px solid rgba(232,24,109,0.08);
-    }
-
-    .feature-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--pink);
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+    .mf-logo img {
       width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      margin-bottom: 16px;
     }
 
-    .feature-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 8px;
+    .mf-challenge-card {
+      padding: 18px 16px 18px 66px;
     }
 
-    .feature-card p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    .included-ctas {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 40px;
-    }
-
-    .btn-pink-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--pink);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 13px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      border: 1.5px solid var(--pink);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    /* ── WEEKLY CHATS ── */
-    .chats-section {
-      background: var(--dark-section);
-      padding: 80px 24px;
-    }
-
-    .chats-layout {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .chats-left h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 400;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.0;
-      margin-bottom: 16px;
-    }
-
-    .chats-left p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 14px;
-    }
-
-    .chats-left .archived-note {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 16px 18px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
-      margin-top: 20px;
-    }
-
-    .weeks-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .week-row {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 8px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .week-label {
-      background: var(--pink);
-      color: white;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .week-row p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-    }
-
-    /* ── CHALLENGES ── */
-    .challenges-section {
-      background: var(--pink-bg);
-      padding: 80px 24px;
-    }
-
-    .challenges-grid {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .challenge-card {
-      background: white;
+    .mf-challenge-number {
+      width: 34px;
+      height: 34px;
+      left: 16px;
+      top: 18px;
       border-radius: 10px;
-      padding: 24px 22px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      border: 1px solid rgba(232,24,109,0.08);
     }
 
-    .challenge-num {
-      background: var(--charcoal);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .mf-stat-number {
+      font-size: 2.6rem;
     }
+  }
+</style>
 
-    .challenge-card h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 6px;
-    }
+<div class="mf-page" id="summer-lock-in">
 
-    .challenge-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <header class="mf-hero mf-section" id="top">
+    <div class="mf-topbar">
+      <div class="mf-wrap mf-topbar-inner">
+        <a class="mf-logo" href="#top" aria-label="MacroFit home">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit M logo mark">
+        </a>
+        <div class="mf-topbar-note">Summer Lock In Challenge starts June 29th. Open to new and existing members.</div>
+      </div>
+    </div>
 
-    /* ── WHO IT'S FOR ── */
-    .who-section {
-      background: var(--pink-bg);
-      padding: 80px 24px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .who-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .who-left h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 400;
-      color: var(--charcoal);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.0;
-      margin-bottom: 14px;
-    }
-
-    .who-left p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-
-    .who-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn-charcoal-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--charcoal);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 11px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      border: 1.5px solid rgba(26,26,26,0.25);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .who-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .who-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: white;
-      border-radius: 8px;
-      padding: 16px 18px;
-      border: 1px solid rgba(232,24,109,0.08);
-    }
-
-    .who-check {
-      color: var(--pink);
-      font-size: 16px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .who-item p {
-      font-size: 14px;
-      color: var(--charcoal);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    /* ── CHELSEA ── */
-    .chelsea-section {
-      background: white;
-      padding: 80px 24px;
-    }
-
-    .chelsea-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .chelsea-img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      max-height: 400px;
-      display: block;
-    }
-
-    .chelsea-text h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 400;
-      color: var(--charcoal);
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.0;
-      margin-bottom: 20px;
-    }
-
-    .chelsea-text p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .chelsea-text p strong { color: var(--charcoal); }
-
-    /* ── FORM SECTION ── */
-    .form-section {
-      background: var(--dark-section);
-      padding: 80px 24px;
-    }
-
-    .form-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .form-left h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 400;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      line-height: 1.0;
-      margin-bottom: 16px;
-    }
-
-    .form-left p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 12px;
-    }
-
-    .form-left .member-note {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      font-style: italic;
-    }
-
-    .form-left .sms-note {
-      margin-top: 20px;
-      font-size: 12px;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .form-left .sms-note a { color: var(--pink); }
-
-    .form-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
-    }
-
-    .form-card iframe {
-      width: 100%;
-      min-height: 560px;
-      border: none;
-      display: block;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--charcoal);
-      padding: 32px 24px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .footer-note {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 10px;
-    }
-
-    .footer-legal {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      line-height: 1.7;
-    }
-
-    .footer-legal a { color: var(--pink); text-decoration: none; }
-
-    /* ── STICKY MOBILE CTA ── */
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--pink);
-      padding: 14px 20px;
-      z-index: 999;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-    }
-
-    .sticky-cta a {
-      display: block;
-      text-align: center;
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero-inner,
-      .problem-inner,
-      .chats-layout,
-      .who-inner,
-      .chelsea-inner,
-      .form-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .hero-right { display: none; }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .challenges-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .chelsea-img { max-height: 300px; }
-
-      .sticky-cta { display: block; }
-
-      body { padding-bottom: 56px; }
-
-      .hero { padding: 48px 20px 44px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 52px; }
-
-      .hero-ctas,
-      .who-ctas {
-        flex-direction: column;
-      }
-
-      .hero-ctas a,
-      .who-ctas a {
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="announcement-bar">
-    Summer Lock In Challenge starts June 29th. Open to new and existing members.
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="https://macrofitprogram.com">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit" style="height:38px;width:auto;display:block;" />
-    </a>
-    <a href="#opt-in" class="nav-cta">Get Updates &amp; Opt In →</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">MacroFit Summer Lock In Challenge 2026</div>
-        <h1>MacroFit<br />Summer<br />Lock In<br />Challenge</h1>
-        <p class="hero-sub-headline">42 Days. No Guesswork. Just Consistency.</p>
-        <p class="hero-date">Starting June 29th. Open to new and existing MacroFit members.</p>
-        <p class="hero-desc">A 42-day MacroFit experience built around your personalized caloric deficit, Macro Points that flex around real life, weekly community challenges, and live chats inside the app.</p>
-        <div class="hero-ctas">
-          <a href="#opt-in" class="btn-pink">Get Updates &amp; Opt In →</a>
-          <a href="#opt-in" class="btn-outline-white">Already a member? Opt in here</a>
+    <div class="mf-wrap mf-hero-grid">
+      <div class="mf-hero-copy">
+        <div class="mf-kicker">MacroFit Summer Lock In Challenge 2026</div>
+        <h1 class="mf-h1">MacroFit Summer Lock In Challenge</h1>
+        <div class="mf-hero-sub">42 Days. No Guesswork. Just Consistency.</div>
+        <p class="mf-lede">Starting June 29th. Open to new and existing MacroFit members.</p>
+        <p class="mf-body">A 42-day MacroFit experience built around your personalized caloric deficit, Macro Points that flex around real life, weekly community challenges, and live chats inside the app.</p>
+        <div class="mf-actions">
+          <a class="mf-btn mf-btn-primary" href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+          <a class="mf-btn mf-btn-secondary" href="#opt-in">Already a member? Opt in here</a>
         </div>
-        <div class="hero-pills">
-          <span class="hero-pill">Personalized Macro Points</span>
-          <span class="hero-pill">No gym required</span>
-          <span class="hero-pill">Real community support</span>
+        <div class="mf-trust-strip" aria-label="Summer Lock In Challenge highlights">
+          <div class="mf-trust-pill">Personalized Macro Points</div>
+          <div class="mf-trust-pill">No gym required</div>
+          <div class="mf-trust-pill">Real community support</div>
         </div>
       </div>
-      <div class="hero-right">
-        <img
-          class="hero-img"
-          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/hPivTpWLsaNlNfIc.jpeg"
-          alt="MacroFit Summer Lock In Challenge"
-        />
-        <div class="hero-stat-card">
-          <div class="hero-stat-number">42 DAYS</div>
-          <div class="hero-stat-label">of structure, support, and community momentum.</div>
+
+      <div class="mf-hero-card" role="img" aria-label="Macro-friendly summer food and lifestyle image">
+        <div class="mf-hero-stat">
+          <span class="mf-stat-number">42 DAYS</span>
+          <span class="mf-stat-label">of structure, support, and community momentum.</span>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- PROBLEM -->
-  <section class="problem-section">
-    <div class="problem-inner">
+  <!-- ═══════════════════════════════════════════════
+       THE PROBLEM / HOOK
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-hook" id="hook">
+    <div class="mf-wrap mf-split">
       <div>
-        <div class="eyebrow-tag">The Problem</div>
-        <h2>Every summer you say this is the one.</h2>
+        <div class="mf-kicker">The Problem</div>
+        <h2 class="mf-h2">Every summer you say this is the one.</h2>
       </div>
-      <div class="problem-card">
+      <div class="mf-quote-card">
         <p>You start strong. Life gets busy. The routine slips. By August, you are back to square one wondering where the summer went.</p>
-        <div class="highlight">This year is different.</div>
-        <p>The MacroFit Summer Lock In Challenge is 42 days of structure, support, and a community of women doing this exact thing alongside you — so that this time, you actually finish.</p>
+        <strong>This year is different.</strong>
+        <p>The MacroFit Summer Lock In Challenge is 42 days of structure, support, and a community of women doing this exact thing alongside you, so that this time, you actually finish.</p>
       </div>
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section class="included-section">
-    <div class="section-header">
-      <div class="eyebrow-tag" style="justify-content:center;">What's Included</div>
-      <h2>Everything you need.<br />Nothing you don't.</h2>
-      <p>A focused summer experience that gives you structure without making food or fitness feel like a second job.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-num">01</div>
-        <h3>Personalized Macro Points</h3>
-        <p>Your caloric deficit and Macro Points are calculated for your body, your goals, and your actual lifestyle. Flexible, not rigid.</p>
+  <!-- ═══════════════════════════════════════════════
+       WHAT'S INCLUDED
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-included" id="included">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">What's Included</div>
+        <h2 class="mf-h2">Everything you need. Nothing you don't.</h2>
+        <p class="mf-lede">A focused summer experience that gives you structure without making food or fitness feel like a second job.</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-num">02</div>
-        <h3>Full Workout Library</h3>
-        <p>Workouts you can do anywhere, with no gym required.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">03</div>
-        <h3>Weekly Lock In Challenges</h3>
-        <p>Fun, community-driven challenges that keep you connected and accountable all 42 days.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">04</div>
-        <h3>Weekly Live Lock In Chats</h3>
-        <p>Real talk every week on the topics that actually matter during the program. Archived inside the app if you miss it.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">05</div>
-        <h3>The MacroFit Community</h3>
-        <p>A group of women showing up for themselves right alongside you.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">06</div>
-        <h3>All Inside the MacroFit App</h3>
-        <p>Everything in one place, on your schedule.</p>
-      </div>
-    </div>
-    <div class="included-ctas">
-      <a href="#opt-in" class="btn-pink">Get Updates &amp; Opt In →</a>
-      <a href="#opt-in" class="btn-pink-outline">Opt in directly</a>
-    </div>
-  </section>
 
-  <!-- WEEKLY CHATS -->
-  <section class="chats-section">
-    <div class="chats-layout">
-      <div class="chats-left">
-        <div class="eyebrow-tag" style="color:var(--pink);">Weekly Lock In Chats</div>
-        <h2>Real talk.<br />Every single week.</h2>
-        <p>No generic content. No automated responses. Every week of the Summer Lock In Challenge brings a live chat inside the app covering exactly what you are going through right now.</p>
-        <div class="archived-note">Can't make it live? Every session is saved inside the app so you never miss a thing.</div>
+      <div class="mf-card-grid">
+        <article class="mf-benefit-card">
+          <div class="mf-icon">01</div>
+          <h3 class="mf-h3">Personalized Macro Points</h3>
+          <p>Your caloric deficit and Macro Points are calculated for your body, your goals, and your actual lifestyle. Flexible, not rigid.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">02</div>
+          <h3 class="mf-h3">Full Workout Library</h3>
+          <p>Workouts you can do anywhere, with no gym required.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">03</div>
+          <h3 class="mf-h3">Weekly Lock In Challenges</h3>
+          <p>Fun, community-driven challenges that keep you connected and accountable all 42 days.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">04</div>
+          <h3 class="mf-h3">Weekly Live Lock In Chats</h3>
+          <p>Real talk every week on the topics that actually matter during the program. Archived inside the app if you miss it.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">05</div>
+          <h3 class="mf-h3">The MacroFit Community</h3>
+          <p>A group of women showing up for themselves right alongside you.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">06</div>
+          <h3 class="mf-h3">All Inside the MacroFit App</h3>
+          <p>Everything in one place, on your schedule.</p>
+        </article>
       </div>
-      <div class="weeks-list">
-        <div class="week-row">
-          <span class="week-label">Week 1</span>
-          <p>What to actually expect in 42 days.</p>
-        </div>
-        <div class="week-row">
-          <span class="week-label">Week 2</span>
-          <p>Eating out, travel, and summer chaos. Here's the plan.</p>
-        </div>
-        <div class="week-row">
-          <span class="week-label">Week 3</span>
-          <p>The week 3 wall is real. Let's talk about it.</p>
-        </div>
-        <div class="week-row">
-          <span class="week-label">Week 4</span>
-          <p>Why the scale is lying to you right now.</p>
-        </div>
-        <div class="week-row">
-          <span class="week-label">Week 5</span>
-          <p>What's working: real talk from the trenches.</p>
-        </div>
-        <div class="week-row">
-          <span class="week-label">Week 6</span>
-          <p>You did it. Now what?</p>
-        </div>
+
+      <div class="mf-actions" style="justify-content:center;">
+        <a class="mf-btn mf-btn-primary" href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+        <a class="mf-btn mf-btn-secondary" href="#opt-in">Opt in directly</a>
       </div>
     </div>
   </section>
 
-  <!-- CHALLENGES -->
-  <section class="challenges-section">
-    <div class="section-header">
-      <div class="eyebrow-tag" style="justify-content:center;">The Challenges</div>
-      <h2>Six weeks. Six challenges.</h2>
-      <p>Each week of the Summer Lock In Challenge brings a new community challenge designed to keep you motivated, connected, and actually having fun along the way.</p>
-    </div>
-    <div class="challenges-grid">
-      <div class="challenge-card">
-        <div class="challenge-num">1</div>
-        <div>
-          <h4>This Is My Why</h4>
-          <p>Share why you are showing up. Set your intention. Let the community cheer you on.</p>
-        </div>
+  <!-- ═══════════════════════════════════════════════
+       WEEKLY LOCK IN CHATS
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-chats" id="weekly-chats">
+    <div class="mf-wrap mf-split">
+      <div>
+        <div class="mf-kicker">Weekly Lock In Chats</div>
+        <h2 class="mf-h2">Real talk. Every single week.</h2>
+        <p class="mf-lede">No generic content. No automated responses. Every week of the Summer Lock In Challenge brings a live chat inside the app covering exactly what you are going through right now.</p>
+        <div class="mf-note">Can't make it live? Every session is saved inside the app so you never miss a thing.</div>
       </div>
-      <div class="challenge-card">
-        <div class="challenge-num">2</div>
-        <div>
-          <h4>Summer Plate</h4>
-          <p>Show us a macro-friendly meal you love. Swap ideas, get inspired, and stay on track.</p>
-        </div>
+
+      <div class="mf-week-list">
+        <div class="mf-week-row"><div class="mf-week-label">Week 1</div><div class="mf-week-topic">What to actually expect in 42 days.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Week 2</div><div class="mf-week-topic">Eating out, travel, and summer chaos. Here is the plan.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Week 3</div><div class="mf-week-topic">The week 3 wall is real. Let's talk about it.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Week 4</div><div class="mf-week-topic">Why the scale is lying to you right now.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Week 5</div><div class="mf-week-topic">What is working: real talk from the trenches.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Week 6</div><div class="mf-week-topic">You did it. Now what?</div></div>
       </div>
-      <div class="challenge-card">
-        <div class="challenge-num">3</div>
-        <div>
-          <h4>Movement Streak</h4>
-          <p>Ten minutes of intentional movement every day this week. Simple and powerful.</p>
-        </div>
-      </div>
-      <div class="challenge-card">
-        <div class="challenge-num">4</div>
-        <div>
-          <h4>Non-Scale Win</h4>
-          <p>Share a win that has nothing to do with the number on the scale.</p>
-        </div>
-      </div>
-      <div class="challenge-card">
-        <div class="challenge-num">5</div>
-        <div>
-          <h4>Energy Check</h4>
-          <p>Before vs. now. How do you feel compared to Day 1? Share it.</p>
-        </div>
-      </div>
-      <div class="challenge-card">
-        <div class="challenge-num">6</div>
-        <div>
-          <h4>Transformation Share</h4>
-          <p>Results. Moments. Wins. This is your week to own what you've built.</p>
-        </div>
-      </div>
-    </div>
-    <div class="included-ctas">
-      <a href="#opt-in" class="btn-pink">Get Updates &amp; Opt In →</a>
     </div>
   </section>
 
-  <!-- WHO IT'S FOR -->
-  <section class="who-section">
-    <div class="who-inner">
-      <div class="who-left">
-        <div class="eyebrow-tag">Who This Is For</div>
-        <h2>This is for you if…</h2>
-        <p>You do not need to be a current MacroFit member to join. You just need a plan that works around your real life — and that is exactly what this is.</p>
-        <div class="who-ctas">
-          <a href="#opt-in" class="btn-pink">Get Updates &amp; Opt In →</a>
-          <a href="#opt-in" class="btn-charcoal-outline">Use the opt-in form</a>
+  <!-- ═══════════════════════════════════════════════
+       THE CHALLENGES
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-challenges" id="challenge-arc">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">The Challenges</div>
+        <h2 class="mf-h2">Six weeks. Six challenges.</h2>
+        <p class="mf-lede">Each week of the Summer Lock In Challenge brings a new community challenge designed to keep you motivated, connected, and actually having fun along the way.</p>
+      </div>
+
+      <div class="mf-timeline">
+        <article class="mf-challenge-card"><div class="mf-challenge-number">1</div><h3 class="mf-h3">This Is My Why</h3><p>Share why you are showing up. Set your intention. Let the community cheer you on.</p></article>
+        <article class="mf-challenge-card"><div class="mf-challenge-number">2</div><h3 class="mf-h3">Summer Plate</h3><p>Show us a macro-friendly meal you love. Swap ideas, get inspired, and stay on track.</p></article>
+        <article class="mf-challenge-card"><div class="mf-challenge-number">3</div><h3 class="mf-h3">Movement Streak</h3><p>Ten minutes of intentional movement every day this week. Simple and powerful.</p></article>
+        <article class="mf-challenge-card"><div class="mf-challenge-number">4</div><h3 class="mf-h3">Non-Scale Win</h3><p>Share a win that has nothing to do with the number on the scale.</p></article>
+        <article class="mf-challenge-card"><div class="mf-challenge-number">5</div><h3 class="mf-h3">Energy Check</h3><p>Before versus now. How do you feel compared to Day 1? Share it.</p></article>
+        <article class="mf-challenge-card"><div class="mf-challenge-number">6</div><h3 class="mf-h3">Transformation Share</h3><p>Results. Moments. Wins. This is your week to own what you have built.</p></article>
+      </div>
+
+      <div class="mf-actions" style="justify-content:center;">
+        <a class="mf-btn mf-btn-primary" href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WHO THIS IS FOR
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-for-you" id="who-this-is-for">
+    <div class="mf-wrap mf-split">
+      <div>
+        <div class="mf-kicker">Who This Is For</div>
+        <h2 class="mf-h2">This is for you if…</h2>
+        <p class="mf-lede">You do not need to be a current MacroFit member to join. You just need a plan that works around your real life — and that is exactly what this is.</p>
+        <div class="mf-actions">
+          <a class="mf-btn mf-btn-primary" href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+          <a class="mf-btn mf-btn-secondary" href="#opt-in">Use the opt-in form</a>
         </div>
       </div>
-      <div class="who-list">
-        <div class="who-item">
-          <span class="who-check">✓</span>
-          <p>You have started programs before and never finished.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-check">✓</span>
-          <p>Summer always derails your routine.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-check">✓</span>
-          <p>You travel, have kids home, or have zero schedule structure right now.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-check">✓</span>
-          <p>You want real results without obsessing over every bite.</p>
-        </div>
-        <div class="who-item">
-          <span class="who-check">✓</span>
-          <p>You are ready to finally show up for yourself.</p>
+
+      <div class="mf-check-list">
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You have started programs before and never finished.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>Summer always derails your routine.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You travel, have kids home, or have zero schedule structure right now.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You want real results without obsessing over every bite.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You are ready to finally show up for yourself.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT CHELSEA
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section" id="about-chelsea">
+    <div class="mf-wrap mf-split">
+      <div class="mf-chelsea-photo-card">
+        <img
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/hPivTpWLsaNlNfIc.jpeg"
+          alt="Chelsea of MacroFit holding a macro-friendly meal"
+          loading="lazy"
+          style="width:100%; height:auto; max-height:520px; display:block; object-fit:contain; object-position:center center;"
+        >
+      </div>
+
+      <div>
+        <div class="mf-kicker">MacroFit Founder</div>
+        <h2 class="mf-h2">Hi, I'm Chelsea — MacroFit Founder.</h2>
+        <p class="mf-lede">I created MacroFit because I believe every woman deserves a nutrition plan that actually fits her life — not a diet that makes her miserable.</p>
+        <p class="mf-body">Summer is hard. The schedule falls apart. The routine slips. The Summer Lock In Challenge exists to give you the structure, the community, and the plan to get through it anyway.</p>
+        <p class="mf-body">This is not about being perfect for 42 days. It is about building the kind of consistency that actually sticks.</p>
+        <p class="mf-body"><strong>You can enjoy your summer and still make progress. That is the whole point.</strong></p>
+        <div class="mf-actions">
+          <a class="mf-btn mf-btn-primary" href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+          <a class="mf-btn mf-btn-secondary" href="#opt-in">Opt in directly</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHELSEA -->
-  <section class="chelsea-section">
-    <div class="chelsea-inner">
-      <img
-        class="chelsea-img"
-        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/hPivTpWLsaNlNfIc.jpeg"
-        alt="Chelsea, MacroFit Founder"
-      />
-      <div class="chelsea-text">
-        <div class="eyebrow-tag">MacroFit Founder</div>
-        <h2>Hi, I'm Chelsea —<br />MacroFit Founder.</h2>
-        <p>I created MacroFit because I believe every woman deserves a nutrition plan that actually fits her life — not a diet that makes her miserable.</p>
-        <p>Summer is hard. The schedule falls apart. The routine slips. The Summer Lock In Challenge exists to give you the structure, the community, and the plan to get through it anyway.</p>
-        <p>This is not about being perfect for 42 days. It is about building the kind of consistency that actually sticks.</p>
-        <p><strong>You can enjoy your summer and still make progress. That's what MacroFit is built for.</strong></p>
+  <!-- ═══════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-faq" id="faq">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">FAQ</div>
+        <h2 class="mf-h2">Questions before you join?</h2>
+        <p class="mf-lede">Here is what to know before you opt in for Summer Lock In Challenge.</p>
+      </div>
+
+      <div class="mf-faq-list">
+        <div class="mf-faq-item">
+          <h3>Is this free if I am already a MacroFit member?</h3>
+          <p>Yes. The Summer Lock In Challenge is included in your MacroFit membership. Just opt in and you are in.</p>
+        </div>
+        <div class="mf-faq-item">
+          <h3>What if I am not a MacroFit member yet?</h3>
+          <p>This is the perfect time to start. Join MacroFit and you will be automatically enrolled in the Summer Lock In Challenge. <a href="https://www.macrofit.com/signup" style="color:var(--mf-pink);font-weight:900;">Join here.</a></p>
+        </div>
+        <div class="mf-faq-item">
+          <h3>What if I travel or have a crazy schedule during the 6 weeks?</h3>
+          <p>That is exactly what this program is designed for. The workouts require no gym, the macros flex around real life, and the Lock In Chats are archived so you never miss anything.</p>
+        </div>
+        <div class="mf-faq-item">
+          <h3>Do I have to show up live for the weekly chats?</h3>
+          <p>Nope. Every session is saved inside the app. Watch whenever works for you.</p>
+        </div>
+        <div class="mf-faq-item">
+          <h3>What if I have never counted macros before?</h3>
+          <p>Perfect starting point. Your personalized plan is built for you, with no experience needed.</p>
+        </div>
+        <div class="mf-faq-item">
+          <h3>When does it end?</h3>
+          <p>Day 42 lands on August 9th, just in time to feel amazing for the rest of summer.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- OPT-IN FORM -->
-  <section class="form-section" id="opt-in">
-    <div class="form-inner">
-      <div class="form-left">
-        <div class="eyebrow-tag" style="color:var(--pink);">Join Us</div>
-        <h2>This summer is different.<br />Are you in?</h2>
-        <p>42 days. June 29th – August 9th. Your Macro Points. Your community. Expert guidance every single week.</p>
-        <p class="member-note">Already a MacroFit member? Same form. Just opt in and you are added to the Summer Lock In Challenge automatically.</p>
-        <p class="sms-note">
-          By submitting this form you agree to receive automated text messages from MacroFit. Msg &amp; data rates may apply. Reply STOP to unsubscribe or HELP for help. View our <a href="https://macrofitprogram.com/privacy-policy">Privacy Policy</a> and <a href="https://macrofitprogram.com/terms">Terms of Service</a>.
+  <!-- ═══════════════════════════════════════════════
+       OPT-IN / FINAL CTA
+       A2P NOTE: SMS consent checkbox is below the
+       form iframe, unchecked by default, required.
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-final" id="opt-in">
+    <div class="mf-wrap mf-final-grid">
+      <div>
+        <div class="mf-kicker">Join Us</div>
+        <h2 class="mf-h2">This summer is different. Are you in?</h2>
+        <p class="mf-lede">42 days. June 29th &ndash; August 9th. Your Macro Points. Your community. Expert guidance every single week.</p>
+        <p class="mf-fine-print">Already a MacroFit member? Same form. Just opt in and you are added to the Summer Lock In Challenge automatically.</p>
+        <p class="mf-fine-print" style="margin-top:14px;">
+          By submitting this form you agree to receive automated text messages from MacroFit.
+          Msg &amp; data rates may apply. Reply STOP to unsubscribe or HELP for help.
+          View our <a href="https://macrofitprogram.com/privacy-policy" style="color:rgba(255,255,255,0.8);text-decoration:underline;">Privacy Policy</a>
+          and <a href="https://macrofitprogram.com/terms" style="color:rgba(255,255,255,0.8);text-decoration:underline;">Terms of Service</a>.
         </p>
       </div>
-      <div class="form-card">
+
+      <div class="mf-form-box">
+        <h3 class="mf-h3" style="margin-bottom:6px;">Quick Opt-In Form</h3>
+        <p class="mf-body" style="font-size:0.9rem;margin-bottom:16px;">Fill out the form below to secure your spot in the Summer Lock In Challenge.</p>
+
+        <!-- GHL Form Embed — ID: O3YVMeHBVbmcNwboiJgj -->
         <iframe
           src="https://api.leadconnectorhq.com/widget/form/O3YVMeHBVbmcNwboiJgj"
+          style="width:100%;height:600px;border:none;border-radius:4px;"
           id="inline-O3YVMeHBVbmcNwboiJgj"
           data-layout='{"id":"INLINE"}'
           data-trigger-type="alwaysShow"
@@ -1089,29 +1193,56 @@
           data-activation-value=""
           data-deactivation-type="neverDeactivate"
           data-deactivation-value=""
-          data-form-name="MacroFit Summer Lock In Challenge 2026 Opt-In"
-          data-height="560"
+          data-form-name="Macrofit Summer Lock In Challenge 2026 Opt-In"
+          data-height="600"
           data-layout-iframe-id="inline-O3YVMeHBVbmcNwboiJgj"
           data-form-id="O3YVMeHBVbmcNwboiJgj"
-          title="MacroFit Summer Lock In Challenge 2026 Opt-In"
+          title="Macrofit Summer Lock In Challenge 2026 Opt-In"
         ></iframe>
+
+        <!-- A2P SMS Consent — unchecked by default, required -->
+        <div class="mf-sms-consent">
+          <input
+            type="checkbox"
+            id="sms_consent"
+            name="sms_consent"
+            required
+          />
+          <label for="sms_consent">
+            By checking this box, I agree to receive automated text messages from MacroFit at the number provided.
+            Msg &amp; data rates may apply. Reply STOP to unsubscribe or HELP for help.
+            See our <a href="https://macrofitprogram.com/privacy-policy" style="color:var(--mf-pink);">Privacy Policy</a>
+            and <a href="https://macrofitprogram.com/terms" style="color:var(--mf-pink);">Terms of Service</a>.
+          </label>
+        </div>
+
         <script src="https://link.msgsndr.com/js/form_embed.js"></script>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer-note">MacroFit Summer Lock In Challenge 2026 — No checkout on this page. Opt in to receive details and next steps.</p>
-    <p class="footer-legal">
-      By enrolling, you agree to our <a href="https://macrofitprogram.com/privacy-policy">Privacy Policy</a> and <a href="https://macrofitprogram.com/terms">Terms of Service</a>. &nbsp;•&nbsp; MacroFit &bull; Lake Charles, LA &nbsp;•&nbsp; <a href="mailto:info@macrofit.com">info@macrofit.com</a> &nbsp;•&nbsp; <a href="tel:3374855969">(337) 485-5969</a>
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="mf-footer">
+    <div class="mf-wrap">
+      MacroFit Summer Lock In Challenge 2026 &mdash; No checkout on this page. Opt in to receive details and next steps.
+    </div>
+    <p class="mf-footer-legal">
+      By enrolling, you agree to our
+      <a href="https://macrofitprogram.com/privacy-policy" target="_blank">Privacy Policy</a>
+      and
+      <a href="https://macrofitprogram.com/terms" target="_blank">Terms of Service</a>.
+      &nbsp;&bull;&nbsp;
+      MacroFit &bull; Lake Charles, LA &bull; <a href="mailto:info@macrofit.com">info@macrofit.com</a> &bull; <a href="tel:+13374855969">(337) 485-5969</a>
     </p>
   </footer>
 
-  <!-- STICKY MOBILE CTA -->
-  <div class="sticky-cta">
-    <a href="#opt-in">Get Updates &amp; Opt In →</a>
-  </div>
+</div>
 
-</body>
-</html>
+<!-- ═══════════════════════════════════════════════
+     STICKY MOBILE CTA (visible on mobile only)
+═══════════════════════════════════════════════ -->
+<div class="mf-sticky-cta" aria-hidden="true">
+  <a href="#opt-in">Get Updates &amp; Opt In &rarr;</a>
+</div>

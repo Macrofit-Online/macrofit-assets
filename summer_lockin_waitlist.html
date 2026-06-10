@@ -83,10 +83,15 @@
       z-index: 100;
       box-shadow: 0 2px 12px rgba(232,24,109,0.08);
     }
+    .mf-nav-logo {
+      flex-shrink: 0;
+    }
     .mf-nav-logo img {
       height: 38px;
       width: auto;
+      max-width: 180px;
       display: block;
+      object-fit: contain;
     }
     .mf-nav-cta {
       background: var(--mf-pink);
@@ -632,8 +637,18 @@
       .mf-includes { padding: 48px 16px; }
       .mf-form-section { padding: 48px 16px; }
       .mf-form-box { padding: 24px 16px; }
-      .mf-nav-logo img { height: 30px; }
+      .mf-nav-logo img { height: 28px; max-width: 140px; }
       .mf-nav-cta { font-size: 0.72rem; padding: 8px 14px; }
+      /* Topbar wraps gracefully on small screens */
+      .mf-topbar { font-size: 0.78rem; }
+      /* Hero CTA full width on mobile */
+      .mf-hero-cta { display: block; width: 100%; text-align: center; padding: 18px 24px; }
+      /* Scarcity badge wraps */
+      .mf-scarcity { display: block; text-align: center; }
+      /* Form box padding tighter */
+      .mf-proof-featured-body { padding: 20px 16px; }
+      /* Steps single column */
+      .mf-step { padding: 18px 14px; }
     }
   </style>
 </head>

@@ -5,14 +5,46 @@
 **Trigger:** User comments or DMs the word **LOCKIN** (set as a keyword trigger, case-insensitive)  
 **Goal:** Collect name, phone, and email → ask if they're a current MacroFit member → push contact to GHL with the correct tag → deliver appropriate confirmation message  
 
+> ⚠️ **Platform Difference — Important:**  
+> **Facebook Messenger** does not allow data collection in the first automated message. The first message must be a simple, non-collecting opener that gets the user to tap a button or reply before you can ask for any information. The flow below notes where each platform diverges.  
+> **Instagram** does not have this restriction — data collection can begin in Message 1.
+
 ---
 
 ## Flow Architecture Overview
 
+**Instagram Flow:**
 ```
 LOCKIN keyword trigger
         ↓
-  [Message 1] — Opener + name ask
+  [Message 1] — Opener + name ask  ← data collection starts here
+        ↓
+  [Message 2] — Phone ask
+        ↓
+  [Message 3] — Email ask
+        ↓
+  [Message 4] — Member or not? (Quick Reply buttons)
+        ↓
+    ┌───────────────────────────────┐
+    │                               │
+[YES — Member]               [NO — Not a Member]
+    │                               │
+[Message 5A]                  [Message 5B]
+Confirmation +                Intro + coupon
+hype message                  LOCKIN20
+    │                               │
+Push to GHL                   Push to GHL
+Tag: Summer Lock In           Tag: Summer Lock In
+- Member                      - Non-Member
+```
+
+**Facebook Flow (add Message 0 before data collection):**
+```
+LOCKIN keyword trigger
+        ↓
+  [Message 0] — Compliant opener, button tap required  ← Facebook only
+        ↓
+  [Message 1] — Name ask  ← data collection starts here
         ↓
   [Message 2] — Phone ask
         ↓
@@ -47,7 +79,16 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ---
 
-### MESSAGE 1 — Opener
+### MESSAGE 0 — Facebook Compliant Opener *(Facebook flow only — skip for Instagram)*
+
+> Hey!! I'm so excited you're interested in the Summer Lock In Challenge 🙌 Tap below and I'll send you all the details!
+
+**Button:** `Yes, send me the details! →`  
+**Note:** This message contains no data collection. It exists solely to get the user to tap a button, which opens the 24-hour messaging window required by Facebook's Messenger policy. Data collection begins in Message 1 after they tap.
+
+---
+
+### MESSAGE 1 — Name Ask *(Instagram: send immediately after trigger | Facebook: send after button tap in Message 0)*
 
 > Hey!! I'm SO excited you're interested in the Summer Lock In Challenge 🙌 This is going to be such a good one.
 >

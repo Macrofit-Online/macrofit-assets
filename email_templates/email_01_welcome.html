@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to MacroFit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f4f1;
+      font-family: 'DM Sans', Arial, sans-serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      background-color: #f5f4f1;
+      padding: 40px 16px;
+    }
+
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background-color: #1a1a1a;
+      padding: 28px 40px;
+      text-align: center;
+    }
+
+    .header img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header-wordmark {
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .header-wordmark span {
+      color: #c8a96e;
+    }
+
+    /* Hero band */
+    .hero-band {
+      background-color: #c8a96e;
+      padding: 6px 40px;
+    }
+
+    .hero-band p {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      text-align: center;
+    }
+
+    /* Body */
+    .body {
+      padding: 40px 40px 32px;
+    }
+
+    .greeting {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 26px;
+      color: #1a1a1a;
+      margin: 0 0 20px;
+      line-height: 1.3;
+    }
+
+    .body p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #3d3d3d;
+      margin: 0 0 16px;
+    }
+
+    .body p strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    /* Step list */
+    .steps {
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background-color: #c8a96e;
+      color: #1a1a1a;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin: 0 0 4px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #3d3d3d;
+      margin: 0;
+    }
+
+    /* Checklist */
+    .checklist {
+      background-color: #f9f8f5;
+      border-left: 3px solid #c8a96e;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .checklist p {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin: 0 0 12px;
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist ul li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #3d3d3d;
+      padding: 4px 0;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .checklist ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #c8a96e;
+      font-weight: 700;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      background-color: #1a1a1a;
+      padding: 24px 28px;
+      margin: 28px 0;
+      border-radius: 4px;
+    }
+
+    .pull-quote p {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #ffffff;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .pull-quote span {
+      color: #c8a96e;
+      font-style: normal;
+    }
+
+    /* Signature */
+    .signature {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid #ebebeb;
+    }
+
+    .signature p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #3d3d3d;
+    }
+
+    .signature .name {
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 15px;
+    }
+
+    .signature .title {
+      color: #c8a96e;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      padding: 24px 40px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0 0 6px;
+      font-size: 12px;
+      color: #888888;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: #c8a96e;
+      text-decoration: none;
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 600px) {
+      .body { padding: 28px 24px 24px; }
+      .header { padding: 22px 24px; }
+      .hero-band { padding: 6px 24px; }
+      .footer { padding: 20px 24px; }
+      .greeting { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="header">
+        <div class="header-wordmark">MACRO<span>FIT</span></div>
+      </div>
+
+      <!-- Hero band -->
+      <div class="hero-band">
+        <p>Welcome to Your Journey</p>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+
+        <h1 class="greeting">Welcome, {{contact.first_name}}. You made a great decision.</h1>
+
+        <p>Your MacroFit journey is officially reserved and we are <strong>so excited</strong> for you. Here's what to do right now to make sure Day 1 goes smoothly.</p>
+
+        <ul class="steps">
+          <li>
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <p class="step-title">Enter Your Baseline Data</p>
+              <p class="step-desc">Log into the MacroFit app and complete your baseline questionnaire. This is how we calculate your personal Macro Points budget. Don't skip this step — your plan can't be generated without it. Try to get this done a few days before your start date.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <p class="step-title">Watch for Your Emails</p>
+              <p class="step-desc">Over the next several days, you'll receive a series of emails walking you through exactly how MacroFit works before your start date. Read them — they'll make your first week so much easier.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <p class="step-title">Your Meal Plan Opens ~1 Week Before Your Start Date</p>
+              <p class="step-desc">You'll get a reminder when it's time to build your Week 1 meal plan, create your grocery list, and prep. Until then, just get your baseline data entered and get familiar with the app.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="checklist">
+          <p>What Makes MacroFit Different</p>
+          <ul>
+            <li>You pick the foods — flexible meal planning</li>
+            <li>No calorie counting — just Macro Points</li>
+            <li>Calorie cycling built in — your plan adjusts weekly</li>
+            <li>Restaurant options (OTG) for busy days</li>
+            <li>We do the planning. You just follow it.</li>
+          </ul>
+        </div>
+
+        <div class="pull-quote">
+          <p>"You're not paying for recipes. You're paying so <span>'What should I eat?'</span> isn't a question you have to answer anymore."</p>
+        </div>
+
+        <p>The app is available in the <strong>App Store</strong> and <strong>Google Play</strong> — and you can always access your account at <a href="https://www.macrofit.com" style="color:#c8a96e;">www.macrofit.com</a>.</p>
+
+        <p>Can't wait to see what you accomplish.</p>
+
+        <div class="signature">
+          <p class="name">Chelsea</p>
+          <p class="title">Founder, MacroFit</p>
+          <p><a href="mailto:info@macrofit.com" style="color:#c8a96e;">info@macrofit.com</a></p>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>© 2026 MacroFit LLC · Louisiana, United States</p>
+        <p><a href="{{unsubscribe_link}}">Unsubscribe</a> · <a href="https://www.macrofit.com">macrofit.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

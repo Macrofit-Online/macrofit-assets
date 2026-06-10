@@ -1,0 +1,923 @@
+<!--
+  MacroFit Summer Lock In Bingo Card
+  Platform: GHL funnel page
+  URL: macrofitprogram.com/summer-lockin/bingo
+  Last updated: 2026-06-10
+  Notes:
+    - Fully interactive 5x5 bingo card
+    - Persistent state via localStorage key: macrofit-lockin-bingo-2026
+    - Bingo detection: rows, columns, both diagonals
+    - Full card win banner
+    - Design matches the Summer Lock In funnel page
+    - Paste full block into GHL Custom HTML element
+-->
+
+<style>
+  :root {
+    --mf-black:      #181416;
+    --mf-charcoal:   #2a2427;
+    --mf-pink:       #d82f88;
+    --mf-pink-dark:  #b91f70;
+    --mf-blush:      #fff0f7;
+    --mf-blush-2:    #fde3f0;
+    --mf-cream:      #fffaf5;
+    --mf-white:      #ffffff;
+    --mf-text:       #342c30;
+    --mf-muted:      #6c6066;
+    --mf-border:     rgba(216,47,136,0.18);
+    --mf-shadow:     0 22px 60px rgba(24,20,22,0.12);
+    --mf-radius:     28px;
+    --mf-max:        860px;
+
+    /* Bingo-specific */
+    --b-checked-bg:  #fde3f0;
+    --b-checked-border: var(--mf-pink);
+    --b-bingo-bg:    #d1fae5;
+    --b-bingo-border:#10b981;
+    --b-bingo-text:  #065f46;
+    --b-center-bg:   linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    --b-win-bg:      #d1fae5;
+    --b-win-border:  #10b981;
+    --b-win-text:    #065f46;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body { margin: 0; background: var(--mf-cream); }
+
+  .mfb-page, .mfb-page * { box-sizing: border-box; }
+
+  .mfb-page {
+    margin: 0;
+    color: var(--mf-text);
+    background: var(--mf-cream);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+  }
+
+  .mfb-wrap {
+    width: min(var(--mf-max), calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .mfb-header {
+    background:
+      radial-gradient(circle at 10% 20%, rgba(216,47,136,0.22), transparent 34%),
+      linear-gradient(135deg, var(--mf-black) 0%, #30252b 100%);
+    color: var(--mf-white);
+    padding: 0;
+  }
+
+  .mfb-topbar {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mfb-topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mfb-logo img {
+    display: block;
+    width: 52px;
+    height: auto;
+  }
+
+  .mfb-header-body {
+    padding: 48px 0 52px;
+    text-align: center;
+  }
+
+  .mfb-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .mfb-kicker::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--mf-pink);
+    flex-shrink: 0;
+  }
+
+  .mfb-title {
+    margin: 0 0 10px;
+    color: var(--mf-white);
+    font-size: clamp(2.2rem, 8vw, 4.4rem);
+    line-height: 0.93;
+    letter-spacing: -0.055em;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .mfb-subtitle {
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(1rem, 2.8vw, 1.25rem);
+    font-weight: 700;
+    margin: 0 0 20px;
+  }
+
+  .mfb-prize-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    color: var(--mf-white);
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    box-shadow: 0 12px 28px rgba(216,47,136,0.35);
+    margin-bottom: 24px;
+  }
+
+  .mfb-instructions {
+    max-width: 560px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.68);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── BINGO SECTION ── */
+  .mfb-section {
+    padding: 52px 0 64px;
+  }
+
+  /* Column headers */
+  .mfb-col-headers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .mfb-col-header {
+    text-align: center;
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 950;
+    letter-spacing: -0.04em;
+    color: var(--mf-pink);
+    line-height: 1;
+    padding: 6px 0;
+  }
+
+  /* Grid */
+  .mfb-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  /* Square */
+  .mfb-square {
+    position: relative;
+    min-height: 0;
+    aspect-ratio: 1 / 1.15;
+    padding: 8px 7px 10px;
+    border-radius: 14px;
+    background: var(--mf-white);
+    border: 1.5px solid rgba(24,20,22,0.08);
+    box-shadow: 0 4px 14px rgba(24,20,22,0.06);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease, border-color 0.14s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+  }
+
+  .mfb-square:active {
+    transform: scale(0.96);
+  }
+
+  .mfb-square:hover {
+    box-shadow: 0 8px 22px rgba(216,47,136,0.14);
+    border-color: var(--mf-border);
+  }
+
+  /* Week badge */
+  .mfb-week {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--mf-blush-2);
+    color: var(--mf-pink-dark);
+    font-size: 0.6rem;
+    font-weight: 950;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .mfb-square-text {
+    color: var(--mf-text);
+    font-size: clamp(0.58rem, 1.4vw, 0.78rem);
+    font-weight: 750;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  /* Check mark overlay */
+  .mfb-check {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: rgba(253,227,240,0.88);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+  }
+
+  .mfb-check svg {
+    width: 36%;
+    height: 36%;
+    color: var(--mf-pink);
+    filter: drop-shadow(0 2px 6px rgba(216,47,136,0.3));
+  }
+
+  /* Checked state */
+  .mfb-square.is-checked {
+    background: var(--b-checked-bg);
+    border-color: var(--b-checked-border);
+    box-shadow: 0 6px 18px rgba(216,47,136,0.18);
+  }
+
+  .mfb-square.is-checked .mfb-check {
+    opacity: 1;
+  }
+
+  .mfb-square.is-checked .mfb-square-text {
+    color: var(--mf-pink-dark);
+  }
+
+  /* Bingo line state */
+  .mfb-square.is-bingo {
+    background: var(--b-bingo-bg);
+    border-color: var(--b-bingo-border);
+    box-shadow: 0 6px 18px rgba(16,185,129,0.18);
+  }
+
+  .mfb-square.is-bingo .mfb-check {
+    opacity: 1;
+    background: rgba(209,250,229,0.9);
+  }
+
+  .mfb-square.is-bingo .mfb-check svg {
+    color: #10b981;
+  }
+
+  .mfb-square.is-bingo .mfb-square-text {
+    color: var(--b-bingo-text);
+  }
+
+  /* Center square */
+  .mfb-square.is-center {
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    border-color: var(--mf-pink-dark);
+    box-shadow: 0 8px 24px rgba(216,47,136,0.32);
+  }
+
+  .mfb-square.is-center .mfb-week {
+    background: rgba(255,255,255,0.22);
+    color: var(--mf-white);
+  }
+
+  .mfb-square.is-center .mfb-square-text {
+    color: var(--mf-white);
+    font-weight: 900;
+  }
+
+  .mfb-square.is-center .mfb-check {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .mfb-square.is-center .mfb-check svg {
+    color: var(--mf-white);
+  }
+
+  /* ── PROGRESS ── */
+  .mfb-progress-wrap {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mfb-progress-text {
+    font-size: 0.95rem;
+    font-weight: 850;
+    color: var(--mf-muted);
+  }
+
+  .mfb-progress-text strong {
+    color: var(--mf-pink);
+    font-weight: 950;
+  }
+
+  .mfb-progress-bar-wrap {
+    flex: 1;
+    min-width: 120px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--mf-blush-2);
+    overflow: hidden;
+  }
+
+  .mfb-progress-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--mf-pink), var(--mf-pink-dark));
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .mfb-reset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(24,20,22,0.12);
+    background: var(--mf-white);
+    color: var(--mf-muted);
+    font-size: 0.84rem;
+    font-weight: 850;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    letter-spacing: 0.01em;
+  }
+
+  .mfb-reset-btn:hover {
+    background: var(--mf-blush);
+    color: var(--mf-pink-dark);
+    border-color: var(--mf-border);
+  }
+
+  /* ── WIN BANNER ── */
+  .mfb-win-banner {
+    display: none;
+    margin-top: 28px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    background: var(--b-win-bg);
+    border: 2px solid var(--b-win-border);
+    text-align: center;
+    animation: mfb-pop 0.4s cubic-bezier(0.23,1,0.32,1) both;
+  }
+
+  .mfb-win-banner.is-visible {
+    display: block;
+  }
+
+  @keyframes mfb-pop {
+    from { transform: scale(0.92); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+
+  .mfb-win-title {
+    margin: 0 0 10px;
+    color: var(--b-bingo-text);
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 950;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .mfb-win-body {
+    color: #065f46;
+    font-size: 1rem;
+    font-weight: 750;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── BINGO TOAST ── */
+  .mfb-bingo-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    z-index: 9999;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: var(--mf-white);
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    box-shadow: 0 12px 32px rgba(16,185,129,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .mfb-bingo-toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── FOOTER ── */
+  .mfb-footer {
+    padding: 32px 0;
+    background: var(--mf-black);
+    color: rgba(255,255,255,0.68);
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  .mfb-footer a {
+    color: var(--mf-pink);
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .mfb-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .mfb-footer-legal {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 600px) {
+    .mfb-header-body {
+      padding: 36px 0 40px;
+    }
+
+    .mfb-grid {
+      gap: 4px;
+    }
+
+    .mfb-col-headers {
+      gap: 4px;
+    }
+
+    .mfb-square {
+      padding: 6px 5px 8px;
+      border-radius: 10px;
+      gap: 3px;
+    }
+
+    .mfb-check {
+      border-radius: 9px;
+    }
+
+    .mfb-week {
+      font-size: 0.52rem;
+      padding: 2px 5px;
+    }
+
+    .mfb-square-text {
+      font-size: clamp(0.52rem, 2.4vw, 0.68rem);
+    }
+
+    .mfb-progress-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .mfb-progress-bar-wrap {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .mfb-square-text {
+      font-size: 0.5rem;
+    }
+
+    .mfb-week {
+      font-size: 0.48rem;
+    }
+  }
+</style>
+
+<div class="mfb-page" id="mfb-top">
+
+  <!-- ═══════════════════════════════════
+       HEADER
+  ═══════════════════════════════════ -->
+  <header class="mfb-header">
+    <div class="mfb-topbar">
+      <div class="mfb-wrap mfb-topbar-inner">
+        <a class="mfb-logo" href="https://macrofitprogram.com/summer-lockin" aria-label="MacroFit home">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit logo">
+        </a>
+      </div>
+    </div>
+
+    <div class="mfb-wrap mfb-header-body">
+      <div class="mfb-kicker">MacroFit Summer Lock In Challenge 2026</div>
+      <h1 class="mfb-title">Summer Lock In<br>Bingo Card</h1>
+      <p class="mfb-subtitle">42 days &nbsp;·&nbsp; June 29 – August 10, 2026</p>
+      <div class="mfb-prize-pill">🏆 Complete the full card = free month of MacroFit</div>
+      <p class="mfb-instructions">Tap each square as you complete it. Screenshot your completed card and post it in the FB group to claim your prize.</p>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════
+       BINGO CARD
+  ═══════════════════════════════════ -->
+  <section class="mfb-section">
+    <div class="mfb-wrap">
+
+      <!-- Column headers: L O C K N -->
+      <div class="mfb-col-headers" aria-hidden="true">
+        <div class="mfb-col-header">L</div>
+        <div class="mfb-col-header">O</div>
+        <div class="mfb-col-header">C</div>
+        <div class="mfb-col-header">K</div>
+        <div class="mfb-col-header">N</div>
+      </div>
+
+      <!-- 5x5 Grid — 25 squares in order -->
+      <div class="mfb-grid" id="mfb-grid" role="grid" aria-label="Summer Lock In Bingo Card">
+
+        <!-- Row 1 -->
+        <div class="mfb-square" data-index="0" role="gridcell" aria-label="Hit your water goal every day for week 1" tabindex="0">
+          <span class="mfb-week">Wk 1</span>
+          <span class="mfb-square-text">Hit your water goal every day for week 1</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="1" role="gridcell" aria-label="Post your why in the FB group" tabindex="0">
+          <span class="mfb-week">Wk 1</span>
+          <span class="mfb-square-text">Post your why in the FB group</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="2" role="gridcell" aria-label="Complete a workout in week 1" tabindex="0">
+          <span class="mfb-week">Wk 1</span>
+          <span class="mfb-square-text">Complete a workout in week 1</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="3" role="gridcell" aria-label="Take your before photo" tabindex="0">
+          <span class="mfb-week">Wk 1</span>
+          <span class="mfb-square-text">Take your before photo</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="4" role="gridcell" aria-label="Attend a Lock In Chat live" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Attend a Lock In Chat live</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="mfb-square" data-index="5" role="gridcell" aria-label="Do 100 squats in a day" tabindex="0">
+          <span class="mfb-week">Wk 2</span>
+          <span class="mfb-square-text">Do 100 squats in a day</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="6" role="gridcell" aria-label="Share your meal prep in the FB group" tabindex="0">
+          <span class="mfb-week">Wk 2</span>
+          <span class="mfb-square-text">Share your meal prep in the FB group</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="7" role="gridcell" aria-label="Hit 8K steps in a day (or 2K more than usual)" tabindex="0">
+          <span class="mfb-week">Wk 3</span>
+          <span class="mfb-square-text">Hit 8K steps in a day (or 2K more than usual)</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="8" role="gridcell" aria-label="Check in daily in the FB group for a full week" tabindex="0">
+          <span class="mfb-week">Wk 3</span>
+          <span class="mfb-square-text">Check in daily in the FB group for a full week</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="9" role="gridcell" aria-label="Share a non-scale win" tabindex="0">
+          <span class="mfb-week">Wk 4</span>
+          <span class="mfb-square-text">Share a non-scale win</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="mfb-square" data-index="10" role="gridcell" aria-label="Eat 2 cups of veggies every day for a week" tabindex="0">
+          <span class="mfb-week">Wk 4</span>
+          <span class="mfb-square-text">Eat 2 cups of veggies every day for a week</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="11" role="gridcell" aria-label="Complete 3 strength workouts in one week" tabindex="0">
+          <span class="mfb-week">Wk 5</span>
+          <span class="mfb-square-text">Complete 3 strength workouts in one week</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <!-- CENTER SQUARE (index 12) -->
+        <div class="mfb-square is-center" data-index="12" role="gridcell" aria-label="Center: Refer a friend to MacroFit" tabindex="0">
+          <span class="mfb-week">★ CENTER</span>
+          <span class="mfb-square-text">Refer a friend to MacroFit</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="13" role="gridcell" aria-label="Submit your weekly check-in" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Submit your weekly check-in</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="14" role="gridcell" aria-label="Share your energy check in week 5" tabindex="0">
+          <span class="mfb-week">Wk 5</span>
+          <span class="mfb-square-text">Share your energy check in week 5</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="mfb-square" data-index="15" role="gridcell" aria-label="Go a full week on adherence" tabindex="0">
+          <span class="mfb-week">Wk 6</span>
+          <span class="mfb-square-text">Go a full week on adherence</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="16" role="gridcell" aria-label="Share what's different about you vs Day 1" tabindex="0">
+          <span class="mfb-week">Wk 6</span>
+          <span class="mfb-square-text">Share what's different about you vs Day 1</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="17" role="gridcell" aria-label="Watch an archived Lock In Chat" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Watch an archived Lock In Chat</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="18" role="gridcell" aria-label="Tag MacroFit in a public post" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Tag MacroFit in a public post</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="19" role="gridcell" aria-label="Cook a macro-friendly meal at home" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Cook a macro-friendly meal at home</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="mfb-square" data-index="20" role="gridcell" aria-label="Complete a workout 3 weeks in a row" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Complete a workout 3 weeks in a row</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="21" role="gridcell" aria-label="Hit your water goal 5 days in a row" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Hit your water goal 5 days in a row</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="22" role="gridcell" aria-label="Share a win in the FB group" tabindex="0">
+          <span class="mfb-week">Any</span>
+          <span class="mfb-square-text">Share a win in the FB group</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="23" role="gridcell" aria-label="Make it to Day 42" tabindex="0">
+          <span class="mfb-week">Day 42</span>
+          <span class="mfb-square-text">Make it to Day 42</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+        <div class="mfb-square" data-index="24" role="gridcell" aria-label="Do something active you wouldn't have done on Day 1" tabindex="0">
+          <span class="mfb-week">Day 42</span>
+          <span class="mfb-square-text">Do something active you wouldn't have done on Day 1</span>
+          <div class="mfb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        </div>
+
+      </div><!-- /mfb-grid -->
+
+      <!-- Progress + Reset -->
+      <div class="mfb-progress-wrap">
+        <span class="mfb-progress-text"><strong id="mfb-count">0</strong> of 25 squares completed</span>
+        <div class="mfb-progress-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="25" id="mfb-progress-bar-wrap">
+          <div class="mfb-progress-bar" id="mfb-progress-bar"></div>
+        </div>
+        <button class="mfb-reset-btn" id="mfb-reset" aria-label="Reset bingo card">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+          Reset card
+        </button>
+      </div>
+
+      <!-- Win banner -->
+      <div class="mfb-win-banner" id="mfb-win-banner" role="alert">
+        <div class="mfb-win-title">🎉 You completed the full card!</div>
+        <p class="mfb-win-body">Screenshot this page and post it in the FB group to claim your free month of MacroFit. You showed up for yourself. 🔥</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="mfb-footer">
+    <div class="mfb-wrap">
+      <p style="margin:0 0 8px;">
+        <a href="https://macrofitprogram.com/summer-lockin">← Back to Summer Lock In Challenge</a>
+      </p>
+      <p style="margin:0;">MacroFit Summer Lock In Challenge 2026</p>
+      <p class="mfb-footer-legal">
+        &copy; 2026 MacroFit &bull; Lake Charles, LA &bull;
+        <a href="https://macrofitprogram.com/privacy-policy" style="color:#888;">Privacy Policy</a> &bull;
+        <a href="https://macrofitprogram.com/terms" style="color:#888;">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+</div><!-- /mfb-page -->
+
+<!-- Bingo toast notification -->
+<div class="mfb-bingo-toast" id="mfb-bingo-toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'macrofit-lockin-bingo-2026';
+  var TOTAL = 25;
+
+  // All winning lines: 5 rows + 5 cols + 2 diagonals
+  var LINES = [
+    [0,1,2,3,4],   // row 1
+    [5,6,7,8,9],   // row 2
+    [10,11,12,13,14], // row 3
+    [15,16,17,18,19], // row 4
+    [20,21,22,23,24], // row 5
+    [0,5,10,15,20],   // col L
+    [1,6,11,16,21],   // col O
+    [2,7,12,17,22],   // col C
+    [3,8,13,18,23],   // col K
+    [4,9,14,19,24],   // col N
+    [0,6,12,18,24],   // diagonal TL→BR
+    [4,8,12,16,20]    // diagonal TR→BL
+  ];
+
+  // State: array of 25 booleans
+  var state = loadState();
+
+  var squares = document.querySelectorAll('.mfb-square');
+  var countEl = document.getElementById('mfb-count');
+  var barEl = document.getElementById('mfb-progress-bar');
+  var barWrapEl = document.getElementById('mfb-progress-bar-wrap');
+  var winBanner = document.getElementById('mfb-win-banner');
+  var resetBtn = document.getElementById('mfb-reset');
+  var toast = document.getElementById('mfb-bingo-toast');
+  var toastTimer = null;
+
+  // Init
+  render();
+
+  // Attach click + keyboard listeners to each square
+  squares.forEach(function (sq) {
+    sq.addEventListener('click', function () { toggle(parseInt(sq.dataset.index)); });
+    sq.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle(parseInt(sq.dataset.index));
+      }
+    });
+  });
+
+  resetBtn.addEventListener('click', function () {
+    if (confirm('Reset your bingo card? This cannot be undone.')) {
+      state = new Array(TOTAL).fill(false);
+      saveState();
+      render();
+    }
+  });
+
+  function toggle(idx) {
+    state[idx] = !state[idx];
+    saveState();
+    render();
+  }
+
+  function render() {
+    var completedLines = getCompletedLines();
+    var bingoIndices = getBingoIndices(completedLines);
+    var count = state.filter(Boolean).length;
+
+    squares.forEach(function (sq) {
+      var idx = parseInt(sq.dataset.index);
+      var checked = state[idx];
+      var bingo = bingoIndices.has(idx);
+      var isCenter = idx === 12;
+
+      // Reset classes (preserve is-center)
+      sq.classList.remove('is-checked', 'is-bingo');
+
+      if (bingo) {
+        sq.classList.add('is-bingo');
+        sq.setAttribute('aria-checked', 'true');
+      } else if (checked) {
+        sq.classList.add('is-checked');
+        sq.setAttribute('aria-checked', 'true');
+      } else {
+        sq.setAttribute('aria-checked', 'false');
+      }
+    });
+
+    // Progress
+    countEl.textContent = count;
+    var pct = (count / TOTAL) * 100;
+    barEl.style.width = pct + '%';
+    barWrapEl.setAttribute('aria-valuenow', count);
+
+    // Win banner
+    if (count === TOTAL) {
+      winBanner.classList.add('is-visible');
+    } else {
+      winBanner.classList.remove('is-visible');
+    }
+
+    // Show bingo toast for newly completed lines
+    if (completedLines.length > 0) {
+      var msg = completedLines.length === 1 ? 'BINGO! 🎉 Line complete!' : 'BINGO! ' + completedLines.length + ' lines complete! 🎉';
+      showToast(msg);
+    }
+  }
+
+  function getCompletedLines() {
+    return LINES.filter(function (line) {
+      return line.every(function (idx) { return state[idx]; });
+    });
+  }
+
+  function getBingoIndices(completedLines) {
+    var set = new Set();
+    completedLines.forEach(function (line) {
+      line.forEach(function (idx) { set.add(idx); });
+    });
+    return set;
+  }
+
+  function showToast(msg) {
+    clearTimeout(toastTimer);
+    toast.textContent = msg;
+    toast.classList.add('is-visible');
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('is-visible');
+    }, 3000);
+  }
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length === TOTAL) {
+          return parsed.map(Boolean);
+        }
+      }
+    } catch (e) {}
+    return new Array(TOTAL).fill(false);
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {}
+  }
+})();
+</script>

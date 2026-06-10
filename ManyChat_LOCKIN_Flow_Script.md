@@ -49,9 +49,11 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ### MESSAGE 1 — Opener
 
-> Hey! 👋 You're on the list for the **MacroFit Summer Lock In Challenge** — I just need a few quick things from you so I can make sure you get all the details the moment enrollment opens.
+> Hey!! I'm SO excited you're interested in the Summer Lock In Challenge 🙌 This is going to be such a good one.
 >
-> First — what's your **first name**?
+> I just need a couple quick things from you so I can make sure you get all the details first — before I announce it anywhere else.
+>
+> What's your **first name**?
 
 **Input type:** Free text (save to custom field: `first_name`)
 
@@ -59,9 +61,9 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ### MESSAGE 2 — Phone
 
-> Nice to meet you, {{first_name}}! 🙌
+> Love it, {{first_name}}! 🙌
 >
-> What's the best **phone number** to reach you at? (We'll text you the moment the challenge drops — before it's announced anywhere else.)
+> What's the best **phone number** to reach you at? I'll personally text you the moment enrollment opens — you'll get access before anyone else.
 
 **Input type:** Phone number (save to custom field: `phone`)  
 **Validation:** Enable phone number validation in ManyChat
@@ -70,7 +72,7 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ### MESSAGE 3 — Email
 
-> Perfect. And what's your **email address**?
+> Perfect! And what's your **email**? I'll send you all the details there too so you have everything in one place.
 
 **Input type:** Email (save to custom field: `email`)  
 **Validation:** Enable email validation in ManyChat
@@ -79,11 +81,11 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ### MESSAGE 4 — Member Check
 
-> Last one — are you currently a **MacroFit member**?
+> Last thing — are you currently a MacroFit member? I want to make sure I send you the right info! 😊
 
 **Quick Reply Buttons:**
 - ✅ Yes, I'm a member
-- 🆕 No, not yet
+- 🆕 Not yet!
 
 *(Do not use free text here — force a button selection so the branch is clean)*
 
@@ -95,15 +97,15 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 #### MESSAGE 5A — Member Confirmation
 
-> You're in, {{first_name}}! 🎉
+> Yay, {{first_name}}!! I'm so glad you're in 🎉
 >
-> The **Summer Lock In Challenge** kicks off **June 29th** — 42 days of structure, weekly challenges, live check-ins with Chelsea, community accountability, and a chance to win a **$50 gift card** just for showing up consistently.
+> The Summer Lock In Challenge starts **June 29th** — 42 days of weekly challenges, live check-ins with me, community accountability, and a chance to win a **$50 gift card** just for showing up. It's going to be so good.
 >
-> Since you're already a MacroFit member, everything runs right inside the app you already use. No extra setup needed.
+> Since you're already a member, everything runs right inside the app — nothing new to set up. You're already doing the work, this just adds the structure and the fun. 🙌
 >
-> We'll text and email you **before** enrollment opens to anyone else. Keep an eye on your messages — spots are limited. 🔒
+> I'll text you personally before enrollment opens to anyone else. Keep an eye on your messages — spots are limited and I want to make sure you get one. 🔒
 >
-> See you on June 29th! 💪
+> Cannot wait to do this with you!! 💪
 
 **Action after message:**
 - Add tag in ManyChat: `Summer Lock In - Member`
@@ -117,19 +119,19 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 #### MESSAGE 5B — Non-Member Intro + Coupon
 
-> No worries at all — this is actually the perfect time to start. 🙌
+> Okay {{first_name}}, honestly — this could not be better timing. 🙌
 >
-> Here's how MacroFit works: you get a **personalized meal plan built around real food** — spaghetti, cheeseburger bowls, tacos, all of it. A grocery list is automatically generated. You spend about **1.5 hours prepping on Sunday** and you're set for the entire week. No calorie counting. No guesswork.
+> MacroFit is a month-to-month membership (no contracts, cancel anytime) where you get a personalized meal plan every week built around **real food** — like spaghetti, cheeseburger bowls, tacos. Your grocery list is automatically generated. You prep for about 1.5 hours on Sunday and you're set for the whole week. No calorie counting, no guesswork, no sad diet food.
 >
-> MacroFit is **month-to-month** — no contracts, cancel anytime. And the Summer Lock In Challenge is a bonus layer of accountability and community that runs inside the app starting June 29th.
+> The Summer Lock In Challenge is a 42-day bonus layer of accountability, weekly challenges, and live check-ins with me that runs inside the app starting June 29th. I designed it specifically to help people build real momentum in their first 6 weeks.
 >
-> To join the challenge, you'll need to be a MacroFit member first. But here's the thing — **we want you in**, so we're giving you a special code:
+> To join, you just need to be a MacroFit member first — and I want to make it easy for you:
 >
-> 🎟️ **Use code LOCKIN20 for $20 off your first month** (just $79 to start)
+> 🎟️ **Use code LOCKIN20 for $20 off your first month** — just $79 to start
 >
-> 👉 Sign up at **macrofitprogram.com** and use code **LOCKIN20** at checkout.
+> 👉 **macrofitprogram.com** → use code **LOCKIN20** at checkout
 >
-> Once you're a member, you're automatically eligible for the challenge. We'll text you with all the details before June 29th. 🔒
+> Once you're in, I'll text you everything you need before June 29th. I really hope you join us — this group is going to be so good 🔒
 
 **Action after message:**
 - Add tag in ManyChat: `Summer Lock In - Non-Member`
@@ -139,9 +141,9 @@ Tag: Summer Lock In           Tag: Summer Lock In
 
 ### MESSAGE 6 — Universal Follow-Up (Both Branches, send 24 hours later)
 
-> Hey {{first_name}} — just a quick reminder that the **MacroFit Summer Lock In Challenge** opens **June 29th** and spots are limited. 🔒
+> Hey {{first_name}}! Just wanted to check in — do you have any questions about the Summer Lock In Challenge before June 29th? I'm literally right here if you want to chat about it. 😊
 >
-> If you have any questions before then, just reply here and I'll get back to you. Can't wait to see what you accomplish in 42 days. 💪
+> Spots are limited so I want to make sure you're locked in. Reply anytime!
 
 **Timing:** Send 24 hours after Message 5A or 5B  
 **Condition:** Only send if user has not already clicked a link or replied

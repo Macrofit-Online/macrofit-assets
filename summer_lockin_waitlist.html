@@ -107,6 +107,21 @@
     }
     .mf-nav-cta:hover { background: #c4155e; }
     .mf-nav-cta:active { transform: scale(0.97); }
+    .mf-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mf-nav-learn {
+      font-family: var(--mf-font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--mf-muted);
+      letter-spacing: 0.02em;
+      transition: color 160ms var(--ease-out);
+      white-space: nowrap;
+    }
+    .mf-nav-learn:hover { color: var(--mf-pink); }
 
     /* ---- HERO ---- */
     .mf-hero {
@@ -661,8 +676,13 @@
 
   <!-- NAV -->
   <nav class="mf-nav">
-    <div class="mf-nav-logo"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/MGwHVozdoxJqHKEK.jpg" alt="MacroFit Program" /></div>
-    <a class="mf-nav-cta" href="#waitlist">Get on the Waitlist →</a>
+    <a href="https://macrofitprogram.com" target="_blank" rel="noopener" class="mf-nav-logo">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/MGwHVozdoxJqHKEK.jpg" alt="MacroFit Program" />
+    </a>
+    <div class="mf-nav-links">
+      <a class="mf-nav-learn" href="https://macrofitprogram.com" target="_blank" rel="noopener">Learn More</a>
+      <a class="mf-nav-cta" href="#waitlist">Get on the Waitlist →</a>
+    </div>
   </nav>
 
   <!-- HERO -->

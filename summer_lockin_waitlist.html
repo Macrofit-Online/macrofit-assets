@@ -608,23 +608,27 @@
     .mf-sticky-cta {
       display: none;
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--mf-pink);
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 200;
-      padding: 0;
+      width: calc(100% - 32px);
+      max-width: 400px;
     }
     .mf-sticky-cta a {
       display: block;
       color: var(--mf-white);
       font-family: var(--mf-font-body);
       font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       text-align: center;
-      padding: 18px 24px;
+      padding: 14px 20px;
+      background: var(--mf-dark);
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      border: 2px solid var(--mf-pink);
     }
 
     /* ============ RESPONSIVE ============ */
@@ -636,7 +640,7 @@
 
     @media (max-width: 700px) {
       .mf-proof-featured { grid-template-columns: 1fr; }
-      .mf-proof-featured img { min-height: 240px; max-height: 320px; }
+      .mf-proof-featured img { min-height: 280px; max-height: 400px; object-position: top center; }
     }
 
     @media (max-width: 600px) {

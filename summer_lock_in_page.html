@@ -195,6 +195,123 @@
     background: rgba(255, 255, 255, 0.12);
   }
 
+  /* ── STICKY NAV ── */
+  .mf-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--mf-black);
+    border-bottom: 2px solid var(--mf-pink);
+    box-shadow: 0 2px 16px rgba(24,20,22,0.22);
+  }
+
+  .mf-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 58px;
+    width: min(var(--mf-max), calc(100% - 36px));
+    margin: 0 auto;
+  }
+
+  .mf-nav-logo img {
+    display: block;
+    width: 52px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .mf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mf-nav-link {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .mf-nav-link:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .mf-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 6px 18px rgba(216,47,136,0.32);
+  }
+
+  .mf-nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(216,47,136,0.42);
+  }
+
+  @media (max-width: 720px) {
+    .mf-nav-links { display: none; }
+    .mf-nav-inner { justify-content: space-between; }
+  }
+
+  /* ── NOT A MEMBER CALLOUT ── */
+  .mf-nonmember-callout {
+    background: linear-gradient(135deg, #fff7fb, #fde3f0);
+    border: 1.5px solid var(--mf-border);
+    border-radius: var(--mf-radius);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .mf-nonmember-callout-text h3 {
+    margin: 0 0 8px;
+    color: var(--mf-black);
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .mf-nonmember-callout-text p {
+    margin: 0;
+    color: var(--mf-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .mf-nonmember-callout {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 20px;
+    }
+  }
+
   /* ── HERO ── */
   .mf-hero {
     min-height: 760px;
@@ -907,17 +1024,28 @@
 <div class="mf-page" id="summer-lock-in">
 
   <!-- ═══════════════════════════════════════════════
+       STICKY NAV
+  ═══════════════════════════════════════════════ -->
+  <nav class="mf-nav" id="top" aria-label="Site navigation">
+    <div class="mf-nav-inner">
+      <a class="mf-nav-logo" href="#top" aria-label="MacroFit home">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit logo">
+      </a>
+      <div class="mf-nav-links">
+        <a class="mf-nav-link" href="#included">What's Included</a>
+        <a class="mf-nav-link" href="#weekly-chats">How It Works</a>
+        <a class="mf-nav-link" href="#results">Results</a>
+        <a class="mf-nav-link" href="/summer-lockin/bingo">Bingo Card</a>
+        <a class="mf-nav-link" href="https://macrofitprogram.com" target="_blank" rel="noopener">More Results ↗</a>
+      </div>
+      <a class="mf-nav-cta" href="#opt-in">Join the Challenge →</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════════ -->
-  <header class="mf-hero mf-section" id="top">
-    <div class="mf-topbar">
-      <div class="mf-wrap mf-topbar-inner">
-        <a class="mf-logo" href="#top" aria-label="MacroFit home">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit M logo mark">
-        </a>
-        <div class="mf-topbar-note">Summer Lock In Challenge starts June 29th. Open to new and existing members.</div>
-      </div>
-    </div>
+  <header class="mf-hero mf-section">
 
     <div class="mf-wrap mf-hero-grid">
       <div class="mf-hero-copy">
@@ -1242,6 +1370,21 @@
         </div>
 
         <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       NOT A MEMBER YET?
+  ═══════════════════════════════════════════════ -->
+  <section class="mf-section mf-section-tight" id="join-macrofit" style="background:var(--mf-cream);">
+    <div class="mf-wrap">
+      <div class="mf-nonmember-callout">
+        <div class="mf-nonmember-callout-text">
+          <h3>👋 Not a MacroFit member yet?</h3>
+          <p>The Summer Lock In Challenge is open to all MacroFit members. If you haven’t joined yet, now is the perfect time — sign up for MacroFit and you’ll be all set to join the challenge on June 29th.</p>
+        </div>
+        <a class="mf-btn mf-btn-primary" href="https://www.macrofit.com/signup" target="_blank" rel="noopener" style="flex-shrink:0;">Join MacroFit →</a>
       </div>
     </div>
   </section>

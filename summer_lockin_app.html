@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>MacroFit Summer Lock In</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lock In">
+<link rel="manifest" href="/lockin-manifest.json">
+<link rel="apple-touch-icon" href="/manus-storage/lockin-icon-192_1e19ad21.png">
+<meta name="theme-color" content="#DD0247">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  :root { --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F7F5; }
+  .app { font-family: var(--font-sans); max-width: 390px; margin: 0 auto; background: #F7F7F5; overflow: hidden; color: #111; padding-bottom: 5rem; min-height: 100vh; }
+  .top-bar { padding: 1rem 1.25rem 0; display: flex; align-items: center; justify-content: space-between; }
+  .logo-img { height: 24px; width: auto; display: block; }
+  .date-pill { font-size: 11px; color: #999; background: #EFEFED; border-radius: 20px; padding: 4px 12px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .hero { padding: 1.5rem 1.25rem 1.1rem; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+  .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: #E8307A; }
+  .hero-eyebrow-text { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #E8307A; text-transform: uppercase; }
+  .hero-headline { font-size: 52px; font-weight: 500; line-height: 1; color: #111; letter-spacing: -2px; }
+  .hero-slash { color: #CCC; font-weight: 400; }
+  .hero-sub { font-size: 13px; color: #999; margin-top: 6px; }
+
+  .streak-row { margin: 0 1.25rem 1.25rem; display: flex; gap: 8px; }
+  .streak-card { flex: 1; background: #fff; border-radius: 14px; padding: 14px; border: 0.5px solid #E8E8E5; }
+  .streak-num { font-size: 36px; font-weight: 500; color: #E8307A; line-height: 1; }
+  .streak-label { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 2px; }
+  .streak-dots { display: flex; gap: 4px; margin-top: 10px; flex-wrap: wrap; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #E8E8E5; }
+  .dot.done { background: #E8307A; }
+  .dot.today { background: #fff; box-shadow: 0 0 0 2px #E8307A; }
+  .days-card { background: linear-gradient(135deg, #DD0247, #9F1686); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 80px; }
+  .days-left { font-size: 36px; font-weight: 500; color: #fff; line-height: 1; }
+  .days-label { font-size: 11px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 2px; text-align: center; }
+
+  .milestone-banner { margin: 0 1.25rem 1.25rem; background: linear-gradient(90deg, #FFF4E0, #FFEAD1); border: 0.5px solid #F5D9A8; border-radius: 12px; padding: 10px 14px; font-size: 12.5px; color: #8A5A1E; font-weight: 500; display: none; align-items: center; gap: 8px; }
+  .milestone-banner.show { display: flex; }
+  .milestone-banner i { font-size: 16px; flex-shrink: 0; }
+
+  .mantra-card { margin: 0 1.25rem 1.25rem; background: linear-gradient(135deg, #DD0247, #9F1686); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; }
+  .mantra-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); text-transform: uppercase; margin-bottom: 8px; }
+  .mantra-text { font-size: 19px; font-weight: 500; color: #fff; line-height: 1.35; letter-spacing: -0.3px; }
+
+  .section { padding: 0 1.25rem; margin-bottom: 1.25rem; }
+  .section-eyebrow { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+  .section-dot { width: 6px; height: 6px; border-radius: 50%; background: #E8307A; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #E8307A; text-transform: uppercase; }
+
+  .challenge-card { background: #fff; border-radius: 16px; overflow: hidden; border: 0.5px solid #E8E8E5; }
+  .challenge-week-bar { background: linear-gradient(90deg, #DD0247, #9F1686); padding: 10px 16px; font-size: 12px; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 0.1em; }
+  .challenge-body { padding: 16px; }
+  .challenge-title { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 14px; }
+  .challenge-row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .ctag { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #DD0247; background: #FEF0F5; border: 0.5px solid rgba(221,2,71,0.2); border-radius: 6px; padding: 3px 8px; white-space: nowrap; align-self: flex-start; margin-top: 1px; }
+  .ctext { font-size: 13px; color: #555; line-height: 1.5; flex: 1; }
+  .daily-checks { margin-top: 12px; border-top: 0.5px solid #F0F0EE; padding-top: 12px; }
+  .daily-checks-label { font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .day-boxes { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .day-box { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+  .day-box-label { font-size: 9px; color: #bbb; text-transform: uppercase; }
+  .day-box-check { width: 32px; height: 32px; border-radius: 8px; border: 0.5px solid #E8E8E5; background: #F7F7F5; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .day-box-check.checked { background: linear-gradient(135deg, #DD0247, #9F1686); border-color: #DD0247; }
+  .day-box-check.checked i { color: #fff; }
+  .day-box-check i { font-size: 14px; color: #DDD; }
+  .day-box-check.today-box { border-color: #DD0247; }
+  .day-box-check.today-box i { color: #DD0247; }
+  .share-row { margin-top: 10px; }
+  .checkin-btn { width: 100%; margin-top: 16px; background: linear-gradient(90deg, #DD0247, #9F1686); color: #fff; border: none; border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-sans); letter-spacing: 0.02em; }
+  .checkin-btn:active { opacity: 0.85; }
+  .checkin-btn.done { background: #F7F7F5; color: #DD0247; border: 0.5px solid rgba(221,2,71,0.3); }
+
+  .chat-card { background: #fff; border-radius: 14px; border: 0.5px solid #E8E8E5; overflow: hidden; }
+  .chat-card-top { padding: 13px 16px; display: flex; align-items: center; gap: 8px; }
+  .chat-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #DD0247; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .chat-card-label { font-size: 11px; font-weight: 500; color: #DD0247; text-transform: uppercase; letter-spacing: 0.08em; }
+  .chat-card-body { padding: 0 16px 16px; }
+  .chat-card-title { font-size: 14px; font-weight: 500; color: #111; line-height: 1.4; margin-bottom: 4px; }
+  .chat-card-sub { font-size: 12.5px; color: #888; line-height: 1.4; margin-bottom: 12px; }
+  .chat-card-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 500; color: #DD0247; background: #FEF0F5; border: 0.5px solid rgba(221,2,71,0.2); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+
+  .pulse-card { background: #fff; border-radius: 14px; border: 0.5px solid #E8E8E5; padding: 16px; }
+  .pulse-title { font-size: 14px; font-weight: 500; color: #111; margin-bottom: 4px; }
+  .pulse-sub { font-size: 12.5px; color: #888; line-height: 1.4; margin-bottom: 12px; }
+  .pulse-btn { width: 100%; font-size: 13px; font-weight: 500; color: #fff; background: #111; border: none; border-radius: 10px; padding: 11px; cursor: pointer; font-family: var(--font-sans); }
+
+  .progress-page { padding: 1.5rem 1.25rem; }
+  .progress-headline { font-size: 28px; font-weight: 500; color: #111; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .progress-sub { font-size: 13px; color: #999; margin-bottom: 1.25rem; }
+  .progress-week { border-radius: 14px; overflow: hidden; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .progress-week-bar { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+  .progress-week-label { font-size: 13px; font-weight: 600; color: #fff; }
+  .progress-week-frac { font-size: 11px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .progress-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding: 10px 14px 12px; background: #fff; }
+  .p-day { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .p-day-label { font-size: 9px; color: #bbb; text-transform: uppercase; }
+  .p-day-dot { width: 28px; height: 28px; border-radius: 7px; background: #F7F7F5; border: 0.5px solid #E8E8E5; display: flex; align-items: center; justify-content: center; }
+  .p-day-dot.done { border: none; }
+  .p-day-dot.done i { color: #fff; }
+  .p-day-dot i { font-size: 12px; color: #E8E8E5; }
+  .p-day-dot.future { opacity: 0.25; }
+
+  .questions-page { padding: 1.5rem 1.25rem; }
+  .q-headline { font-size: 28px; font-weight: 500; color: #111; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .q-sub { font-size: 13px; color: #999; margin-bottom: 1.5rem; line-height: 1.5; }
+  .q-week-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #DD0247; text-transform: uppercase; margin-bottom: 8px; }
+  .q-chat-topic { background: #fff; border-radius: 12px; border: 0.5px solid #E8E8E5; padding: 12px 14px; margin-bottom: 1rem; }
+  .q-chat-topic-label { font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .q-chat-topic-title { font-size: 14px; font-weight: 500; color: #111; }
+  .q-textarea { width: 100%; border: 0.5px solid #E8E8E5; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-family: var(--font-sans); color: #111; background: #fff; resize: none; height: 110px; outline: none; }
+  .q-textarea:focus { border-color: rgba(221,2,71,0.4); }
+  .q-send-btn { width: 100%; margin-top: 10px; background: linear-gradient(90deg, #DD0247, #9F1686); color: #fff; border: none; border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-sans); }
+  .q-note { font-size: 11px; color: #bbb; text-align: center; margin-top: 8px; line-height: 1.5; }
+
+  .bingo-page { padding: 1.5rem 1.25rem; }
+  .bingo-headline { font-size: 28px; font-weight: 500; color: #111; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .bingo-sub { font-size: 13px; color: #999; margin-bottom: 1.25rem; }
+  .lockin-letters { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-bottom: 4px; }
+  .ll { text-align: center; font-size: 15px; font-weight: 500; color: #DD0247; padding: 3px 0; }
+  .bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+  .bsq { background: #fff; border-radius: 8px; padding: 6px 4px; min-height: 62px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; border: 0.5px solid #E8E8E5; position: relative; }
+  .bsq:active { opacity: 0.7; }
+  .bsq.marked { background: #FEF0F5; border-color: rgba(221,2,71,0.3); }
+  .bsq.center-sq { background: linear-gradient(135deg, #DD0247, #9F1686); border-color: #DD0247; }
+  .bsq-icon { font-size: 15px; margin-bottom: 3px; }
+  .bsq-text { font-size: 9px; color: #aaa; line-height: 1.3; }
+  .bsq.marked .bsq-text { color: #DD0247; }
+  .bsq.center-sq .bsq-text { color: rgba(255,255,255,0.9); font-weight: 500; }
+  .bsq-check { position: absolute; top: 3px; right: 4px; font-size: 9px; color: #DD0247; display: none; }
+  .bsq.marked .bsq-check { display: block; }
+  .bingo-note { font-size: 11px; color: #bbb; text-align: center; margin-top: 10px; line-height: 1.5; }
+  .bingo-banner { background: linear-gradient(90deg, #DD0247, #9F1686); color: #fff; text-align: center; font-size: 13px; font-weight: 500; padding: 10px 14px; border-radius: 10px; margin-top: 10px; display: none; }
+  .bingo-banner.show { display: block; }
+  .reset-link { text-align: center; margin-top: 8px; font-size: 11px; color: #CCC; cursor: pointer; }
+
+  .nav-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 390px; display: flex; justify-content: space-around; padding: 10px 1.25rem 14px; background: #fff; border-top: 0.5px solid #E8E8E5; z-index: 10; }
+  .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; flex: 1; }
+  .nav-item i { font-size: 20px; color: #CCC; }
+  .nav-item.active i { color: #DD0247; }
+  .nav-label { font-size: 10px; color: #CCC; }
+  .nav-item.active .nav-label { color: #DD0247; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="top-bar">
+    <svg class="logo-img" width="102" height="32" viewBox="0 0 102 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.07214 30.5773L8.05525 25.7519L5.67413 29.7477H5.06618L2.68505 25.8196V30.5773H1.40161V23.2969H2.51618L5.40393 28.1223L8.24102 23.2969H9.35559L9.37247 30.5773H8.07214Z" fill="#221E1F"/>
+      <path d="M22.2407 28.8845H18.6099L17.9006 30.5607H16.5159L19.7751 23.2803H21.1092L24.3854 30.5607H22.9669L22.2407 28.8845ZM21.7847 27.8348L20.4169 24.6517L19.0659 27.8348H21.7847Z" fill="#221E1F"/>
+      <path d="M32.7953 30.2052C32.2043 29.8835 31.7483 29.4433 31.4106 28.8676C31.0728 28.2919 30.9039 27.6655 30.9039 26.9374C30.9039 26.2263 31.0728 25.5829 31.4106 25.0073C31.7483 24.4316 32.2211 23.9914 32.8122 23.6697C33.4033 23.348 34.0619 23.1787 34.8049 23.1787C35.396 23.1787 35.9364 23.2803 36.4261 23.4835C36.9159 23.6866 37.338 23.9914 37.6758 24.3808L36.7976 25.2105C36.2741 24.6348 35.6324 24.3639 34.8556 24.3639C34.3659 24.3639 33.9099 24.4655 33.5215 24.6856C33.1331 24.9057 32.8122 25.2105 32.5927 25.5999C32.3731 25.9893 32.2549 26.4295 32.2549 26.9205C32.2549 27.4115 32.3731 27.8517 32.5927 28.2411C32.8122 28.6306 33.1162 28.9353 33.5215 29.1554C33.9099 29.3755 34.3659 29.4771 34.8556 29.4771C35.6155 29.4771 36.2741 29.1893 36.7976 28.6136L37.6758 29.4433C37.338 29.8327 36.9159 30.1374 36.4261 30.3406C35.9364 30.5438 35.3791 30.6454 34.788 30.6454C34.045 30.6792 33.3864 30.5269 32.7953 30.2052Z" fill="#221E1F"/>
+      <path d="M49.9361 30.5773L48.45 28.444C48.3824 28.444 48.298 28.4609 48.1629 28.4609H46.5248V30.5773H45.1738V23.2969H48.1629C48.7877 23.2969 49.345 23.3985 49.801 23.6016C50.2738 23.8048 50.6285 24.1096 50.8818 24.499C51.1351 24.8884 51.2533 25.3456 51.2533 25.8873C51.2533 26.4291 51.1182 26.9032 50.848 27.3096C50.5778 27.699 50.2063 28.0038 49.6997 28.19L51.3715 30.5773H49.9361ZM49.4463 24.8207C49.1424 24.5667 48.7033 24.4482 48.1122 24.4482H46.5417V27.3434H48.1122C48.7033 27.3434 49.1424 27.2249 49.4463 26.9709C49.7503 26.717 49.9023 26.3614 49.9023 25.8873C49.9023 25.4133 49.7503 25.0577 49.4463 24.8207Z" fill="#221E1F"/>
+      <path d="M60.3725 30.2055C59.7814 29.8838 59.3086 29.4436 58.9709 28.8679C58.6331 28.2923 58.4642 27.6489 58.4642 26.9547C58.4642 26.2436 58.6331 25.6002 58.9709 25.0415C59.3086 24.4658 59.7814 24.0256 60.3725 23.7039C60.9636 23.3822 61.6391 23.2129 62.3821 23.2129C63.1252 23.2129 63.7838 23.3822 64.3917 23.7039C64.9828 24.0256 65.4556 24.4658 65.7934 25.0415C66.1311 25.6171 66.3 26.2436 66.3 26.9716C66.3 27.6827 66.1311 28.3261 65.7934 28.9018C65.4556 29.4774 64.9828 29.9177 64.3917 30.2393C63.8007 30.561 63.1252 30.7304 62.3821 30.7304C61.6391 30.6796 60.9636 30.5272 60.3725 30.2055ZM63.6824 29.1727C64.0709 28.9526 64.3748 28.6478 64.5944 28.2584C64.8139 27.869 64.9321 27.4288 64.9321 26.9378C64.9321 26.4468 64.8139 26.0065 64.5944 25.6171C64.3748 25.2277 64.0709 24.9229 63.6824 24.7028C63.294 24.4827 62.855 24.3811 62.3821 24.3811C61.8924 24.3811 61.4702 24.4827 61.0818 24.7028C60.6934 24.9229 60.3894 25.2277 60.1699 25.6171C59.9503 26.0065 59.8321 26.4468 59.8321 26.9378C59.8321 27.4288 59.9503 27.869 60.1699 28.2584C60.3894 28.6478 60.6934 28.9526 61.0818 29.1727C61.4702 29.3928 61.9093 29.4944 62.3821 29.4944C62.855 29.4944 63.294 29.3928 63.6824 29.1727Z" fill="#221E1F"/>
+      <path d="M74.7606 23.7709V26.8863H78.6278V27.3604H74.7606V30.5773H74.2371V23.2969H79.0837V23.7709H74.7606Z" fill="#221E1F"/>
+      <path d="M87.0039 23.2969H87.5274V30.5773H87.0039V23.2969Z" fill="#221E1F"/>
+      <path d="M97.6769 23.7709H95.0593V23.2969H100.818V23.7709H98.2004V30.5773H97.6769V23.7709Z" fill="#221E1F"/>
+      <path d="M45.1231 1.98092L44.7854 1.45605H40.9857V19.2846H45.1231V1.98092Z" fill="url(#paint0_linear_105_207)"/>
+      <path d="M51.1013 11.4112V17.0154H49.8348L45.1232 9.59952V1.98047L51.1013 11.4112Z" fill="url(#paint1_linear_105_207)"/>
+      <path d="M57.0964 1.98047L51.1013 11.4112V17.0154H52.3679L57.0964 9.56565V1.98047Z" fill="url(#paint2_linear_105_207)"/>
+      <path d="M57.4341 1.45605L57.0963 1.98092V19.2846H61.2337V1.45605H57.4341Z" fill="url(#paint3_linear_105_207)"/>
+      <defs>
+        <linearGradient id="paint0_linear_105_207" x1="43.0544" y1="19.2846" x2="43.0544" y2="1.45605" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#DD0247"/>
+          <stop offset="1" stop-color="#9F1686"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear_105_207" x1="43.6831" y1="2.81403" x2="51.7022" y2="16.6675" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#890251"/>
+          <stop offset="1" stop-color="#C30141"/>
+        </linearGradient>
+        <linearGradient id="paint2_linear_105_207" x1="50.5305" y1="16.685" x2="58.5538" y2="2.82412" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#960656"/>
+          <stop offset="1" stop-color="#9F1686"/>
+        </linearGradient>
+        <linearGradient id="paint3_linear_105_207" x1="59.165" y1="19.2846" x2="59.165" y2="1.45605" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#901A81"/>
+          <stop offset="1" stop-color="#C91347"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="date-pill" id="date-chip">Summer Lock In</span>
+  </div>
+
+  <div class="tab-content active" id="tab-home">
+    <div class="hero">
+      <div class="hero-eyebrow"><div class="hero-dot"></div><span class="hero-eyebrow-text">Summer Lock In 2026</span></div>
+      <div class="hero-headline">Day <span id="day-num">1</span><span class="hero-slash">/42</span></div>
+      <div class="hero-sub">June 29 – August 10, 2026</div>
+    </div>
+    <div class="streak-row">
+      <div class="streak-card">
+        <div class="streak-num" id="streak-num">0</div>
+        <div class="streak-label">Day streak</div>
+        <div class="streak-dots" id="streak-dots"></div>
+      </div>
+      <div class="days-card">
+        <div class="days-left" id="days-left">42</div>
+        <div class="days-label">Days left</div>
+      </div>
+    </div>
+
+    <div class="milestone-banner" id="milestone-banner"></div>
+
+    <div class="mantra-card">
+      <div class="mantra-eyebrow">Today's reminder</div>
+      <div class="mantra-text" id="mantra-text">Show up. Especially when you don't feel like it.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow"><div class="section-dot"></div><span class="section-label">This week's challenge</span></div>
+      <div class="challenge-card">
+        <div class="challenge-week-bar" id="week-bar-title">Week 1</div>
+        <div class="challenge-body">
+          <div class="challenge-title">This week's challenge</div>
+          <div class="challenge-row"><span class="ctag">Do it</span><span class="ctext" id="doit-text"></span></div>
+          <div class="daily-checks">
+            <div class="daily-checks-label">Check off each day</div>
+            <div class="day-boxes" id="day-boxes"></div>
+          </div>
+          <div class="challenge-row share-row"><span class="ctag">Share it</span><span class="ctext" id="shareit-text"></span></div>
+          <button class="checkin-btn" id="checkin-btn" onclick="checkIn()">Check in for today</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow"><div class="section-dot"></div><span class="section-label">This week's Lock In Chat</span></div>
+      <div class="chat-card">
+        <div class="chat-card-top">
+          <div class="chat-live-dot"></div>
+          <span class="chat-card-label">Live this week</span>
+        </div>
+        <div class="chat-card-body">
+          <div class="chat-card-title" id="chat-title"></div>
+          <div class="chat-card-sub" id="chat-sub"></div>
+          <div class="chat-card-btn" onclick="switchTab('questions', document.querySelectorAll('.nav-item')[1])">
+            <i class="ti ti-message-circle" aria-hidden="true"></i> Submit a question
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom: 0;">
+      <div class="section-eyebrow"><div class="section-dot"></div><span class="section-label">Community pulse</span></div>
+      <div class="pulse-card">
+        <div class="pulse-title">What's your win today?</div>
+        <div class="pulse-sub">Big or small — share it in the FB group. Someone else needs to hear it.</div>
+        <!-- MANUS NOTE: replace href below with the real MacroFit FB Group URL -->
+        <button class="pulse-btn" onclick="window.open('https://www.facebook.com/groups/macrofitonline', '_blank')">Open FB Group</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-questions">
+    <div class="questions-page">
+      <div class="q-headline">Ask a question</div>
+      <div class="q-sub">Submit your question before the Lock In Chat and it may get answered live. Sends directly to Chelsea via text.</div>
+      <div class="q-week-label">This week's chat</div>
+      <div class="q-chat-topic">
+        <div class="q-chat-topic-label">Topic</div>
+        <div class="q-chat-topic-title" id="q-chat-title">What the next 42 days looks like</div>
+      </div>
+      <textarea class="q-textarea" id="q-input" placeholder="Type your question here..."></textarea>
+      <button class="q-send-btn" onclick="sendQuestion()">Send via text</button>
+      <div class="q-note">This will open your phone's messages app with your question pre-filled and ready to send.</div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-progress">
+    <div class="progress-page">
+      <div class="progress-headline">Your progress</div>
+      <div class="progress-sub">Every day you checked off, saved on this device.</div>
+      <div id="progress-weeks"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-bingo">
+    <div class="bingo-page">
+      <div class="bingo-headline">Lock In card</div>
+      <div class="bingo-sub">Complete a full row to win. Full card = $50 MacroFit gift card.</div>
+      <div class="lockin-letters">
+        <div class="ll">L</div><div class="ll">O</div><div class="ll">C</div><div class="ll">K</div><div class="ll">N</div>
+      </div>
+      <div class="bingo-grid" id="bingo-grid"></div>
+      <div class="bingo-banner" id="bingo-banner"></div>
+      <div class="bingo-note">Screenshot your completed card and post in the FB group to claim your prize.</div>
+      <div class="reset-link" onclick="resetBingo()">Reset card</div>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    <div class="nav-item active" onclick="switchTab('home',this)"><i class="ti ti-home" aria-hidden="true"></i><span class="nav-label">Home</span></div>
+    <div class="nav-item" onclick="switchTab('questions',this)"><i class="ti ti-message-circle" aria-hidden="true"></i><span class="nav-label">Questions</span></div>
+    <div class="nav-item" onclick="switchTab('progress',this)"><i class="ti ti-chart-bar" aria-hidden="true"></i><span class="nav-label">Progress</span></div>
+    <div class="nav-item" onclick="switchTab('bingo',this)"><i class="ti ti-layout-grid" aria-hidden="true"></i><span class="nav-label">Bingo</span></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================================
+   MANUS NOTE — READ BEFORE DEPLOYING
+   This prototype uses localStorage for all data (checkedIn, doitDays, bingoMarked).
+   localStorage is PER-BROWSER, PER-DEVICE — it is NOT tied to a member account.
+   If a member clears their browser, switches phones, or uses a different browser,
+   all their progress disappears. This is fine for a demo, but NOT fine for a real
+   member-facing app tracking 6 weeks of engagement.
+
+   Before this goes live to members, this needs to be wired to persistent,
+   per-member storage — ideally tied into GHL (so Chelsea can see engagement data
+   too) or a lightweight database keyed by a member ID/auth token. The functions
+   below that read/write localStorage (renderStreak, toggleDoIt, checkIn,
+   toggleBingo, resetBingo) are the points that need to be swapped to real
+   API calls instead of localStorage.getItem/setItem.
+   ============================================================================ */
+
+const START = new Date('2026-06-29'); // Program start date — confirm this matches final launch date
+const DAY_LABELS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const PB_NUMBER = '3375208382'; // Chelsea's Project Broadcast number for the "Submit a question" SMS feature
+
+const weeks = [
+  { week:1, doIt:"Hit your water goal every single day this week.", shareIt:"Post your why — why did you join the Summer Lock In?", color1:"#DD0247", color2:"#9F1686" },
+  { week:2, doIt:"100 squats every day this week. Break them up however you need to.", shareIt:"Share your meal prep photos in the FB group this week.", color1:"#C30141", color2:"#890251" },
+  { week:3, doIt:"20 minutes of intentional movement every single day.", shareIt:"Check in every day in the FB group. One sentence. What did you do?", color1:"#960656", color2:"#9F1686" },
+  { week:4, doIt:"2 cups of veggies every day. Find a way to make it work.", shareIt:"Your non-scale win. Energy, sleep, how your jeans fit — the real data.", color1:"#901A81", color2:"#C91347" },
+  { week:5, doIt:"3 strength workouts this week. Schedule them now. They don't cancel.", shareIt:"Your energy check — before vs. now. How do you feel vs Day 1?", color1:"#DD0247", color2:"#890251" },
+  { week:6, doIt:"10/10 on adherence this week. One perfect week.", shareIt:"What's different vs Day 1? Not just physically — how do you show up?", color1:"#9F1686", color2:"#C91347" },
+];
+
+const chats = [
+  { week:1, title:"What the next 42 days looks like", sub:"Know what's coming so nothing knocks you off." },
+  { week:2, title:"The summer sabotage survival guide", sub:"Cookouts, travel, chaos — your game plan." },
+  { week:3, title:"The gap between doing the work and seeing the work", sub:"Why the results feel invisible right now." },
+  { week:4, title:"You're not broken — this is just what change feels like", sub:"Why it feels hard even when you're doing everything right." },
+  { week:5, title:"The comparison trap", sub:"Your only competition is who you were on Day 1." },
+  { week:6, title:"Motivation vs. discipline — an object in motion stays in motion", sub:"42 days is a beginning, not an ending." },
+];
+
+const squares = [
+  {e:"💧",t:"Hit water goal all week"},{e:"📸",t:"Post your why"},{e:"💪",t:"100 squats a day for a week"},
+  {e:"🍽️",t:"Share a meal"},{e:"🏃",t:"Attend a Lock In Chat live"},{e:"🥦",t:"2 cups veggies daily"},
+  {e:"🏆",t:"Share a non-scale win"},{e:"📱",t:"Tag MacroFit in a post"},{e:"🛌",t:"8hrs sleep 3+ nights"},
+  {e:"🏋️",t:"3 strength workouts"},{e:"📊",t:"Before vs. now energy check"},{e:"🌊",t:"20 min movement streak, 7 days"},
+  {e:"🤝",t:"Refer a friend",center:true},{e:"🔥",t:"Daily FB check-in all week"},{e:"🍳",t:"Share meal prep photos"},
+  {e:"🎯",t:"10/10 adherence week"},{e:"💬",t:"Share what's different vs Day 1"},{e:"😴",t:"No phone 30 min before bed, 5 nights"},
+  {e:"🎉",t:"Watch an archived Lock In Chat"},{e:"📝",t:"Comment your why in FB group"},
+  {e:"👟",t:"10,000 steps in one day"},{e:"🫶",t:"Cheer someone on in FB group"},
+  {e:"✨",t:"Meal prep photos every week"},{e:"📸",t:"Post a transformation story"},{e:"💛",t:"Finish all 42 days"},
+];
+
+const dailyMantras = [
+  "Show up. Especially when you don't feel like it.",
+  "Choosing what you want most over what you want right now — that's the whole game.",
+  "You don't have to be motivated. You just have to start.",
+  "Small steps still move you forward.",
+  "Consistency beats intensity every time.",
+  "You're building proof, one day at a time.",
+  "One week down. You're proving something to yourself.",
+  "Progress is quiet. Trust it anyway.",
+  "You're not too busy. You're just not done deciding.",
+  "Change feels uncomfortable before it feels normal. That's the process working.",
+  "Done is better than perfect.",
+  "Your habits are casting votes for who you're becoming.",
+  "Hard days teach you more than easy days ever will.",
+  "You're two weeks into proving yourself right.",
+  "Nobody regrets showing up for themselves.",
+  "The work you do today is the relief you feel tomorrow.",
+  "You are one decision away from a totally different life.",
+  "Confidence is built through repeated small wins, not comfort.",
+  "Keep going. Everyone you admire kept going too.",
+  "What you do today is who you'll be tomorrow.",
+  "Three weeks. You've officially built a habit.",
+  "Halfway there is still further than most people get.",
+  "You're not behind. You're exactly where the work is.",
+  "Everyone who's good at this started exactly where you are.",
+  "Progress usually looks boring before it looks dramatic.",
+  "Consistency is the bridge between where you are and where you're going.",
+  "You don't need a perfect week. You need a consistent one.",
+  "Small wins, repeated, become the result.",
+  "Success is the sum of small efforts repeated daily.",
+  "A month of showing up. That adds up.",
+  "This is where consistency turns into identity.",
+  "Compare yourself to who you were on Day 1, not to anyone else.",
+  "The expert in anything was once a beginner who never quit.",
+  "Showing up for yourself doesn't need an audience.",
+  "Six days. Stay locked in.",
+  "What feels hard today is just practice for tomorrow.",
+  "You're capable of more than you're giving yourself credit for.",
+  "Keep going. This is where it pays off.",
+  "Stay in motion. An object in motion stays in motion.",
+  "This is the stretch where consistency becomes who you are.",
+  "Confidence comes from doing this again tomorrow.",
+  "You proved you can do hard things. Keep building from here.",
+];
+
+function getDay() {
+  const diff = Math.floor((new Date() - START) / (1000*60*60*24)) + 1;
+  return Math.max(1, Math.min(42, diff));
+}
+function getWeek(day) { return Math.min(6, Math.ceil(day / 7)); }
+function getWeekStartDay(week) { return (week - 1) * 7 + 1; }
+
+let checkedIn = [];
+try { checkedIn = JSON.parse(localStorage.getItem('mf_checkins') || '[]'); } catch(e) {}
+let doitDays = {};
+try { doitDays = JSON.parse(localStorage.getItem('mf_doitdays') || '{}'); } catch(e) {}
+let bingoMarked = [];
+try { bingoMarked = JSON.parse(localStorage.getItem('mf_bingo') || '[]'); } catch(e) {}
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+  if (name === 'progress') renderProgress();
+  if (name === 'bingo') renderBingo();
+}
+
+function getStreak(day) {
+  let s = 0;
+  for (let i = day; i >= 1; i--) { if (checkedIn.includes(i)) s++; else break; }
+  return s;
+}
+
+function renderMilestone(streak) {
+  const banner = document.getElementById('milestone-banner');
+  const milestones = { 3: "You're on a 3-day streak. Momentum is building.", 7: "A full week, locked in. That's the hardest part done.", 14: "Two weeks straight. This is who you are now.", 21: "21 days. You've officially built a habit.", 30: "30 days locked in. Most people never make it here.", 42: "All 42 days. You did the whole thing." };
+  if (milestones[streak]) {
+    banner.innerHTML = `<i class="ti ti-flame" aria-hidden="true"></i> ${milestones[streak]}`;
+    banner.className = 'milestone-banner show';
+  } else {
+    banner.className = 'milestone-banner';
+  }
+}
+
+function init() {
+  const day = getDay();
+  const week = getWeek(day);
+  const w = weeks[week-1];
+  const c = chats[week-1];
+  document.getElementById('day-num').textContent = day;
+  document.getElementById('days-left').textContent = Math.max(0, 43 - day);
+  document.getElementById('mantra-text').textContent = dailyMantras[day - 1];
+  document.getElementById('date-chip').textContent = new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'});
+  document.getElementById('week-bar-title').textContent = `Week ${w.week}`;
+  document.getElementById('doit-text').textContent = w.doIt;
+  document.getElementById('shareit-text').textContent = w.shareIt;
+  document.getElementById('chat-title').textContent = c.title;
+  document.getElementById('chat-sub').textContent = c.sub;
+  document.getElementById('q-chat-title').textContent = c.title;
+  renderStreak(day);
+  renderMilestone(getStreak(day));
+  renderDayBoxes(week, day);
+  renderCheckinBtn(day);
+  renderBingo();
+}
+
+function renderStreak(day) {
+  const s = getStreak(day);
+  document.getElementById('streak-num').textContent = s;
+  const dots = document.getElementById('streak-dots');
+  dots.innerHTML = '';
+  const show = Math.min(day, 14);
+  for (let i = day - show + 1; i <= day; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === day ? ' today' : checkedIn.includes(i) ? ' done' : '');
+    dots.appendChild(d);
+  }
+}
+
+function renderDayBoxes(week, currentDay) {
+  const startDay = getWeekStartDay(week);
+  const key = `week${week}`;
+  const checked = doitDays[key] || [];
+  const todayOffset = currentDay - startDay;
+  document.getElementById('day-boxes').innerHTML = DAY_LABELS.map((label, i) => {
+    const isChecked = checked.includes(i);
+    const isToday = i === todayOffset;
+    const isFuture = i > todayOffset;
+    return `<div class="day-box" onclick="toggleDoIt(${week},${i})">
+      <div class="day-box-label">${label}</div>
+      <div class="day-box-check ${isChecked?'checked':''} ${isToday&&!isChecked?'today-box':''}" style="${isFuture?'opacity:0.35;pointer-events:none;':''}">
+        <i class="ti ti-check" aria-hidden="true"></i>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDoIt(week, dayIndex) {
+  const currentDay = getDay();
+  if (dayIndex > currentDay - getWeekStartDay(week)) return;
+  const key = `week${week}`;
+  if (!doitDays[key]) doitDays[key] = [];
+  const idx = doitDays[key].indexOf(dayIndex);
+  if (idx > -1) doitDays[key].splice(idx,1); else doitDays[key].push(dayIndex);
+  try { localStorage.setItem('mf_doitdays', JSON.stringify(doitDays)); } catch(e) {}
+  renderDayBoxes(week, currentDay);
+}
+
+function renderCheckinBtn(day) {
+  const btn = document.getElementById('checkin-btn');
+  if (!btn) return;
+  if (checkedIn.includes(day)) { btn.textContent = 'Checked in today \u2713'; btn.className = 'checkin-btn done'; }
+  else { btn.textContent = 'Check in for today'; btn.className = 'checkin-btn'; }
+}
+
+function checkIn() {
+  const day = getDay();
+  if (!checkedIn.includes(day)) { checkedIn.push(day); try { localStorage.setItem('mf_checkins', JSON.stringify(checkedIn)); } catch(e) {} }
+  const week = getWeek(day);
+  const key = `week${week}`;
+  const dayIndex = day - getWeekStartDay(week);
+  if (!doitDays[key]) doitDays[key] = [];
+  if (!doitDays[key].includes(dayIndex)) { doitDays[key].push(dayIndex); try { localStorage.setItem('mf_doitdays', JSON.stringify(doitDays)); } catch(e) {} }
+  renderStreak(day);
+  renderMilestone(getStreak(day));
+  renderCheckinBtn(day);
+  renderDayBoxes(week, day);
+}
+
+function renderProgress() {
+  const currentDay = getDay();
+  const currentWeek = getWeek(currentDay);
+  document.getElementById('progress-weeks').innerHTML = weeks.map(w => {
+    const startDay = getWeekStartDay(w.week);
+    const key = `week${w.week}`;
+    const checked = doitDays[key] || [];
+    const isCurrentWeek = w.week === currentWeek;
+    const todayOffset = currentDay - startDay;
+    const completedCount = checked.length;
+    const days = DAY_LABELS.map((label, i) => {
+      const isFuture = w.week > currentWeek || (isCurrentWeek && i > todayOffset);
+      const isDone = checked.includes(i);
+      return `<div class="p-day">
+        <div class="p-day-label">${label}</div>
+        <div class="p-day-dot ${isDone?'done':''} ${isFuture?'future':''}" style="${isDone ? `background:linear-gradient(135deg, ${w.color1}, ${w.color2});` : ''}">
+          <i class="ti ti-check" aria-hidden="true"></i>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="progress-week">
+      <div class="progress-week-bar" style="background:linear-gradient(90deg, ${w.color1}, ${w.color2});">
+        <span class="progress-week-label">Week ${w.week}</span>
+        <span class="progress-week-frac">${completedCount}/7</span>
+      </div>
+      <div class="progress-days">${days}</div>
+    </div>`;
+  }).join('');
+}
+
+function sendQuestion() {
+  const q = document.getElementById('q-input').value.trim();
+  if (!q) { document.getElementById('q-input').focus(); return; }
+  const week = getWeek(getDay());
+  const topic = chats[week-1].title;
+  const body = encodeURIComponent(`Lock In Chat question (Week ${week} — ${topic}):\n\n${q}`);
+  window.location.href = `sms:${PB_NUMBER}?body=${body}`;
+}
+
+function renderBingo() {
+  document.getElementById('bingo-grid').innerHTML = squares.map((sq,i) => {
+    const isM = bingoMarked.includes(i);
+    return `<div class="bsq ${sq.center?'center-sq':''} ${isM?'marked':''}" onclick="toggleBingo(${i})">
+      <div class="bsq-icon">${sq.e}</div>
+      <div class="bsq-text">${sq.t}</div>
+      <span class="bsq-check">\u2713</span>
+    </div>`;
+  }).join('');
+  checkBingo();
+}
+
+function toggleBingo(i) {
+  if (squares[i].center) return;
+  const idx = bingoMarked.indexOf(i);
+  if (idx > -1) bingoMarked.splice(idx,1); else bingoMarked.push(i);
+  try { localStorage.setItem('mf_bingo', JSON.stringify(bingoMarked)); } catch(e) {}
+  renderBingo();
+}
+
+function checkBingo() {
+  const lines = [[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16,17,18,19],[20,21,22,23,24],
+    [0,5,10,15,20],[1,6,11,16,21],[2,7,12,17,22],[3,8,13,18,23],[4,9,14,19,24],[0,6,12,18,24],[4,8,12,16,20]];
+  const isM = i => bingoMarked.includes(i) || squares[i].center;
+  const banner = document.getElementById('bingo-banner');
+  if (squares.every((_,i) => isM(i))) { banner.textContent = '🏆 Full card! Screenshot and post in the FB group to claim your $50 gift card.'; banner.className = 'bingo-banner show'; }
+  else if (lines.some(l => l.every(i => isM(i)))) { banner.textContent = '🎉 LOCK N! Screenshot and post in the FB group!'; banner.className = 'bingo-banner show'; }
+  else { banner.className = 'bingo-banner'; }
+}
+
+function resetBingo() {
+  bingoMarked = []; try { localStorage.setItem('mf_bingo','[]'); } catch(e) {} renderBingo();
+}
+
+init();
+</script>
+</body>
+</html>

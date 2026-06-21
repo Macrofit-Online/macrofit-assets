@@ -11,6 +11,30 @@
 <link rel="manifest" href="/lockin-manifest.json">
 <link rel="apple-touch-icon" href="/manus-storage/lockin-icon-192_1e19ad21.png">
 <meta name="theme-color" content="#DD0247">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '847041528473167');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=847041528473167&ev=PageView&noscript=1" /></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GB5L05VZ8B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GB5L05VZ8B', { send_page_view: true });
+</script>
+<!-- End Google Analytics -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
   :root { --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -75,6 +99,13 @@
   .day-box-check.today-box { border-color: #DD0247; }
   .day-box-check.today-box i { color: #DD0247; }
   .share-row { margin-top: 10px; }
+  .shareit-section { margin-top: 12px; border-top: 0.5px solid #F0F0EE; padding-top: 12px; }
+  .shareit-label { font-size: 11px; color: #bbb; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .shareit-text { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 10px; }
+  .shareit-once-btn { display: flex; align-items: center; gap: 8px; background: #F7F7F5; border: 0.5px solid #E8E8E5; border-radius: 10px; padding: 10px 14px; cursor: pointer; font-size: 13px; color: #555; font-family: var(--font-sans); width: 100%; text-align: left; transition: all 0.15s; }
+  .shareit-once-btn.done { background: #FEF0F5; border-color: rgba(221,2,71,0.3); color: #DD0247; }
+  .shareit-once-btn i { font-size: 16px; color: #DDD; transition: color 0.15s; }
+  .shareit-once-btn.done i { color: #DD0247; }
   .checkin-btn { width: 100%; margin-top: 16px; background: linear-gradient(90deg, #DD0247, #9F1686); color: #fff; border: none; border-radius: 12px; padding: 13px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-sans); letter-spacing: 0.02em; }
   .checkin-btn:active { opacity: 0.85; }
   .checkin-btn.done { background: #F7F7F5; color: #DD0247; border: 0.5px solid rgba(221,2,71,0.3); }
@@ -97,6 +128,16 @@
   .progress-page { padding: 1.5rem 1.25rem; }
   .progress-headline { font-size: 28px; font-weight: 500; color: #111; letter-spacing: -0.5px; margin-bottom: 4px; }
   .progress-sub { font-size: 13px; color: #999; margin-bottom: 1.25rem; }
+  .progress-summary { background: #fff; border-radius: 14px; border: 0.5px solid #E8E8E5; padding: 14px 16px; margin-bottom: 14px; display: flex; align-items: center; gap: 0; }
+  .progress-summary-stat { flex: 1; text-align: center; }
+  .progress-summary-stat + .progress-summary-stat { border-left: 0.5px solid #E8E8E5; }
+  .progress-summary-num { font-size: 22px; font-weight: 700; color: #111; letter-spacing: -0.5px; line-height: 1; margin-bottom: 3px; }
+  .progress-summary-num span { font-size: 13px; font-weight: 400; color: #bbb; }
+  .progress-summary-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.07em; }
+  .progress-summary-bar-wrap { margin-bottom: 14px; }
+  .progress-summary-bar-track { height: 6px; background: #F0F0EE; border-radius: 3px; overflow: hidden; }
+  .progress-summary-bar-fill { height: 100%; background: linear-gradient(90deg, #DD0247, #9F1686); border-radius: 3px; transition: width 0.4s cubic-bezier(0.23,1,0.32,1); }
+  .progress-summary-bar-label { font-size: 11px; color: #bbb; text-align: right; margin-top: 4px; }
   .progress-week { border-radius: 14px; overflow: hidden; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   .progress-week-bar { padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
   .progress-week-label { font-size: 13px; font-weight: 600; color: #fff; }
@@ -109,6 +150,16 @@
   .p-day-dot.done i { color: #fff; }
   .p-day-dot i { font-size: 12px; color: #E8E8E5; }
   .p-day-dot.future { opacity: 0.25; }
+  .p-challenge-section { background: #fff; border-radius: 0 0 14px 14px; border-top: 0.5px solid #F0F0EE; padding: 12px 14px 14px; }
+  .p-challenge-row { display: flex; gap: 8px; margin-bottom: 6px; }
+  .p-challenge-row:last-child { margin-bottom: 0; }
+  .p-ctag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #fff; background: #DD0247; border-radius: 4px; padding: 2px 6px; white-space: nowrap; align-self: flex-start; margin-top: 1px; }
+  .p-ctag.share { background: #9F1686; }
+  .p-ctext { font-size: 12px; color: #555; line-height: 1.4; }
+  .p-share-status { display: flex; align-items: center; gap: 5px; margin-top: 4px; }
+  .p-share-dot { width: 8px; height: 8px; border-radius: 50%; background: #E8E8E5; }
+  .p-share-dot.done { background: #9F1686; }
+  .p-share-count { font-size: 11px; color: #aaa; }
 
   .questions-page { padding: 1.5rem 1.25rem; }
   .q-headline { font-size: 28px; font-weight: 500; color: #111; letter-spacing: -0.5px; margin-bottom: 6px; }
@@ -132,7 +183,9 @@
   .bsq:active { opacity: 0.7; }
   .bsq.marked { background: #FEF0F5; border-color: rgba(221,2,71,0.3); }
   .bsq.center-sq { background: linear-gradient(135deg, #DD0247, #9F1686); border-color: #DD0247; }
-  .bsq-icon { font-size: 15px; margin-bottom: 3px; }
+  .bsq-week { font-size: 8px; font-weight: 600; color: #DD0247; background: #FEF0F5; border-radius: 4px; padding: 1px 5px; margin-bottom: 3px; letter-spacing: 0.04em; text-transform: uppercase; align-self: center; }
+  .bsq.center-sq .bsq-week { background: rgba(255,255,255,0.25); color: #fff; }
+  .bsq-icon { font-size: 15px; margin-bottom: 2px; }
   .bsq-text { font-size: 9px; color: #aaa; line-height: 1.3; }
   .bsq.marked .bsq-text { color: #DD0247; }
   .bsq.center-sq .bsq-text { color: rgba(255,255,255,0.9); font-weight: 500; }
@@ -143,6 +196,26 @@
   .bingo-banner.show { display: block; }
   .reset-link { text-align: center; margin-top: 8px; font-size: 11px; color: #CCC; cursor: pointer; }
 
+  /* Add to Home Screen modal */
+  .aths-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .aths-overlay.show { opacity: 1; pointer-events: all; }
+  .aths-sheet { background: #fff; border-radius: 20px 20px 0 0; padding: 24px 20px 36px; width: 100%; max-width: 390px; transform: translateY(30px); transition: transform 0.3s cubic-bezier(0.23,1,0.32,1); font-family: var(--font-sans); }
+  .aths-overlay.show .aths-sheet { transform: translateY(0); }
+  .aths-handle { width: 36px; height: 4px; background: #E8E8E5; border-radius: 2px; margin: 0 auto 20px; }
+  .aths-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #DD0247, #9F1686); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+  .aths-icon svg { width: 28px; height: 28px; fill: #fff; }
+  .aths-title { font-size: 18px; font-weight: 700; color: #111; text-align: center; letter-spacing: -0.3px; margin-bottom: 6px; font-family: var(--font-sans); }
+  .aths-sub { font-size: 13.5px; color: #777; text-align: center; line-height: 1.5; margin-bottom: 22px; font-family: var(--font-sans); }
+  .aths-steps { background: #F7F7F5; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; }
+  .aths-step { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .aths-step:last-child { margin-bottom: 0; }
+  .aths-step-num { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #DD0247, #9F1686); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: var(--font-sans); }
+  .aths-step-text { font-size: 13px; color: #444; line-height: 1.4; font-family: var(--font-sans); }
+  .aths-step-text strong { color: #111; font-family: var(--font-sans); }
+  .aths-got-it { width: 100%; background: linear-gradient(90deg, #DD0247, #9F1686); color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--font-sans); letter-spacing: 0.01em; }
+  .aths-got-it:active { opacity: 0.85; }
+  .aths-skip { display: block; text-align: center; margin-top: 10px; font-size: 12px; color: #CCC; cursor: pointer; font-family: var(--font-sans); }
+
   .nav-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 390px; display: flex; justify-content: space-around; padding: 10px 1.25rem 14px; background: #fff; border-top: 0.5px solid #E8E8E5; z-index: 10; }
   .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; flex: 1; }
   .nav-item i { font-size: 20px; color: #CCC; }
@@ -152,6 +225,21 @@
 </style>
 </head>
 <body>
+
+<!-- Add to Home Screen modal -->
+<div class="aths-overlay" id="aths-overlay" onclick="aths_bgClose(event)">
+  <div class="aths-sheet">
+    <div class="aths-handle"></div>
+    <div class="aths-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 13h-2v-4H9l3-3 3 3h-2v4z"/></svg>
+    </div>
+    <div class="aths-title">Add to your home screen</div>
+    <div class="aths-sub">Save the Lock In App for quick daily access — no app store needed.</div>
+    <div class="aths-steps" id="aths-steps"></div>
+    <button class="aths-got-it" onclick="aths_dismiss()">Got it!</button>
+    <span class="aths-skip" onclick="aths_dismiss()">Maybe later</span>
+  </div>
+</div>
 
 <div class="app">
   <div class="top-bar">
@@ -226,7 +314,7 @@
             <div class="daily-checks-label">Check off each day</div>
             <div class="day-boxes" id="day-boxes"></div>
           </div>
-          <div class="challenge-row share-row"><span class="ctag">Share it</span><span class="ctext" id="shareit-text"></span></div>
+          <div id="shareit-section"></div>
           <button class="checkin-btn" id="checkin-btn" onclick="checkIn()">Check in for today</button>
         </div>
       </div>
@@ -243,7 +331,7 @@
           <div class="chat-card-title" id="chat-title"></div>
           <div class="chat-card-sub" id="chat-sub"></div>
           <div class="chat-card-btn" onclick="switchTab('questions', document.querySelectorAll('.nav-item')[1])">
-            <i class="ti ti-message-circle" aria-hidden="true"></i> Submit a question
+            <i class="ti ti-message-circle" aria-hidden="true"></i> Submit a question for the chat
           </div>
         </div>
       </div>
@@ -279,6 +367,24 @@
     <div class="progress-page">
       <div class="progress-headline">Your progress</div>
       <div class="progress-sub">Every day you checked off, saved on this device.</div>
+      <div class="progress-summary">
+        <div class="progress-summary-stat">
+          <div class="progress-summary-num" id="ps-days">0<span>/42</span></div>
+          <div class="progress-summary-label">Days done</div>
+        </div>
+        <div class="progress-summary-stat">
+          <div class="progress-summary-num" id="ps-shares">0</div>
+          <div class="progress-summary-label">Shares</div>
+        </div>
+        <div class="progress-summary-stat">
+          <div class="progress-summary-num" id="ps-streak">0</div>
+          <div class="progress-summary-label">Day streak</div>
+        </div>
+      </div>
+      <div class="progress-summary-bar-wrap">
+        <div class="progress-summary-bar-track"><div class="progress-summary-bar-fill" id="ps-bar" style="width:0%"></div></div>
+        <div class="progress-summary-bar-label" id="ps-bar-label">0% complete</div>
+      </div>
       <div id="progress-weeks"></div>
     </div>
   </div>
@@ -327,16 +433,16 @@ const DAY_LABELS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const PB_NUMBER = '3375208382'; // Chelsea's Project Broadcast number for the "Submit a question" SMS feature
 
 const weeks = [
-  { week:1, doIt:"Hit your water goal every single day this week.", shareIt:"Post your why — why did you join the Summer Lock In?", color1:"#DD0247", color2:"#9F1686" },
-  { week:2, doIt:"100 squats every day this week. Break them up however you need to.", shareIt:"Share your meal prep photos in the FB group this week.", color1:"#C30141", color2:"#890251" },
-  { week:3, doIt:"20 minutes of intentional movement every single day.", shareIt:"Check in every day in the FB group. One sentence. What did you do?", color1:"#960656", color2:"#9F1686" },
-  { week:4, doIt:"2 cups of veggies every day. Find a way to make it work.", shareIt:"Your non-scale win. Energy, sleep, how your jeans fit — the real data.", color1:"#901A81", color2:"#C91347" },
-  { week:5, doIt:"3 strength workouts this week. Schedule them now. They don't cancel.", shareIt:"Your energy check — before vs. now. How do you feel vs Day 1?", color1:"#DD0247", color2:"#890251" },
-  { week:6, doIt:"10/10 on adherence this week. One perfect week.", shareIt:"What's different vs Day 1? Not just physically — how do you show up?", color1:"#9F1686", color2:"#C91347" },
+  { week:1, doIt:"Hit your water goal every single day this week.", doItCount:7, shareIt:"Post your why in the FB group — why did you join the Summer Lock In?", shareItType:"once", checkInLabel:"Hit my water goal today", checkInDoneLabel:"Water goal hit ✓", color1:"#DD0247", color2:"#9F1686" },
+  { week:2, doIt:"100 squats every day this week. Break them up however you need to.", doItCount:7, shareIt:"Share a meal photo in the FB group each day — prepping, eating, on the go, whatever it looks like for you.", shareItType:"daily", checkInLabel:"Did my 100 squats today", checkInDoneLabel:"100 squats done ✓", color1:"#C30141", color2:"#890251" },
+  { week:3, doIt:"8K steps every single day this week. Walk, run, move — whatever it takes.", doItCount:7, shareIt:"Post your movement in the FB group each day — what did you do?", shareItType:"daily", checkInLabel:"Hit my 8K steps today", checkInDoneLabel:"8K steps done ✓", color1:"#960656", color2:"#9F1686" },
+  { week:4, doIt:"2 cups of veggies every day. Find a way to make it work.", doItCount:7, shareIt:"Share your non-scale win in the FB group — energy, sleep, how your jeans fit.", shareItType:"once", checkInLabel:"Hit my veggie goal today", checkInDoneLabel:"Veggie goal hit ✓", color1:"#901A81", color2:"#C91347" },
+  { week:5, doIt:"3 strength workouts this week. Schedule them now. They don't cancel.", doItCount:3, shareIt:"Share your energy check in the FB group — before vs. now vs. Day 1.", shareItType:"once", checkInLabel:"Logged a strength workout", checkInDoneLabel:"Strength workout logged ✓", color1:"#DD0247", color2:"#890251" },
+  { week:6, doIt:"10/10 on adherence this week. One perfect week.", doItCount:7, shareIt:"Post in the FB group — what's different vs Day 1? Not just physically.", shareItType:"once", checkInLabel:"On track today — 10/10", checkInDoneLabel:"10/10 today ✓", color1:"#9F1686", color2:"#C91347" },
 ];
 
 const chats = [
-  { week:1, title:"What the next 42 days looks like", sub:"Know what's coming so nothing knocks you off." },
+  { week:1, title:"What the next 42 days looks like", sub:"So you know what to expect over the next 6 weeks." },
   { week:2, title:"The summer sabotage survival guide", sub:"Cookouts, travel, chaos — your game plan." },
   { week:3, title:"The gap between doing the work and seeing the work", sub:"Why the results feel invisible right now." },
   { week:4, title:"You're not broken — this is just what change feels like", sub:"Why it feels hard even when you're doing everything right." },
@@ -345,15 +451,15 @@ const chats = [
 ];
 
 const squares = [
-  {e:"💧",t:"Hit water goal all week"},{e:"📸",t:"Post your why"},{e:"💪",t:"100 squats a day for a week"},
-  {e:"🍽️",t:"Share a meal"},{e:"🏃",t:"Attend a Lock In Chat live"},{e:"🥦",t:"2 cups veggies daily"},
-  {e:"🏆",t:"Share a non-scale win"},{e:"📱",t:"Tag MacroFit in a post"},{e:"🛌",t:"8hrs sleep 3+ nights"},
-  {e:"🏋️",t:"3 strength workouts"},{e:"📊",t:"Before vs. now energy check"},{e:"🌊",t:"20 min movement streak, 7 days"},
-  {e:"🤝",t:"Refer a friend",center:true},{e:"🔥",t:"Daily FB check-in all week"},{e:"🍳",t:"Share meal prep photos"},
-  {e:"🎯",t:"10/10 adherence week"},{e:"💬",t:"Share what's different vs Day 1"},{e:"😴",t:"No phone 30 min before bed, 5 nights"},
-  {e:"🎉",t:"Watch an archived Lock In Chat"},{e:"📝",t:"Comment your why in FB group"},
-  {e:"👟",t:"10,000 steps in one day"},{e:"🫶",t:"Cheer someone on in FB group"},
-  {e:"✨",t:"Meal prep photos every week"},{e:"📸",t:"Post a transformation story"},{e:"💛",t:"Finish all 42 days"},
+  {w:"Wk 1",e:"💧",t:"Hit water goal all week"},{w:"Wk 1",e:"📸",t:"Post your why"},{w:"Wk 2",e:"💪",t:"100 squats a day for a week"},
+  {w:"Wk 2",e:"🍽️",t:"Share a meal"},{w:"Any",e:"🏃",t:"Attend a Lock In Chat live"},{w:"Wk 4",e:"🥦",t:"2 cups veggies daily"},
+  {w:"Wk 4",e:"🏆",t:"Share a non-scale win"},{w:"Any",e:"📱",t:"Tag MacroFit in a post"},{w:"Any",e:"🛌",t:"8hrs sleep 3+ nights"},
+  {w:"Wk 5",e:"🏋️",t:"3 strength workouts"},{w:"Wk 5",e:"📊",t:"Before vs. now energy check"},{w:"Wk 3",e:"🌊",t:"20 min movement streak, 7 days"},
+  {w:"★",e:"🤝",t:"Refer a friend",center:true},{w:"Wk 3",e:"🔥",t:"Daily FB check-in all week"},{w:"Any",e:"🍳",t:"Share meal prep photos"},
+  {w:"Wk 6",e:"🎯",t:"10/10 adherence week"},{w:"Wk 6",e:"💬",t:"Share what's different vs Day 1"},{w:"Any",e:"😴",t:"No phone 30 min before bed, 5 nights"},
+  {w:"Any",e:"🎉",t:"Watch an archived Lock In Chat"},{w:"Wk 1",e:"📝",t:"Comment your why in FB group"},
+  {w:"Any",e:"👟",t:"8K steps every day for 1 week"},{w:"Any",e:"🫶",t:"Cheer someone on in FB group"},
+  {w:"Any",e:"✨",t:"Meal prep photos every week"},{w:"Wk 6",e:"📸",t:"Post a transformation story"},{w:"Day 42",e:"💛",t:"Finish all 42 days"},
 ];
 
 const dailyMantras = [
@@ -414,6 +520,8 @@ let doitDays = {};
 try { doitDays = JSON.parse(localStorage.getItem('mf_doitdays') || '{}'); } catch(e) {}
 let bingoMarked = [];
 try { bingoMarked = JSON.parse(localStorage.getItem('mf_bingo') || '[]'); } catch(e) {}
+let shareItDone = {};
+try { shareItDone = JSON.parse(localStorage.getItem('mf_shareit') || '{}'); } catch(e) {}
 
 function switchTab(name, el) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -452,13 +560,13 @@ function init() {
   document.getElementById('date-chip').textContent = new Date().toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'});
   document.getElementById('week-bar-title').textContent = `Week ${w.week}`;
   document.getElementById('doit-text').textContent = w.doIt;
-  document.getElementById('shareit-text').textContent = w.shareIt;
   document.getElementById('chat-title').textContent = c.title;
   document.getElementById('chat-sub').textContent = c.sub;
   document.getElementById('q-chat-title').textContent = c.title;
   renderStreak(day);
   renderMilestone(getStreak(day));
   renderDayBoxes(week, day);
+  renderShareIt(week, day);
   renderCheckinBtn(day);
   renderBingo();
 }
@@ -481,17 +589,77 @@ function renderDayBoxes(week, currentDay) {
   const key = `week${week}`;
   const checked = doitDays[key] || [];
   const todayOffset = currentDay - startDay;
-  document.getElementById('day-boxes').innerHTML = DAY_LABELS.map((label, i) => {
+  const w = weeks[week-1];
+  const count = w.doItCount || 7;
+  // For Wk5 (3 checkboxes), use workout labels; otherwise use day labels
+  const labels = count === 3 ? ['Workout 1','Workout 2','Workout 3'] : DAY_LABELS;
+  document.getElementById('day-boxes').innerHTML = labels.map((label, i) => {
     const isChecked = checked.includes(i);
-    const isToday = i === todayOffset;
-    const isFuture = i > todayOffset;
+    const isToday = count === 7 && i === todayOffset;
+    const isFuture = count === 7 && i > todayOffset;
     return `<div class="day-box" onclick="toggleDoIt(${week},${i})">
-      <div class="day-box-label">${label}</div>
+      <div class="day-box-label">${count === 3 ? label.replace('Workout ','#') : label}</div>
       <div class="day-box-check ${isChecked?'checked':''} ${isToday&&!isChecked?'today-box':''}" style="${isFuture?'opacity:0.35;pointer-events:none;':''}">
         <i class="ti ti-check" aria-hidden="true"></i>
       </div>
     </div>`;
   }).join('');
+}
+
+function renderShareIt(week, currentDay) {
+  const w = weeks[week-1];
+  const section = document.getElementById('shareit-section');
+  if (w.shareItType === 'daily') {
+    const startDay = getWeekStartDay(week);
+    const key = `shareit_week${week}`;
+    const checked = shareItDone[key] || [];
+    const todayOffset = currentDay - startDay;
+    const boxes = DAY_LABELS.map((label, i) => {
+      const isChecked = checked.includes(i);
+      const isToday = i === todayOffset;
+      const isFuture = i > todayOffset;
+      return `<div class="day-box" onclick="toggleShareItDay(${week},${i})">
+        <div class="day-box-label">${label}</div>
+        <div class="day-box-check ${isChecked?'checked':''} ${isToday&&!isChecked?'today-box':''}" style="${isFuture?'opacity:0.35;pointer-events:none;':''}">
+          <i class="ti ti-check" aria-hidden="true"></i>
+        </div>
+      </div>`;
+    }).join('');
+    section.innerHTML = `<div class="shareit-section">
+      <div class="shareit-label">Share it — daily</div>
+      <div class="shareit-text">${w.shareIt}</div>
+      <div class="day-boxes">${boxes}</div>
+    </div>`;
+  } else {
+    const key = `shareit_week${week}`;
+    const isDone = shareItDone[key] === true;
+    section.innerHTML = `<div class="shareit-section">
+      <div class="shareit-label">Share it — once this week</div>
+      <div class="shareit-text">${w.shareIt}</div>
+      <button class="shareit-once-btn ${isDone?'done':''}" onclick="toggleShareItOnce(${week})">
+        <i class="ti ti-circle-check" aria-hidden="true"></i>
+        ${isDone ? 'Marked as shared ✓' : 'Tap when you’ve shared it'}
+      </button>
+    </div>`;
+  }
+}
+
+function toggleShareItDay(week, dayIndex) {
+  const currentDay = getDay();
+  if (dayIndex > currentDay - getWeekStartDay(week)) return;
+  const key = `shareit_week${week}`;
+  if (!shareItDone[key]) shareItDone[key] = [];
+  const idx = shareItDone[key].indexOf(dayIndex);
+  if (idx > -1) shareItDone[key].splice(idx,1); else shareItDone[key].push(dayIndex);
+  try { localStorage.setItem('mf_shareit', JSON.stringify(shareItDone)); } catch(e) {}
+  renderShareIt(week, currentDay);
+}
+
+function toggleShareItOnce(week) {
+  const key = `shareit_week${week}`;
+  shareItDone[key] = !shareItDone[key];
+  try { localStorage.setItem('mf_shareit', JSON.stringify(shareItDone)); } catch(e) {}
+  renderShareIt(week, getDay());
 }
 
 function toggleDoIt(week, dayIndex) {
@@ -508,8 +676,10 @@ function toggleDoIt(week, dayIndex) {
 function renderCheckinBtn(day) {
   const btn = document.getElementById('checkin-btn');
   if (!btn) return;
-  if (checkedIn.includes(day)) { btn.textContent = 'Checked in today \u2713'; btn.className = 'checkin-btn done'; }
-  else { btn.textContent = 'Check in for today'; btn.className = 'checkin-btn'; }
+  const week = getWeek(day);
+  const w = weeks[week-1];
+  if (checkedIn.includes(day)) { btn.textContent = w.checkInDoneLabel; btn.className = 'checkin-btn done'; }
+  else { btn.textContent = w.checkInLabel; btn.className = 'checkin-btn'; }
 }
 
 function checkIn() {
@@ -529,15 +699,53 @@ function checkIn() {
 function renderProgress() {
   const currentDay = getDay();
   const currentWeek = getWeek(currentDay);
+
+  // ── Summary bar ──────────────────────────────────────────
+  let totalDays = 0;
+  let totalShares = 0;
+  weeks.forEach(w => {
+    const doItKey = `week${w.week}`;
+    const shareItKey = `shareit_week${w.week}`;
+    totalDays += (doitDays[doItKey] || []).length;
+    if (w.shareItType === 'daily') {
+      totalShares += (shareItDone[shareItKey] || []).length;
+    } else if (shareItDone[shareItKey] === true) {
+      totalShares += 1;
+    }
+  });
+  const totalPossible = 42;
+  const pct = Math.round((totalDays / totalPossible) * 100);
+  // Streak: count consecutive days backwards from today
+  let streak = 0;
+  for (let d = currentDay - 1; d >= 0; d--) {
+    const w = getWeek(d + 1);
+    const offset = d - getWeekStartDay(w);
+    if ((doitDays[`week${w}`] || []).includes(offset)) { streak++; } else { break; }
+  }
+  const psEl = document.getElementById('ps-days');
+  if (psEl) psEl.innerHTML = `${totalDays}<span>/42</span>`;
+  const psShares = document.getElementById('ps-shares');
+  if (psShares) psShares.textContent = totalShares;
+  const psStreak = document.getElementById('ps-streak');
+  if (psStreak) psStreak.textContent = streak;
+  const psBar = document.getElementById('ps-bar');
+  if (psBar) psBar.style.width = pct + '%';
+  const psBarLabel = document.getElementById('ps-bar-label');
+  if (psBarLabel) psBarLabel.textContent = pct + '% complete';
+  // ─────────────────────────────────────────────────────────
+
   document.getElementById('progress-weeks').innerHTML = weeks.map(w => {
     const startDay = getWeekStartDay(w.week);
-    const key = `week${w.week}`;
-    const checked = doitDays[key] || [];
+    const doItKey = `week${w.week}`;
+    const shareItKey = `shareit_week${w.week}`;
+    const checked = doitDays[doItKey] || [];
     const isCurrentWeek = w.week === currentWeek;
+    const isFutureWeek = w.week > currentWeek;
     const todayOffset = currentDay - startDay;
+    const count = w.doItCount || 7;
     const completedCount = checked.length;
-    const days = DAY_LABELS.map((label, i) => {
-      const isFuture = w.week > currentWeek || (isCurrentWeek && i > todayOffset);
+    const days = (count === 3 ? ['#1','#2','#3'] : DAY_LABELS).map((label, i) => {
+      const isFuture = isFutureWeek || (isCurrentWeek && i > todayOffset);
       const isDone = checked.includes(i);
       return `<div class="p-day">
         <div class="p-day-label">${label}</div>
@@ -546,12 +754,39 @@ function renderProgress() {
         </div>
       </div>`;
     }).join('');
+    // Share It status
+    let shareStatus = '';
+    if (!isFutureWeek) {
+      if (w.shareItType === 'daily') {
+        const shareDone = (shareItDone[shareItKey] || []).length;
+        const dots = DAY_LABELS.map((_,i) => {
+          const isDone = (shareItDone[shareItKey] || []).includes(i);
+          const isFut = isFutureWeek || (isCurrentWeek && i > todayOffset);
+          return `<div class="p-share-dot ${isDone?'done':''} ${isFut?'future':''}" style="${isDone?`background:linear-gradient(135deg,${w.color1},${w.color2});`:''}"></div>`;
+        }).join('');
+        shareStatus = `<div class="p-share-status">${dots}<span class="p-share-count">${shareDone}/7 shared</span></div>`;
+      } else {
+        const isDone = shareItDone[shareItKey] === true;
+        shareStatus = `<div class="p-share-status"><div class="p-share-dot ${isDone?'done':''}" style="${isDone?`background:linear-gradient(135deg,${w.color1},${w.color2});`:''}"></div><span class="p-share-count">${isDone ? 'Shared ✓' : 'Not shared yet'}</span></div>`;
+      }
+    }
+    const gridCols = count === 3 ? 'grid-template-columns:repeat(3,1fr)' : '';
     return `<div class="progress-week">
       <div class="progress-week-bar" style="background:linear-gradient(90deg, ${w.color1}, ${w.color2});">
         <span class="progress-week-label">Week ${w.week}</span>
-        <span class="progress-week-frac">${completedCount}/7</span>
+        <span class="progress-week-frac">${completedCount}/${count}</span>
       </div>
-      <div class="progress-days">${days}</div>
+      <div class="progress-days" style="${gridCols}">${days}</div>
+      <div class="p-challenge-section">
+        <div class="p-challenge-row">
+          <span class="p-ctag">Do it</span>
+          <span class="p-ctext">${w.doIt}</span>
+        </div>
+        <div class="p-challenge-row">
+          <span class="p-ctag share">Share it</span>
+          <div><span class="p-ctext">${w.shareIt}</span>${shareStatus}</div>
+        </div>
+      </div>
     </div>`;
   }).join('');
 }
@@ -569,6 +804,7 @@ function renderBingo() {
   document.getElementById('bingo-grid').innerHTML = squares.map((sq,i) => {
     const isM = bingoMarked.includes(i);
     return `<div class="bsq ${sq.center?'center-sq':''} ${isM?'marked':''}" onclick="toggleBingo(${i})">
+      <div class="bsq-week">${sq.w}</div>
       <div class="bsq-icon">${sq.e}</div>
       <div class="bsq-text">${sq.t}</div>
       <span class="bsq-check">\u2713</span>
@@ -591,13 +827,74 @@ function checkBingo() {
   const isM = i => bingoMarked.includes(i) || squares[i].center;
   const banner = document.getElementById('bingo-banner');
   if (squares.every((_,i) => isM(i))) { banner.textContent = '🏆 Full card! Screenshot and post in the FB group to claim your $50 gift card.'; banner.className = 'bingo-banner show'; }
-  else if (lines.some(l => l.every(i => isM(i)))) { banner.textContent = '🎉 LOCK N! Screenshot and post in the FB group!'; banner.className = 'bingo-banner show'; }
+  else if (lines.some(l => l.every(i => isM(i)))) { banner.textContent = '🎉 LOCK N! Screenshot and post in the FB group to claim your prize!'; banner.className = 'bingo-banner show'; }
   else { banner.className = 'bingo-banner'; }
 }
 
 function resetBingo() {
   bingoMarked = []; try { localStorage.setItem('mf_bingo','[]'); } catch(e) {} renderBingo();
 }
+
+// ── Add to Home Screen prompt ──────────────────────────────────────────────
+const ATHS_KEY = 'mf_aths_shown';
+
+function aths_isIOS() {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent);
+}
+function aths_isAndroid() {
+  return /android/i.test(navigator.userAgent);
+}
+function aths_isStandalone() {
+  return window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+}
+
+function aths_buildSteps() {
+  const el = document.getElementById('aths-steps');
+  if (!el) return;
+  let steps = [];
+  if (aths_isIOS()) {
+    steps = [
+      { n:1, html: 'Tap the <strong>Share</strong> button at the bottom of Safari (⎋)' },
+      { n:2, html: 'Scroll down and tap <strong>“Add to Home Screen”</strong>' },
+      { n:3, html: 'Tap <strong>Add</strong> — the app will appear on your home screen!' },
+    ];
+  } else if (aths_isAndroid()) {
+    steps = [
+      { n:1, html: 'Tap the <strong>three-dot menu</strong> (⋮) in Chrome' },
+      { n:2, html: 'Tap <strong>“Add to Home screen”</strong>' },
+      { n:3, html: 'Tap <strong>Add</strong> — the app will appear on your home screen!' },
+    ];
+  } else {
+    steps = [
+      { n:1, html: 'Open this page on your <strong>phone’s browser</strong> (Safari or Chrome)' },
+      { n:2, html: 'Use the <strong>Share / Menu</strong> option to add it to your home screen' },
+    ];
+  }
+  el.innerHTML = steps.map(s =>
+    `<div class="aths-step"><div class="aths-step-num">${s.n}</div><div class="aths-step-text">${s.html}</div></div>`
+  ).join('');
+}
+
+function aths_dismiss() {
+  document.getElementById('aths-overlay').classList.remove('show');
+  try { localStorage.setItem(ATHS_KEY, '1'); } catch(e) {}
+}
+
+function aths_bgClose(e) {
+  if (e.target === document.getElementById('aths-overlay')) aths_dismiss();
+}
+
+(function aths_init() {
+  // Don't show if already seen, or if already installed as PWA
+  try { if (localStorage.getItem(ATHS_KEY)) return; } catch(e) {}
+  if (aths_isStandalone()) return;
+  aths_buildSteps();
+  // Small delay so the page renders first
+  setTimeout(() => {
+    document.getElementById('aths-overlay').classList.add('show');
+  }, 1200);
+})();
+// ── End Add to Home Screen ──────────────────────────────────────────────────
 
 init();
 </script>

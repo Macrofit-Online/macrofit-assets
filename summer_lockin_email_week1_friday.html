@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Week 1 is almost done. Share your win.</title>
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; background-color: #F7F5F2; }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Base */
+    .email-wrapper {
+      background-color: #F7F5F2;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 12px;
+    }
+    .header-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+    .header-sub {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Pill badge */
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    /* Body */
+    .body-section {
+      background-color: #ffffff;
+      padding: 40px 40px 32px;
+    }
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+    }
+    .body-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 20px;
+    }
+    .body-text strong {
+      color: #1a1a1a;
+    }
+
+    /* Section divider */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #F0EDE8;
+      margin: 32px 0;
+    }
+
+    /* Section heading */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #DD0247;
+      margin: 0 0 8px;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+
+    /* Tip cards (numbered rules) */
+    .tip-card {
+      background-color: #FAFAF9;
+      border: 1px solid #F0EDE8;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+    }
+
+    /* CTA Button */
+    .cta-section {
+      text-align: center;
+      padding: 8px 0 16px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      color: #ffffff !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 100px;
+      margin: 8px 6px;
+    }
+
+    /* Closing */
+    .closing-section {
+      background-color: #ffffff;
+      padding: 0 40px 40px;
+    }
+    .closing-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 16px;
+    }
+    .signature {
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 0;
+    }
+    .signature-sub {
+      font-size: 13px;
+      color: #888888;
+      margin: 4px 0 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 12px;
+    }
+    .footer-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.45);
+      margin: 0 0 8px;
+    }
+    .footer-unsubscribe {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .header, .body-section, .closing-section, .footer {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+      .header-title { font-size: 26px !important; }
+      .cta-button {
+        display: block !important;
+        margin: 8px 0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="email-wrapper">
+
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="header-eyebrow">MacroFit</p>
+      <div class="badge">Week 1 &nbsp;|&nbsp; Friday</div>
+      <h1 class="header-title">Week 1 is almost done.<br>Share your win.</h1>
+      <p class="header-sub">Summer Lock In 2026 &nbsp;|&nbsp; June 29 – August 9</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-section">
+
+      <p class="greeting">Hey {{contact.first_name}},</p>
+
+      <p class="body-text">
+        Week 1 of the Summer Lock In is almost done.
+      </p>
+      <p class="body-text">
+        Before the weekend gets here, I want you to <strong>share a win from this week in the FB group.</strong> It doesn't have to be dramatic — it just has to be real.
+      </p>
+      <p class="body-text">
+        You were able to stay on track every single breakfast and lunch this week (where you've previously struggled). You resisted a donut in the break room. You showed up on a day you really didn't feel like it. You hit your water goal. <strong>Let's hear it.</strong>
+      </p>
+      <p class="body-text">
+        Your win can help others feel empowered — that is THE point of this community. To lift each other up, celebrate each other, and have a place where you can share these wins.
+      </p>
+
+      <div class="cta-section" style="padding-top:4px;">
+        <a href="https://www.facebook.com/groups/macrofitonline" class="cta-button">Share Your Win in the Group</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- WEEKEND SURVIVAL -->
+      <p class="section-label">The Weekend</p>
+      <h2 class="section-heading">Here's how to stay on track</h2>
+
+      <p class="body-text">
+        This is typically where people get derailed. A little strategy goes a long way.
+      </p>
+      <p class="body-text">
+        <strong>Pick your one off-plan meal and stick to it.</strong> Going out with friends? Birthday party? Family function? Great — that can be your "free" meal. Don't be afraid to pack an ice chest if you're traveling. A little preparation beats feeling like you have no options. And don't forget about your <strong>On The Go meals</strong> — they're made for exactly these situations.
+      </p>
+      <p class="body-text">
+        If you find yourself somewhere you can't have your meal prep, it's not a free meal, and you have no OTG options — stick to these three rules:
+      </p>
+
+      <!-- Rule 1 -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAFAF9;border:1px solid #F0EDE8;border-radius:12px;">
+              <tr>
+                <td style="padding:18px 22px;">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="vertical-align:top;padding-right:14px;">
+                        <div style="background:linear-gradient(135deg,#DD0247,#9F1686);color:#fff;font-size:12px;font-weight:700;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;font-family:Arial,sans-serif;">1</div>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0;font-size:14px;line-height:1.6;color:#444;font-family:'Inter',Arial,sans-serif;">
+                          <strong style="color:#1a1a1a;display:block;margin-bottom:4px;">Prioritize lean protein.</strong>
+                          Choose grilled chicken breast or filet whenever possible. Restaurant meats can add a surprising amount of fat, so leaner choices give you much more flexibility.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Rule 2 -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAFAF9;border:1px solid #F0EDE8;border-radius:12px;">
+              <tr>
+                <td style="padding:18px 22px;">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="vertical-align:top;padding-right:14px;">
+                        <div style="background:linear-gradient(135deg,#DD0247,#9F1686);color:#fff;font-size:12px;font-weight:700;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;font-family:Arial,sans-serif;">2</div>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0;font-size:14px;line-height:1.6;color:#444;font-family:'Inter',Arial,sans-serif;">
+                          <strong style="color:#1a1a1a;display:block;margin-bottom:4px;">Keep carbs to about a palm-sized serving.</strong>
+                          Rice, potatoes, bread, pasta — use your hand as a guide. Your MacroFit meals often contain more carbs, but those meals have controlled fat. Restaurant meals usually don't. More hidden fat means you generally need less carbohydrate.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Rule 3 -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAFAF9;border:1px solid #F0EDE8;border-radius:12px;">
+              <tr>
+                <td style="padding:18px 22px;">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="vertical-align:top;padding-right:14px;">
+                        <div style="background:linear-gradient(135deg,#DD0247,#9F1686);color:#fff;font-size:12px;font-weight:700;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;font-family:Arial,sans-serif;">3</div>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0;font-size:14px;line-height:1.6;color:#444;font-family:'Inter',Arial,sans-serif;">
+                          <strong style="color:#1a1a1a;display:block;margin-bottom:4px;">Fill up on free veggies.</strong>
+                          Just be mindful of how they're prepared. If they taste unbelievably delicious... they're probably swimming in butter or oil. &#128517; Eat them — just don't rely on them being "free" unless they're plainly prepared.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-section">
+      <hr class="section-divider" style="margin-top:0;" />
+      <p class="closing-text">
+        The first couple of weekends are usually the hardest. But every time you make a choice that aligns with your goals, you're strengthening that discipline muscle. It gets easier.
+      </p>
+      <p class="closing-text">
+        I can honestly say I've never had someone tell me they regretted sticking to their plan after the weekend was over.
+      </p>
+      <p class="closing-text">
+        Finish Week 1 strong, and I'll see you Monday for Week 2.
+      </p>
+      <p class="signature">Chelsea</p>
+      <p class="signature-sub">MacroFit Founder</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-logo">MacroFit</p>
+      <p class="footer-text">You're receiving this because you're enrolled in the MacroFit Summer Lock In Challenge 2026.</p>
+      <a href="{{unsubscribe_link}}" class="footer-unsubscribe">Unsubscribe from Summer Lock In emails</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

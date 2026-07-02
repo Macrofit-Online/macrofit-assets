@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Week 2 is here. You're already ahead.</title>
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; background-color: #F7F5F2; }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Base */
+    .email-wrapper {
+      background-color: #F7F5F2;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 12px;
+    }
+    .header-logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 20px;
+    }
+    .header-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+    .header-dates {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Pill badge */
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    /* Body */
+    .body-section {
+      background-color: #ffffff;
+      padding: 40px 40px 32px;
+    }
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+    }
+    .body-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 20px;
+    }
+    .body-text strong {
+      color: #1a1a1a;
+    }
+
+    /* Section divider */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #F0EDE8;
+      margin: 32px 0;
+    }
+
+    /* Section heading */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #DD0247;
+      margin: 0 0 8px;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+
+    /* CTA Button */
+    .cta-section {
+      text-align: center;
+      padding: 8px 0 16px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      color: #ffffff !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 100px;
+      margin: 8px 6px;
+    }
+    .cta-button-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #DD0247 !important;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 100px;
+      border: 2px solid #DD0247;
+      margin: 8px 6px;
+    }
+
+    /* Closing */
+    .closing-section {
+      background-color: #ffffff;
+      padding: 0 40px 40px;
+    }
+    .closing-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 16px;
+    }
+    .signature {
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 0;
+    }
+    .signature-sub {
+      font-size: 13px;
+      color: #888888;
+      margin: 4px 0 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 12px;
+    }
+    .footer-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.45);
+      margin: 0 0 8px;
+    }
+    .footer-unsubscribe {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .header, .body-section, .closing-section, .footer {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+      .header-title { font-size: 26px !important; }
+      .cta-button, .cta-button-secondary {
+        display: block !important;
+        margin: 8px 0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="email-wrapper">
+
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="header-eyebrow">MacroFit</p>
+      <div class="badge">Week 2 of 6</div>
+      <h1 class="header-title">Week 2 is here.<br>You're already ahead.</h1>
+      <p class="header-dates">Summer Lock In 2026 &nbsp;|&nbsp; June 29 – August 9</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-section">
+
+      <p class="greeting">Hey {{contact.first_name}},</p>
+
+      <p class="body-text">
+        Week 1 is done.
+      </p>
+      <p class="body-text">
+        I know it doesn't always <em>feel</em> like a big deal — but I want you to understand what you actually did last week.
+      </p>
+      <p class="body-text">
+        You started. When most people are still saying "I'll start Monday" or "I'll wait until after the holiday weekend," you showed up on Day 1 and you kept going. <strong>That matters more than you think.</strong>
+      </p>
+      <p class="body-text">
+        Here's the truth about Week 2: this is where it starts to get real. The excitement of a new challenge has settled. Life is back to normal. The habits aren't automatic yet. And the results aren't dramatic enough to feel like motivation.
+      </p>
+      <p class="body-text">
+        That's not a sign something is wrong. <strong>That's just what Week 2 looks like for everyone.</strong>
+      </p>
+      <p class="body-text">
+        So here's what I need you to do: stop waiting to feel ready and just do the thing. Open the app. Mark off your days. Do your squats. Post your meal prep. Show up in the FB group.
+      </p>
+      <p class="body-text">
+        Not because you feel like it. Because you decided to. <strong>That decision is the whole game.</strong>
+      </p>
+
+      <hr class="section-divider" />
+
+      <!-- WEEK 2 CHALLENGE -->
+      <p class="section-label">Week 2 Challenge</p>
+      <h2 class="section-heading">Here's what you're doing this week</h2>
+
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);border-radius:16px;">
+              <tr>
+                <td style="padding:28px 28px 24px;">
+                  <p style="margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#DD0247;font-family:'Inter',Arial,sans-serif;">Week 2 &nbsp;|&nbsp; July 6 – July 12</p>
+                  <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:'Inter',Arial,sans-serif;">Do It</p>
+                  <p style="margin:0 0 6px;font-size:18px;font-weight:700;color:#ffffff;font-family:'Inter',Arial,sans-serif;">100 squats every day this week.</p>
+                  <p style="margin:0 0 20px;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.7);font-family:'Inter',Arial,sans-serif;">Break them up — 20 in the morning, 30 at lunch, 50 after dinner. However you need to make it happen.</p>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fce4ec;border-left:3px solid #DD0247;border-radius:0 8px 8px 0;">
+                    <tr>
+                      <td style="padding:10px 14px;">
+                        <p style="margin:0 0 3px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DD0247;font-family:'Inter',Arial,sans-serif;">Share It</p>
+                        <p style="margin:0;font-size:13px;color:#1a1a1a;line-height:1.5;font-family:'Inter',Arial,sans-serif;">Post your meal prep photos in the FB group this week. Let people see what your summer plate looks like.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <div class="cta-section" style="padding-top:16px;">
+        <a href="https://macrofitprogram.com/lockin-app" class="cta-button">Track It in the App</a>
+        <a href="https://www.facebook.com/groups/macrofitonline" class="cta-button-secondary">Post in FB Group</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- TONIGHT'S CHAT -->
+      <p class="section-label">Tonight</p>
+      <h2 class="section-heading">Week 2 Lock In Chat — 8:30 PM CT</h2>
+      <p class="body-text">
+        Tonight at <strong>8:30 PM CT</strong> I'm going live for our Week 2 Lock In Chat. The topic is <strong>"The summer sabotage survival guide."</strong>
+      </p>
+      <p class="body-text">
+        Cookouts. Travel. Eating out. The 4th of July. All of it. We're going to talk about how to navigate every summer situation without falling off your plan — and without stressing about it either.
+      </p>
+      <p class="body-text">
+        You don't want to miss this one.
+      </p>
+
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAFAF9;border:1px solid #F0EDE8;border-radius:12px;">
+              <tr>
+                <td style="padding:22px 24px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding-bottom:14px;">
+                        <p style="margin:0 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DD0247;font-family:'Inter',Arial,sans-serif;">When</p>
+                        <p style="margin:0;font-size:15px;font-weight:600;color:#1a1a1a;font-family:'Inter',Arial,sans-serif;">Monday, July 7 at 8:30 PM CT</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom:14px;">
+                        <p style="margin:0 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DD0247;font-family:'Inter',Arial,sans-serif;">Where</p>
+                        <p style="margin:0;font-size:15px;font-weight:600;color:#1a1a1a;font-family:'Inter',Arial,sans-serif;">Live on Facebook — MacroFit FB Group</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p style="margin:0 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DD0247;font-family:'Inter',Arial,sans-serif;">Topic</p>
+                        <p style="margin:0;font-size:15px;font-weight:600;color:#1a1a1a;font-family:'Inter',Arial,sans-serif;">The summer sabotage survival guide</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <div class="cta-section" style="padding-top:16px;">
+        <!-- Replace [INSERT CHAT LINK] with the actual FB Live link when available -->
+        <a href="[INSERT CHAT LINK]" class="cta-button">Join the Live Chat</a>
+      </div>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-section">
+      <hr class="section-divider" style="margin-top:0;" />
+      <p class="closing-text">
+        See you tonight.
+      </p>
+      <p class="signature">— Chelsea</p>
+      <p class="signature-sub">MacroFit Founder</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-logo">MacroFit</p>
+      <p class="footer-text">You're receiving this because you're enrolled in the MacroFit Summer Lock In Challenge 2026.</p>
+      <a href="{{unsubscribe_link}}" class="footer-unsubscribe">Unsubscribe from Summer Lock In emails</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

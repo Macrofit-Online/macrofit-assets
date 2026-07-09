@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Why you might not see results yet — and why that's okay.</title>
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; background-color: #F7F5F2; }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Base */
+    .email-wrapper {
+      background-color: #F7F5F2;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 12px;
+    }
+    .header-logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 20px;
+    }
+    .header-title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+    .header-sub {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Pill badge */
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    /* Body */
+    .body-section {
+      background-color: #ffffff;
+      padding: 40px 40px 32px;
+    }
+    .greeting {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+    }
+    .body-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 20px;
+    }
+    .body-text strong {
+      color: #1a1a1a;
+    }
+
+    /* Highlight callout */
+    .callout-box {
+      background: linear-gradient(135deg, #FEF0F5 0%, #F9F0FF 100%);
+      border-left: 4px solid #DD0247;
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 0 0 24px;
+    }
+    .callout-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333333;
+      margin: 0;
+    }
+    .callout-box p strong {
+      color: #DD0247;
+    }
+
+    /* Section divider */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #F0EDE8;
+      margin: 32px 0;
+    }
+
+    /* Section heading */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #DD0247;
+      margin: 0 0 8px;
+    }
+    .section-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+
+    /* App CTA card */
+    .app-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin: 0 0 24px;
+      text-align: center;
+    }
+    .app-card-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin: 0 0 8px;
+    }
+    .app-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 6px;
+      line-height: 1.3;
+    }
+    .app-card-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin: 0 0 20px;
+      line-height: 1.5;
+    }
+
+    /* CTA Button */
+    .cta-section {
+      text-align: center;
+      padding: 8px 0 16px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      color: #ffffff !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 100px;
+      margin: 8px 6px;
+    }
+    .cta-button-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #DD0247 !important;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 100px;
+      border: 2px solid #DD0247;
+      margin: 8px 6px;
+    }
+    .cta-button-white {
+      display: inline-block;
+      background: #ffffff;
+      color: #DD0247 !important;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 100px;
+    }
+
+    /* Closing */
+    .closing-section {
+      background-color: #ffffff;
+      padding: 0 40px 40px;
+    }
+    .closing-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #444444;
+      margin: 0 0 16px;
+    }
+    .signature {
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 0;
+    }
+    .signature-sub {
+      font-size: 13px;
+      color: #888888;
+      margin: 4px 0 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 12px;
+    }
+    .footer-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.45);
+      margin: 0 0 8px;
+    }
+    .footer-unsubscribe {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .header, .body-section, .closing-section, .footer {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+      .header-title { font-size: 24px !important; }
+      .cta-button, .cta-button-secondary {
+        display: block !important;
+        margin: 8px 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="header-eyebrow">Summer Lock In Challenge</p>
+      <p class="header-logo">MacroFit</p>
+      <div class="badge">Week 2 · Day 5</div>
+      <h1 class="header-title">Why you might not see results yet&nbsp;— and why that's okay.</h1>
+      <p class="header-sub">The most important thing I can tell you right now.</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-section">
+      <p class="greeting">Hey {{first_name}},</p>
+
+      <p class="body-text">Almost 2 full weeks done.</p>
+
+      <p class="body-text">I want to be honest with you about something — because I think it's the most important thing I can tell you right now:</p>
+
+      <!-- Callout -->
+      <div class="callout-box">
+        <p><strong>You're likely not seeing results yet. And that's okay.</strong></p>
+      </div>
+
+      <p class="body-text">The scale might not have moved the way you expected. Your clothes might feel the same. And if that's where you are right now, I need you to hear this:</p>
+
+      <p class="body-text"><strong>That is completely normal. And it doesn't mean it's not working.</strong></p>
+
+      <p class="body-text">We have to manage our expectations — because setting unrealistic expectations is 90% of the reason people fail. And listen to me: <strong>the work you're doing right now matters more than the number on the scale.</strong></p>
+
+      <hr class="section-divider" />
+
+      <!-- Video section -->
+      <p class="section-label">Watch This Weekend</p>
+      <h2 class="section-heading">I posted a video in the Lock In App for you.</h2>
+
+      <p class="body-text">It's short. Watch it this weekend — it covers exactly what's happening right now and why it matters more than you think.</p>
+
+      <div class="app-card">
+        <p class="app-card-eyebrow">Lock In App</p>
+        <p class="app-card-title">New video from Chelsea</p>
+        <p class="app-card-sub">Open the app and watch it this weekend. It's worth 2 minutes of your time.</p>
+        <a href="https://macrofitprogram.com/lockin-app" class="cta-button-white">Watch the Video</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Behavior section -->
+      <p class="section-label">The Real Work</p>
+      <h2 class="section-heading">What you're actually building right now.</h2>
+
+      <p class="body-text">What you're building over these 42 days isn't just physical. It's behavioral.</p>
+
+      <p class="body-text">Every time you make a choice that aligns with your goals — every meal, every squat, every day you open the app and track your progress — <strong>you're rewiring how you make decisions about food and your body.</strong></p>
+
+      <p class="body-text">That's behavior modification. And it's the foundation of every long-term result you'll ever get.</p>
+
+      <p class="body-text">The people who lose weight and keep it off aren't the ones who found the perfect diet. They're the ones who changed how they think and behave around food — until the healthy choice became the automatic choice.</p>
+
+      <p class="body-text"><strong>That's what MacroFit is building for you right now. Even when you can't see it yet.</strong></p>
+
+      <p class="body-text">Progress isn't linear. It rarely looks the way we expect it to in the middle. But it's happening — and two weeks of consistent behavior is more valuable than two weeks of dramatic results that don't last.</p>
+
+      <hr class="section-divider" />
+
+      <!-- FB Win section -->
+      <p class="section-label">Community</p>
+      <h2 class="section-heading">What's your Week 2 win?</h2>
+
+      <p class="body-text">A meal you navigated. Squats you didn't skip. A day you showed up when you didn't feel like it.</p>
+
+      <p class="body-text"><strong>Share it in the FB group before the weekend — someone else needs to see it, and it matters.</strong></p>
+
+      <div class="cta-section">
+        <a href="https://facebook.com/groups/macrofitonline" class="cta-button">Drop Your Win in the FB Group</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Week 3 teaser -->
+      <p class="section-label">Coming Monday</p>
+      <h2 class="section-heading">Week 3 starts Monday. Fair warning.</h2>
+
+      <p class="body-text">This is where it starts to get real. Dig in and exercise that discipline muscle.</p>
+
+      <p class="body-text"><strong>Monday night at 8:15 PM — Lock In Chat in the Facebook group.</strong> We're covering the gap between doing the work and seeing the work. You don't want to miss this one.</p>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-section">
+      <p class="closing-text">See you Monday.</p>
+      <p class="signature">— Chelsea</p>
+      <p class="signature-sub">MacroFit | Summer Lock In Challenge</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-logo">MacroFit</p>
+      <p class="footer-text">
+        You're receiving this because you're enrolled in the MacroFit Summer Lock In Challenge.<br />
+        macrofitprogram.com
+      </p>
+      <a href="{{unsubscribe_url}}" class="footer-unsubscribe">Unsubscribe</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

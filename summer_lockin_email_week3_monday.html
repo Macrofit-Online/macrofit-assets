@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Week 3 is here. This is where it gets real.</title>
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; background-color: #F7F5F2; }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    .email-wrapper { background-color: #F7F5F2; font-family: 'Inter', Arial, sans-serif; }
+    .email-container { max-width: 600px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin: 0 0 12px;
+    }
+    .header-logo {
+      font-size: 22px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #ffffff; margin: 0 0 20px;
+    }
+    .header-title {
+      font-size: 30px; font-weight: 700; line-height: 1.25; color: #ffffff; margin: 0 0 8px;
+    }
+    .header-sub {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); margin: 0; letter-spacing: 0.5px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px; padding: 5px 14px; font-size: 11px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; margin-bottom: 16px;
+    }
+
+    /* Body */
+    .body-section { background-color: #ffffff; padding: 40px 40px 32px; }
+    .greeting { font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 16px; }
+    .body-text { font-size: 15px; line-height: 1.7; color: #444444; margin: 0 0 20px; }
+    .body-text strong { color: #1a1a1a; }
+
+    /* Obstacle cards */
+    .obstacle-card {
+      background: #FAFAFA;
+      border: 1px solid #F0EDE8;
+      border-radius: 12px;
+      padding: 20px 20px 16px;
+      margin: 0 0 12px;
+    }
+    .obstacle-title {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; color: #DD0247; margin: 0 0 8px;
+    }
+    .obstacle-text {
+      font-size: 14px; line-height: 1.65; color: #555555; margin: 0;
+    }
+    .obstacle-text strong { color: #1a1a1a; }
+
+    /* Section divider */
+    .section-divider { border: none; border-top: 1px solid #F0EDE8; margin: 32px 0; }
+
+    /* Section heading */
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #DD0247; margin: 0 0 8px;
+    }
+    .section-heading {
+      font-size: 20px; font-weight: 700; color: #1a1a1a; margin: 0 0 16px; line-height: 1.3;
+    }
+
+    /* Challenge block */
+    .challenge-block {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1a2e 100%);
+      border-radius: 16px; padding: 28px 28px 24px; margin: 0 0 24px;
+    }
+    .challenge-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 4px;
+    }
+    .challenge-week {
+      font-size: 22px; font-weight: 700; color: #ffffff; margin: 0 0 20px; line-height: 1.2;
+    }
+    .challenge-row {
+      display: table; width: 100%; margin-bottom: 14px;
+    }
+    .challenge-icon {
+      display: table-cell; width: 32px; vertical-align: top;
+      font-size: 18px; padding-top: 2px;
+    }
+    .challenge-content { display: table-cell; vertical-align: top; }
+    .challenge-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 0 0 3px;
+    }
+    .challenge-desc {
+      font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.85); margin: 0;
+    }
+    .challenge-desc strong { color: #ffffff; }
+    .challenge-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0;
+    }
+    .challenge-why {
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.6); margin: 0;
+    }
+
+    /* App link row */
+    .app-link-row {
+      text-align: center; padding: 4px 0 8px;
+    }
+    .app-link {
+      font-size: 13px; font-weight: 600; color: #DD0247 !important;
+      text-decoration: none; letter-spacing: 0.3px;
+    }
+
+    /* Chat card */
+    .chat-card {
+      background: linear-gradient(135deg, #FEF0F5 0%, #F9F0FF 100%);
+      border: 1px solid rgba(221,2,71,0.15);
+      border-radius: 16px; padding: 24px 24px 20px; margin: 0 0 24px;
+    }
+    .chat-live-dot {
+      display: inline-block; width: 8px; height: 8px;
+      background: #DD0247; border-radius: 50%; margin-right: 6px; vertical-align: middle;
+    }
+    .chat-live-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #DD0247; vertical-align: middle;
+    }
+    .chat-title {
+      font-size: 18px; font-weight: 700; color: #1a1a1a;
+      margin: 10px 0 6px; line-height: 1.3;
+    }
+    .chat-sub {
+      font-size: 14px; line-height: 1.6; color: #555555; margin: 0 0 18px;
+    }
+
+    /* CTA Button */
+    .cta-section { text-align: center; padding: 8px 0 16px; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      color: #ffffff !important; font-size: 14px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 100px; margin: 8px 6px;
+    }
+    .cta-button-secondary {
+      display: inline-block; background: transparent;
+      color: #DD0247 !important; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.5px; text-decoration: none;
+      padding: 15px 32px; border-radius: 100px;
+      border: 2px solid #DD0247; margin: 8px 6px;
+    }
+
+    /* Closing */
+    .closing-section { background-color: #ffffff; padding: 0 40px 40px; }
+    .closing-text { font-size: 15px; line-height: 1.7; color: #444444; margin: 0 0 16px; }
+    .closing-text strong { color: #1a1a1a; }
+    .signature { font-size: 15px; color: #1a1a1a; font-weight: 600; margin: 0; }
+    .signature-sub { font-size: 13px; color: #888888; margin: 4px 0 0; }
+
+    /* Footer */
+    .footer { background-color: #1a1a1a; padding: 28px 40px; text-align: center; }
+    .footer-logo {
+      font-size: 14px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #ffffff; margin: 0 0 12px;
+    }
+    .footer-text { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.45); margin: 0 0 8px; }
+    .footer-unsubscribe { font-size: 11px; color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* Mobile */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .header, .body-section, .closing-section, .footer {
+        padding-left: 24px !important; padding-right: 24px !important;
+      }
+      .header-title { font-size: 24px !important; }
+      .cta-button, .cta-button-secondary { display: block !important; margin: 8px 0 !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="header-eyebrow">Summer Lock In Challenge</p>
+      <p class="header-logo">MacroFit</p>
+      <div class="badge">Week 3 · Day 1</div>
+      <h1 class="header-title">Week 3 is here.<br />This is where it gets real.</h1>
+      <p class="header-sub">The people who push through Week 3 almost always finish.</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-section">
+      <p class="greeting">Hey {{contact.first_name}},</p>
+
+      <p class="body-text">I'm going to be straight with you today because I think you deserve to know what's coming.</p>
+
+      <p class="body-text"><strong>Week 3 is where most people quietly stop.</strong> Not because the plan stopped working. Not because they're incapable. But because a few things creep in that feel bigger than they actually are — and I want to address them head on before they get to you.</p>
+
+      <hr class="section-divider" />
+
+      <!-- Obstacle 1 -->
+      <div class="obstacle-card">
+        <p class="obstacle-title">Being too hard on yourself</p>
+        <p class="obstacle-text">You are learning a new way of eating and a new relationship with food. That takes time. You are not going to be perfect at it in Week 3. Nobody is.<br /><br /><strong>The goal is not perfection — it's progress.</strong> If you had a rough day, the next meal is a fresh start. Give yourself the same grace you would give a friend who was trying something new. You deserve that too.</p>
+      </div>
+
+      <!-- Obstacle 2 -->
+      <div class="obstacle-card">
+        <p class="obstacle-title">All-or-nothing thinking</p>
+        <p class="obstacle-text">This is the one that takes more people out than anything else.<br /><br />One off-plan meal becomes "I already ruined it" — and suddenly the whole week is gone. Here's the truth: <strong>one meal does not derail 42 days. One decision to quit does.</strong><br /><br />You can have a hard day and still have a great week. You can have a hard week and still finish this challenge. It is never all or nothing.</p>
+      </div>
+
+      <!-- Obstacle 3 -->
+      <div class="obstacle-card">
+        <p class="obstacle-title">Unrealistic expectations</p>
+        <p class="obstacle-text">If you're waiting to look like a completely different person by Week 3, MacroFit is going to feel like it's not working — because it was never built for that.<br /><br /><strong>MacroFit is built for lasting change.</strong> Real change. The kind that sticks six months from now, a year from now, five years from now. That kind of change doesn't happen in three weeks. It builds. And right now, in Week 3, it's building — even when you can't see it yet.</p>
+      </div>
+
+      <!-- Obstacle 4 -->
+      <div class="obstacle-card">
+        <p class="obstacle-title">Lack of support</p>
+        <p class="obstacle-text">This one is on us — and it's exactly why the Summer Lock In exists.<br /><br />You are not doing this alone. You have a community of people in the FB group who are in the exact same place you are right now. You have a weekly chat where you can ask real questions and get real answers. You have the app tracking your progress every single day.<br /><br /><strong>Use it.</strong> Post in the group. Submit a question for tonight's chat. Let the community carry some of the weight this week. That's what we're here for.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Week 3 Challenge -->
+      <p class="section-label">Week 3 Challenge</p>
+      <div class="challenge-block">
+        <p class="challenge-eyebrow">This week</p>
+        <p class="challenge-week">8,000 steps every day.</p>
+
+        <div class="challenge-row">
+          <div class="challenge-icon">✅</div>
+          <div class="challenge-content">
+            <p class="challenge-tag">Do It</p>
+            <p class="challenge-desc"><strong>8,000 steps every day this week.</strong> Already hitting 8k? Add 2,000 more than your current daily average and make that your goal. Keep moving.</p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-icon">📲</div>
+          <div class="challenge-content">
+            <p class="challenge-tag">Share It</p>
+            <p class="challenge-desc">Post your daily movement in the FB group — one sentence: what did you do today?</p>
+          </div>
+        </div>
+
+        <hr class="challenge-divider" />
+        <p class="challenge-why"><strong style="color:rgba(255,255,255,0.85);">Why steps this week?</strong> More daily steps means better blood sugar regulation, improved mood, better sleep, and more calories burned throughout the day — none of which show up on the scale immediately, but all of which are working in the background to make your results more sustainable long term. Park further away. Take the stairs. Walk after dinner. It all counts.</p>
+      </div>
+
+      <div class="cta-section">
+        <a href="https://www.facebook.com/groups/macrofitonline" class="cta-button-secondary">Post in the FB Group</a>
+      </div>
+      <div class="app-link-row">
+        <a href="https://macrofitprogram.com/lockin-app" class="app-link">Mark it off in your daily goal tracker →</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Tonight's Chat -->
+      <p class="section-label">Tonight — Lock In Chat at 8:30 PM</p>
+      <div class="chat-card">
+        <span class="chat-live-dot"></span><span class="chat-live-label">Live on Facebook</span>
+        <p class="chat-title">The gap between doing the work and seeing the work.</p>
+        <p class="chat-sub">This is one of the most important conversations we'll have in the entire 42 days. We're talking about why the results feel invisible right now — and what's actually happening in your body and your behavior while you wait for them to show up.<br /><br />If any part of this email resonated with you today, this chat is for you. Don't miss it.</p>
+        <div class="cta-section" style="padding:0;">
+          <a href="[INSERT CHAT LINK]" class="cta-button">Join the Live Chat</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-section">
+      <p class="closing-text"><strong>Week 3 is where the real work happens. The people who push through it almost always finish.</strong></p>
+      <p class="closing-text">You're not behind. You're not broken. You're exactly where the work is.</p>
+      <p class="closing-text">See you tonight.</p>
+      <p class="signature">— Chelsea</p>
+      <p class="signature-sub">MacroFit | Summer Lock In Challenge</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-logo">MacroFit</p>
+      <p class="footer-text">
+        You're receiving this because you're enrolled in the MacroFit Summer Lock In Challenge.<br />
+        macrofitprogram.com
+      </p>
+      <a href="{{unsubscribe_url}}" class="footer-unsubscribe">Unsubscribe</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

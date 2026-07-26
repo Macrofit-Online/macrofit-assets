@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Week 5. This is where it gets good.</title>
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; background-color: #F7F5F2; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    .email-wrapper { background-color: #F7F5F2; font-family: 'Inter', Arial, sans-serif; }
+    .email-container { max-width: 600px; margin: 0 auto; }
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin: 0 0 12px;
+    }
+    .header-logo {
+      font-size: 22px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #ffffff; margin: 0 0 20px;
+    }
+    .header-title {
+      font-size: 30px; font-weight: 700; line-height: 1.25; color: #ffffff; margin: 0 0 8px;
+    }
+    .header-sub {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); margin: 0; letter-spacing: 0.5px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 100px; padding: 5px 14px; font-size: 11px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; margin-bottom: 16px;
+    }
+    /* Body */
+    .body-section { background-color: #ffffff; padding: 40px 40px 32px; }
+    .greeting { font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 16px; }
+    .body-text { font-size: 15px; line-height: 1.7; color: #444444; margin: 0 0 20px; }
+    .body-text strong { color: #1a1a1a; }
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid #DD0247;
+      padding: 4px 0 4px 20px;
+      margin: 0 0 24px;
+    }
+    .pull-quote-text {
+      font-size: 18px; font-weight: 700; line-height: 1.4; color: #1a1a1a; margin: 0;
+    }
+    /* Divider */
+    .section-divider { border: none; border-top: 1px solid #F0EDE8; margin: 32px 0; }
+    /* Section heading */
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #DD0247; margin: 0 0 8px;
+    }
+    .section-heading {
+      font-size: 20px; font-weight: 700; color: #1a1a1a; margin: 0 0 16px; line-height: 1.3;
+    }
+    /* Challenge block */
+    .info-block {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1a2e 100%);
+      border-radius: 16px; padding: 28px 28px 24px; margin: 0 0 24px;
+    }
+    .info-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 4px;
+    }
+    .info-heading {
+      font-size: 18px; font-weight: 700; color: #ffffff; margin: 0 0 20px; line-height: 1.3;
+    }
+    .info-row {
+      display: table; width: 100%; margin-bottom: 14px;
+    }
+    .info-icon {
+      display: table-cell; width: 28px; vertical-align: top;
+      font-size: 16px; padding-top: 1px;
+    }
+    .info-content { display: table-cell; vertical-align: top; }
+    .info-desc {
+      font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.85); margin: 0;
+    }
+    .info-desc strong { color: #ffffff; }
+    .info-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0;
+    }
+    .info-note {
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.6); margin: 0;
+    }
+    /* App link row */
+    .app-link-row {
+      text-align: center; padding: 4px 0 8px;
+    }
+    .app-link {
+      font-size: 13px; font-weight: 600; color: #DD0247 !important;
+      text-decoration: none; letter-spacing: 0.3px;
+    }
+    /* Video card */
+    .chat-card {
+      background: linear-gradient(135deg, #FEF0F5 0%, #F9F0FF 100%);
+      border: 1px solid rgba(221,2,71,0.15);
+      border-radius: 16px; padding: 24px 24px 20px; margin: 0 0 24px;
+    }
+    .chat-live-dot {
+      display: inline-block; width: 8px; height: 8px;
+      background: #DD0247; border-radius: 50%; margin-right: 6px; vertical-align: middle;
+    }
+    .chat-live-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #DD0247; vertical-align: middle;
+    }
+    .chat-title {
+      font-size: 18px; font-weight: 700; color: #1a1a1a;
+      margin: 10px 0 6px; line-height: 1.3;
+    }
+    .chat-sub {
+      font-size: 14px; line-height: 1.6; color: #555555; margin: 0 0 18px;
+    }
+    /* CTA Button */
+    .cta-section { text-align: center; padding: 8px 0 16px; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #DD0247 0%, #9F1686 100%);
+      color: #ffffff !important; font-size: 14px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 100px; margin: 8px 6px;
+    }
+    .cta-button-secondary {
+      display: inline-block; background: transparent;
+      color: #DD0247 !important; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.5px; text-decoration: none;
+      padding: 15px 32px; border-radius: 100px;
+      border: 2px solid #DD0247; margin: 8px 6px;
+    }
+    /* Closing */
+    .closing-section { background-color: #ffffff; padding: 0 40px 40px; }
+    .closing-text { font-size: 15px; line-height: 1.7; color: #444444; margin: 0 0 16px; }
+    .closing-text strong { color: #1a1a1a; }
+    .signature { font-size: 15px; color: #1a1a1a; font-weight: 600; margin: 0; }
+    .signature-sub { font-size: 13px; color: #888888; margin: 4px 0 0; }
+    /* Footer */
+    .footer { background-color: #1a1a1a; padding: 28px 40px; text-align: center; }
+    .footer-logo {
+      font-size: 14px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #ffffff; margin: 0 0 12px;
+    }
+    .footer-text { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.45); margin: 0 0 8px; }
+    .footer-unsubscribe { font-size: 11px; color: rgba(255,255,255,0.35); text-decoration: none; }
+    /* Mobile */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .header, .body-section, .closing-section, .footer {
+        padding-left: 24px !important; padding-right: 24px !important;
+      }
+      .header-title { font-size: 24px !important; }
+      .cta-button, .cta-button-secondary { display: block !important; margin: 8px 0 !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="email-container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="header-eyebrow">Summer Lock In Challenge</p>
+      <p class="header-logo">MacroFit</p>
+      <div class="badge">Week 5 · Day 1</div>
+      <p class="header-title">This is where it gets good.</p>
+      <p class="header-sub">You're in the final third of this challenge.</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-section">
+      <p class="greeting">Hey {{contact.first_name}},</p>
+
+      <p class="body-text">Kicking off week 5. You're in the final third of this challenge!</p>
+
+      <p class="body-text">I want you to take a second before you read the challenge and actually think about where you were before June 29th. How you felt. The decisions you were making around nutrition and exercise.</p>
+
+      <p class="body-text">Now think about where you are today.</p>
+
+      <div class="pull-quote">
+        <p class="pull-quote-text">That's four weeks of consistent behavior. Four weeks of showing up when it was easy and when it wasn't. Four weeks of building something that didn't exist at the start of the summer.</p>
+      </div>
+
+      <p class="body-text"><strong>THAT is where habits are made — where discipline is developed.</strong> Because do not be fooled into thinking you're either disciplined or you're not — it is 100% something that is worked at and cultivated!</p>
+
+      <hr class="section-divider" />
+
+      <!-- Week 5 Challenge block -->
+      <p class="section-label">Week 5 Challenge</p>
+      <div class="info-block">
+        <p class="info-eyebrow">Your challenge this week</p>
+        <p class="info-heading">Three workouts. One check-in. Keep going.</p>
+
+        <div class="info-row">
+          <div class="info-icon">💪</div>
+          <div class="info-content">
+            <p class="info-desc"><strong>Do It:</strong> 3 strength workouts this week. Not optional. Schedule them right now — before anything else fills the time. Put them in your calendar like a meeting you can't cancel. Because you can't.</p>
+          </div>
+        </div>
+
+        <hr class="info-divider" />
+
+        <div class="info-row">
+          <div class="info-icon">📣</div>
+          <div class="info-content">
+            <p class="info-desc"><strong>Share It:</strong> Your energy check. Before vs. now. How do you feel compared to Day 1? Energy levels, mood, sleep, strength, confidence — all of it. Share it in the FB group.</p>
+          </div>
+        </div>
+
+        <hr class="info-divider" />
+
+        <p class="info-note">Mark it off in your daily goal tracker at macrofitprogram.com/lockin-app</p>
+      </div>
+
+      <div class="cta-section">
+        <a href="https://www.facebook.com/groups/macrofitonline" class="cta-button-secondary">Post in the FB Group</a>
+      </div>
+      <div class="app-link-row">
+        <a href="https://facebook.com/groups/macrofitonline" class="app-link">facebook.com/groups/macrofitonline →</a>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Why strength training -->
+      <p class="section-label">Why it matters</p>
+      <p class="section-heading">Why strength training this week?</p>
+
+      <p class="body-text">Four weeks into a slight calorie deficit, your body is in a really important window. <strong>Strength training right now signals to your body to hold onto muscle while it burns fat.</strong></p>
+
+      <p class="body-text">Remember how important it is to keep our muscle? It's why we don't do these crazy, restrictive diets that take our calories too low and our muscle along with it — because that slows your metabolism and changes how your results look and feel long term.</p>
+
+      <p class="body-text">Three workouts this week. That's it. Walk in, do the work, walk out. It doesn't have to be complicated! If you don't know where to start, start with the <strong>Macrofit Original workout videos!</strong></p>
+
+      <hr class="section-divider" />
+
+      <!-- New video in the app -->
+      <p class="section-label">New video in the app</p>
+      <div class="chat-card">
+        <span class="chat-live-dot"></span><span class="chat-live-label">Now in the Lock In App</span>
+        <p class="chat-title">New video this week.</p>
+        <p class="chat-sub">Head to the Lock In App to watch this week's video from Chelsea.</p>
+        <div class="cta-section" style="padding:0;">
+          <a href="https://macrofitprogram.com/lockin-app" class="cta-button">Watch the Video</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-section">
+      <p class="closing-text">Week 5 is where you're hitting your groove — <strong>KEEP GOING.</strong> Keep building those habits. They may have stopped feeling like a lot of effort — but this is the point where you need to stay vigilant. Results are going to start snowballing with high adherence!</p>
+      <p class="closing-text">I'm so very proud of you for taking care of you!</p>
+      <p class="signature">— Chelsea</p>
+      <p class="signature-sub">MacroFit | Summer Lock In Challenge</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p class="footer-logo">MacroFit</p>
+      <p class="footer-text">
+        You're receiving this because you're enrolled in the MacroFit Summer Lock In Challenge.<br />
+        macrofitprogram.com
+      </p>
+      <a href="{{unsubscribe_url}}" class="footer-unsubscribe">Unsubscribe</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

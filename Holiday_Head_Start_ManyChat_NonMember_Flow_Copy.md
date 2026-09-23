@@ -26,12 +26,12 @@ Do **not** collect a phone number or imply future text outreach in this branch. 
 ```text
 "No, I’m interested" selected
         ↓
-Action: Add ManyChat-only interest tag
+Optional action: Add ManyChat-only interest tag
         ↓
-Message: warm Holiday / MacroFit sales bridge
+Message: warm Holiday / MacroFit sales bridge + HHS15 offer
         ↓
-Button: Show Me the Holiday Plan  → prospect page
-Button: See Membership Options    → pricing section of prospect page
+Button: Explore MacroFit     → prospect page
+Button: See Member Options   → pricing section of prospect page
         ↓
 End
 ```
@@ -55,19 +55,19 @@ The existing **Yes, I’m a member** branch remains separate. It continues to se
 
 **Card name:** `HHS Non-Member — MacroFit Plan Bridge`
 
-> Honestly, this is a really good time to start—not a time you have to wait for January.  
+> This is actually a really good time to start. You do not have to wait for January to get started on your goals.  
 >  
-> MacroFit gives you a personalized plan, flexible meals, grocery lists, restaurant options, and support that fits your real life. No trying to be “perfect” through the holidays.  
+> MacroFit gives you a personalized plan, flexible meals, grocery lists, restaurant options, and support that fits real life. When you become a MacroFitter, Holiday Head Start is included for you.  
 >  
-> **Holiday Head Start starts October 19.** The full 42-day challenge is included for current MacroFitters, so the best first step is getting your MacroFit plan in place now. Once you’re officially a member, we’ll send you a quick link to save your Holiday Head Start spot.  
+> **Use code HHS15 for $15 off your first month when you join.**  
 >  
-> Want to see what that could look like?
+> Get your plan in place now, and once you are officially a member, we will send you the quick link to save your Holiday Head Start spot.
 
-Use only the two buttons below. Avoid a promo code, a countdown/spot claim, or a promise of challenge access before she becomes a member.
+Use only the two buttons below. Do not use a countdown or imply that challenge access is available before the person becomes a member. **Before activation, verify that `HHS15` is active in the MacroFit checkout system and applies $15 off the first month.**
 
 | Button label | Destination | Purpose |
 |---|---|---|
-| **Show Me the Holiday Plan** | `https://macrofitprogram.com/holiday-head-start/join?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026&utm_content=non-member-learn` | Opens the full focused MacroFit conversion page, including benefits, member proof, and the transparent Holiday handoff. |
+| **Explore MacroFit** | `https://macrofitprogram.com/holiday-head-start/join?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026&utm_content=non-member-learn` | Opens the full focused MacroFit conversion page, including benefits, member proof, and the transparent Holiday handoff. |
 | **See Membership Options** | `https://macrofitprogram.com/holiday-head-start/join?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026&utm_content=non-member-ready#membership` | Sends a high-intent person directly to the pricing section of the same conversion page. |
 
 For the Facebook Messenger version, keep the message unchanged and replace only `utm_medium=instagram-dm` with `utm_medium=facebook-messenger`.
@@ -92,7 +92,7 @@ Test both channels on a real phone before publishing.
 | Test | Expected outcome |
 |---|---|
 | Instagram DM non-member selection | Adds `HHS 2026 | Interest | Not a Member` in ManyChat only; does not create Holiday challenge enrollment in GHL. |
-| **Show Me the Holiday Plan** | Opens `/holiday-head-start/join` with the exact Instagram UTM parameters. |
+| **Explore MacroFit** | Opens `/holiday-head-start/join` with the exact Instagram UTM parameters. |
 | **See Membership Options** | Opens the same page at `#membership` with `utm_content=non-member-ready`. |
 | Facebook Messenger version | Same copy and behavior, with `utm_medium=facebook-messenger`. |
 | Existing member selection | Still routes only to the current-member registration experience, not the prospect page. |
@@ -105,3 +105,4 @@ Test both channels on a real phone before publishing.
 - Do not auto-add a non-member to the paid-member Holiday list.
 - Do not activate the new-member invitation workflow until the core onboarding email sequence and the end-to-end Stripe/Zapier/GHL test are approved.
 - Keep the current-member path and non-member path visibly separate in ManyChat.
+- As of September 23, 2026, the revised message and the two buttons are saved in the **stopped** Holiday Head Start Challenge automation. The existing comment trigger remains off; do not activate it until the checkout code and both mobile paths pass QA.

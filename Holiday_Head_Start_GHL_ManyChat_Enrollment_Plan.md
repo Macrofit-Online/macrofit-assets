@@ -125,6 +125,22 @@ The first workflow should branch as follows:
 
 All time-delayed messages must be set and checked in **Central Time**. The workflow must be tested with both a future registration and a late registration to confirm that it never backfills or sends past-dated messages.
 
+### Selected initial gate and draft workflow configuration
+
+For this campaign, the user-selected initial eligibility signal is the registration-form answer **“Yes, I’m doing MacroFit now.”** This mirrors the Summer-style branch and is sufficient for the initial draft; the form answer is not a substitute for a future billing-based audit if that becomes available.
+
+Build the following workflow as a **draft only**. It must not be published or allowed to send Holiday content until all email/SMS dates and the registration confirmation are approved:
+
+| Step | Configuration |
+|---|---|
+| Workflow name | `HHS 2026 — Registration and Verification` |
+| Entry trigger | **Form Submitted** → `Holiday Head Start 2026 Registration` (form ID `DGxYECQSEkBQEkicldtI`) |
+| Branch condition | **Are you currently a Macrofit member?** equals **Yes, I’m doing Macrofit now** |
+| Yes branch | Add `HHS-2026-Registration-Requested` and `HHS-2026-Registered`; retain UTM/source fields for reporting; leave the participant in draft workflow status pending the approved confirmation message. |
+| No branch | Add `HHS-2026-Not-a-Member`; do **not** apply a participant tag or enroll the contact in member-only communication. The public landing page already presents **Build My MacroFit Plan** as the appropriate destination. |
+| Immediate messaging | None until the confirmation copy, sender identity, and launch schedule are approved. |
+| Workflow status | **Draft.** Do not publish before a two-path test contact confirms the correct tags and zero member messaging for the No branch. |
+
 ## Tracking and reporting
 
 The campaign should report the complete path from discovery to registration. The source tags and hidden page parameters will make it possible to compare landing-page registrations with ManyChat registrations.

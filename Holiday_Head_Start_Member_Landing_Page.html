@@ -1,0 +1,1258 @@
+<!--
+  MacroFit Holiday Head Start Challenge 2026 — GHL Member Registration Landing Page
+  Tagline: Results Before Resolutions
+  Dates: October 19–November 29, 2026 (Central Time)
+
+  Implementation notes:
+  - This page is for current paid MacroFit members. The embedded GHL form is the sole official challenge registration point.
+  - Configure the cloned form (ID: DGxYECQSEkBQEkicldtI) to collect first name, email, phone only if SMS is used, explicit SMS consent, and membership confirmation.
+  - Configure the form submission workflow to verify current paid membership before applying Holiday participant tags or sending member-only messages.
+  - Do not add public companion-app visitors to challenge communications merely because they view or download the app.
+  - Set page SEO title to: Holiday Head Start Challenge | MacroFit
+  - Set meta description to: Results Before Resolutions. A 42-day Holiday Head Start Challenge for current MacroFit members, October 19–November 29.
+-->
+<style>
+  :root {
+    --mf-black: #181416;
+    --mf-charcoal: #2a2427;
+    --mf-pink: #d82f88;
+    --mf-pink-dark: #b91f70;
+    --mf-blush: #fff0f7;
+    --mf-blush-2: #fde3f0;
+    --mf-cream: #fffaf5;
+    --mf-white: #ffffff;
+    --mf-blue: #607f9e;
+    --mf-text: #342c30;
+    --mf-muted: #6c6066;
+    --mf-border: rgba(216, 47, 136, 0.18);
+    --mf-shadow: 0 22px 60px rgba(24, 20, 22, 0.12);
+    --mf-radius: 28px;
+    --mf-radius-sm: 18px;
+    --mf-max: 1180px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--mf-cream);
+  }
+
+  .mf-page, .mf-page * {
+    box-sizing: border-box;
+  }
+
+  .mf-page {
+    margin: 0;
+    color: var(--mf-text);
+    background: var(--mf-cream);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+
+  .mf-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mf-wrap {
+    width: min(var(--mf-max), calc(100% - 36px));
+    margin: 0 auto;
+  }
+
+  .mf-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid var(--mf-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--mf-pink-dark);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .mf-kicker::before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--mf-pink);
+    flex-shrink: 0;
+  }
+
+  .mf-section {
+    padding: 84px 0;
+    position: relative;
+  }
+
+  .mf-section-tight {
+    padding: 64px 0;
+  }
+
+  .mf-section h1,
+  .mf-section h2,
+  .mf-section h3,
+  .mf-section p {
+    margin-top: 0;
+  }
+
+  .mf-h1 {
+    margin: 22px 0 10px;
+    color: var(--mf-black);
+    font-size: clamp(2.52rem, 4.48vw, 4.48rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .mf-h2 {
+    margin: 16px 0 20px;
+    color: var(--mf-black);
+    font-size: clamp(1.9rem, 5.1vw, 4.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    font-weight: 950;
+  }
+
+  .mf-h3 {
+    margin: 0 0 10px;
+    color: var(--mf-black);
+    font-size: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 900;
+  }
+
+  .mf-lede {
+    color: var(--mf-muted);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    line-height: 1.58;
+  }
+
+  .mf-body {
+    color: var(--mf-muted);
+    font-size: 1.05rem;
+  }
+
+  .mf-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .mf-btn {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 14px 24px;
+    border: 2px solid transparent;
+    font-size: 0.94rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    cursor: pointer;
+  }
+
+  .mf-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .mf-btn-primary {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    box-shadow: 0 16px 34px rgba(216, 47, 136, 0.28);
+  }
+
+  .mf-btn-secondary {
+    color: var(--mf-black);
+    background: var(--mf-white);
+    border-color: rgba(24, 20, 22, 0.12);
+    box-shadow: 0 12px 28px rgba(24, 20, 22, 0.08);
+  }
+
+  .mf-btn-light {
+    color: var(--mf-white);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ── STICKY NAV ── */
+  .mf-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--mf-black);
+    border-bottom: 2px solid var(--mf-pink);
+    box-shadow: 0 2px 16px rgba(24,20,22,0.22);
+  }
+
+  .mf-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 58px;
+    width: min(var(--mf-max), calc(100% - 36px));
+    margin: 0 auto;
+  }
+
+  .mf-nav-logo img {
+    display: block;
+    width: 52px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .mf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mf-nav-link {
+    color: #ffffff !important;
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .mf-nav-link:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .mf-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 6px 18px rgba(216,47,136,0.32);
+  }
+
+  .mf-nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(216,47,136,0.42);
+  }
+
+  @media (max-width: 720px) {
+    .mf-nav-links { display: none; }
+    .mf-nav-inner { justify-content: space-between; }
+  }
+
+  /* ── NOT A MEMBER CALLOUT ── */
+  .mf-nonmember-callout {
+    background: linear-gradient(135deg, #fff7fb, #fde3f0);
+    border: 1.5px solid var(--mf-border);
+    border-radius: var(--mf-radius);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .mf-nonmember-callout-text h3 {
+    margin: 0 0 8px;
+    color: var(--mf-black);
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .mf-nonmember-callout-text p {
+    margin: 0;
+    color: var(--mf-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .mf-nonmember-callout {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 20px;
+    }
+  }
+
+  /* ── HERO ── */
+  .mf-hero {
+    min-height: 760px;
+    padding: 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(216, 47, 136, 0.2), transparent 31%),
+      radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.72), transparent 26%),
+      linear-gradient(135deg, #fff7fb 0%, #fffaf5 48%, #fee8f3 100%);
+  }
+
+  .mf-topbar {
+    position: relative;
+    z-index: 2;
+    padding: 8px 0;
+    background: var(--mf-black);
+    color: var(--mf-white);
+  }
+
+  .mf-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 54px;
+  }
+
+  .mf-logo {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .mf-logo img {
+    display: block;
+    width: 58px;
+    max-width: 18vw;
+    height: auto;
+    background: transparent;
+  }
+
+  .mf-topbar-note {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.82rem, 1.2vw, 1.1rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: right;
+    flex: 1;
+  }
+
+  .mf-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.78fr);
+    gap: 48px;
+    align-items: center;
+    min-height: 690px;
+    padding: 72px 0;
+  }
+
+  .mf-hero-copy {
+    max-width: 740px;
+  }
+
+  .mf-hero-sub {
+    color: var(--mf-blue);
+    font-size: clamp(1.3rem, 3.6vw, 3.1rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 950;
+  }
+
+  .mf-hero-card {
+    position: relative;
+    min-height: 520px;
+    border-radius: 38px;
+    padding: 28px;
+    background:
+      linear-gradient(rgba(24, 20, 22, 0.08), rgba(24, 20, 22, 0.18)),
+      url("https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/CfYdTeLgwpNfVuoJ.jpg") center/cover;
+    box-shadow: var(--mf-shadow);
+    overflow: hidden;
+  }
+
+  .mf-hero-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 24px 24px 24px;
+    height: 142px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(16px);
+  }
+
+  .mf-hero-stat {
+    position: absolute;
+    z-index: 1;
+    right: 44px;
+    bottom: 50px;
+    left: 44px;
+  }
+
+  .mf-stat-number {
+    display: block;
+    color: var(--mf-pink);
+    font-size: 3.4rem;
+    line-height: 0.85;
+    letter-spacing: -0.08em;
+    font-weight: 950;
+  }
+
+  .mf-stat-label {
+    display: block;
+    margin-top: 10px;
+    color: var(--mf-black);
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 900;
+  }
+
+  .mf-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .mf-trust-pill {
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--mf-charcoal);
+    border: 1px solid rgba(24, 20, 22, 0.08);
+    font-size: 0.88rem;
+    font-weight: 850;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* ── HOOK ── */
+  .mf-hook {
+    background: var(--mf-white);
+  }
+
+  .mf-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(300px, 1.12fr);
+    gap: 54px;
+    align-items: center;
+  }
+
+  .mf-quote-card {
+    padding: clamp(24px, 5vw, 48px);
+    border-radius: var(--mf-radius);
+    background: var(--mf-black);
+    color: var(--mf-white);
+    box-shadow: var(--mf-shadow);
+  }
+
+  .mf-quote-card p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.1rem;
+  }
+
+  .mf-quote-card strong {
+    display: block;
+    color: var(--mf-white);
+    font-size: clamp(1.8rem, 4vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+    font-weight: 950;
+  }
+
+  /* ── INCLUDED ── */
+  .mf-included {
+    background: var(--mf-cream);
+  }
+
+  .mf-section-head {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+  }
+
+  .mf-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .mf-benefit-card {
+    min-height: 200px;
+    padding: 24px;
+    border-radius: var(--mf-radius);
+    background: var(--mf-white);
+    border: 1px solid rgba(24, 20, 22, 0.07);
+    box-shadow: 0 18px 44px rgba(24, 20, 22, 0.07);
+  }
+
+  .mf-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    color: var(--mf-white);
+    background: linear-gradient(135deg, var(--mf-pink), var(--mf-pink-dark));
+    font-size: 0.92rem;
+    font-weight: 950;
+    letter-spacing: -0.04em;
+  }
+
+  .mf-benefit-card p {
+    color: var(--mf-muted);
+    margin-bottom: 0;
+  }
+
+  /* ── CHATS ── */
+  .mf-chats {
+    background: linear-gradient(135deg, var(--mf-black), #30252b);
+    color: var(--mf-white);
+  }
+
+  .mf-chats .mf-kicker {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--mf-white);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .mf-chats .mf-h2,
+  .mf-chats .mf-h3 {
+    color: var(--mf-white);
+  }
+
+  .mf-chats .mf-lede,
+  .mf-chats .mf-body {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .mf-week-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mf-week-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+  }
+
+  .mf-week-label {
+    color: var(--mf-pink);
+    font-size: 0.88rem;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .mf-week-topic {
+    color: var(--mf-white);
+    font-weight: 850;
+    font-size: 0.95rem;
+  }
+
+  .mf-note {
+    margin-top: 22px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: var(--mf-blush);
+    color: var(--mf-black);
+    font-weight: 850;
+  }
+
+  /* ── CHALLENGES ── */
+  .mf-challenges {
+    background: var(--mf-blush);
+  }
+
+  .mf-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mf-challenge-card {
+    position: relative;
+    padding: 22px 22px 22px 76px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(216, 47, 136, 0.15);
+    box-shadow: 0 14px 34px rgba(24, 20, 22, 0.06);
+  }
+
+  .mf-challenge-number {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--mf-black);
+    color: var(--mf-white);
+    font-weight: 950;
+    font-size: 0.95rem;
+  }
+
+  /* ── WHO IT'S FOR ── */
+  .mf-for-you {
+    background: var(--mf-white);
+  }
+
+  .mf-check-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .mf-check-item {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--mf-cream);
+    border: 1px solid rgba(24, 20, 22, 0.06);
+    font-weight: 800;
+  }
+
+  .mf-check-dot {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: var(--mf-white);
+    background: var(--mf-pink);
+    font-size: 0.92rem;
+    font-weight: 950;
+    flex-shrink: 0;
+  }
+
+  /* ── CHELSEA ── */
+  .mf-chelsea-photo-card {
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(46, 37, 30, 0.13);
+    box-shadow: var(--mf-shadow);
+    background: var(--mf-cream);
+  }
+
+  .mf-chelsea-photo-card img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  /* ── FAQ ── */
+  .mf-faq {
+    background: var(--mf-white);
+  }
+
+  .mf-faq-list {
+    display: grid;
+    gap: 14px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .mf-faq-item {
+    padding: 22px;
+    border-radius: 22px;
+    background: var(--mf-cream);
+    border: 1px solid rgba(24, 20, 22, 0.07);
+  }
+
+  .mf-faq-item h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+  }
+
+  .mf-faq-item p {
+    margin: 0;
+    color: var(--mf-muted);
+  }
+
+  /* ── FINAL / OPT-IN ── */
+  .mf-final {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(216, 47, 136, 0.26), transparent 32%),
+      radial-gradient(circle at 92% 10%, rgba(255, 255, 255, 0.12), transparent 26%),
+      linear-gradient(135deg, var(--mf-black), #30232a);
+    color: var(--mf-white);
+  }
+
+  .mf-final .mf-h2,
+  .mf-final .mf-h3 {
+    color: var(--mf-white);
+  }
+
+  .mf-final .mf-lede,
+  .mf-final .mf-body {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .mf-final-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .mf-form-box {
+    padding: 24px;
+    border-radius: var(--mf-radius);
+    background: var(--mf-white);
+    color: var(--mf-text);
+    box-shadow: var(--mf-shadow);
+  }
+
+  .mf-fine-print {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.9rem;
+  }
+
+  /* SMS consent block */
+  .mf-sms-consent {
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .mf-sms-consent input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--mf-pink);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .mf-sms-consent label {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  /* ── FOOTER ── */
+  .mf-footer {
+    padding: 28px 0;
+    background: #0f0d0e;
+    color: rgba(255, 255, 255, 0.68);
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  .mf-footer-legal {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .mf-footer-legal a {
+    color: #e8185a;
+  }
+
+
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — TABLET (≤ 980px)
+  ══════════════════════════════════════ */
+  @media (max-width: 980px) {
+    .mf-hero-grid,
+    .mf-split,
+    .mf-final-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mf-hero-card {
+      min-height: 420px;
+    }
+
+    .mf-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mf-chelsea-photo-card {
+      max-width: 100%;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — MOBILE (≤ 720px)
+  ══════════════════════════════════════ */
+  @media (max-width: 720px) {
+    /* Spacing */
+    .mf-wrap {
+      width: min(100% - 28px, var(--mf-max));
+    }
+
+    .mf-section {
+      padding: 56px 0;
+    }
+
+    /* Topbar */
+    .mf-topbar-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+    }
+
+    .mf-logo img {
+      width: 42px;
+      max-width: 14vw;
+    }
+
+    .mf-topbar-note {
+      font-size: 0.8rem;
+      line-height: 1.25;
+      text-align: right;
+    }
+
+    /* Hero */
+    .mf-hero {
+      min-height: auto;
+    }
+
+    .mf-hero-grid {
+      min-height: auto;
+      padding: 48px 0 72px;
+      gap: 28px;
+    }
+
+    /* Hide the hero image card on mobile — copy is the focus */
+    .mf-hero-card {
+      display: none;
+    }
+
+    /* Typography */
+    .mf-h1 {
+      font-size: clamp(2.52rem, 12.6vw, 3.92rem);
+      letter-spacing: -0.04em;
+    }
+
+    .mf-h2 {
+      font-size: clamp(1.75rem, 9vw, 2.8rem);
+    }
+
+    /* Buttons — full width stacked */
+    .mf-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .mf-btn {
+      width: 100%;
+      min-height: 56px;
+      padding: 14px 20px;
+      font-size: 0.92rem;
+    }
+
+    /* Trust pills — wrap naturally */
+    .mf-trust-strip {
+      gap: 8px;
+    }
+
+    .mf-trust-pill {
+      font-size: 0.82rem;
+      padding: 10px 14px;
+    }
+
+    /* Grids → single column */
+    .mf-card-grid,
+    .mf-timeline {
+      grid-template-columns: 1fr;
+    }
+
+    .mf-benefit-card {
+      min-height: auto;
+    }
+
+    /* Week rows — stack label above topic */
+    .mf-week-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    /* Challenge cards — adjust for stacked layout */
+    .mf-challenge-card {
+      padding: 22px 20px 22px 72px;
+    }
+
+    .mf-challenge-number {
+      top: 20px;
+      left: 18px;
+      width: 38px;
+      height: 38px;
+    }
+
+    /* Split sections — reduce gap */
+    .mf-split {
+      gap: 32px;
+    }
+
+    /* Final/form section */
+    .mf-final-grid {
+      gap: 32px;
+    }
+
+    .mf-form-box {
+      padding: 20px 16px;
+    }
+
+    /* FAQ */
+    .mf-faq-item {
+      padding: 18px;
+    }
+
+    /* Section head */
+    .mf-section-head {
+      margin-bottom: 32px;
+    }
+
+
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — SMALL MOBILE (≤ 420px)
+  ══════════════════════════════════════ */
+  @media (max-width: 420px) {
+    .mf-h1 {
+      font-size: clamp(2.24rem, 11.2vw, 3.36rem);
+    }
+
+    .mf-topbar-note {
+      font-size: 0.75rem;
+    }
+
+    .mf-logo img {
+      width: 36px;
+    }
+
+    .mf-challenge-card {
+      padding: 18px 16px 18px 66px;
+    }
+
+    .mf-challenge-number {
+      width: 34px;
+      height: 34px;
+      left: 16px;
+      top: 18px;
+      border-radius: 10px;
+    }
+
+    .mf-stat-number {
+      font-size: 2.6rem;
+    }
+  }
+</style>
+<div class="mf-page" id="holiday-head-start">
+  <nav class="mf-nav" id="top" aria-label="Holiday Head Start navigation">
+    <div class="mf-nav-inner">
+      <a class="mf-nav-logo" href="#top" aria-label="MacroFit Holiday Head Start home">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/PLdoaCvpzzGzFwlk.png" alt="MacroFit logo">
+      </a>
+      <div class="mf-nav-links">
+        <a class="mf-nav-link" href="#included">What's Included</a>
+        <a class="mf-nav-link" href="#how-it-works">How It Works</a>
+        <a class="mf-nav-link" href="#faq">FAQ</a>
+      </div>
+      <a class="mf-nav-cta" href="#opt-in">Save My Spot →</a>
+    </div>
+  </nav>
+
+  <header class="mf-hero mf-section">
+    <div class="mf-wrap mf-hero-grid">
+      <div class="mf-hero-copy">
+        <div class="mf-kicker">MacroFit Member Challenge · October 19–November 29</div>
+        <h1 class="mf-h1">Holiday Head Start Challenge</h1>
+        <div class="mf-hero-sub">Results Before Resolutions.</div>
+        <p class="mf-lede">A 42-day accountability experience for current MacroFitters who want to keep showing up through the season—without waiting for January to feel like themselves again.</p>
+        <p class="mf-body">Your MacroFit plan, a simple weekly focus, daily mindset inside the companion app, the Holiday Bingo Card, and a community that understands that real life does not pause in November.</p>
+        <div class="mf-actions">
+          <a class="mf-btn mf-btn-primary" href="#opt-in">Save My Spot →</a>
+        </div>
+        <div class="mf-trust-strip" aria-label="Holiday Head Start highlights">
+          <div class="mf-trust-pill">42 days of momentum</div>
+          <div class="mf-trust-pill">For current MacroFitters</div>
+          <div class="mf-trust-pill">Consistency over perfection</div>
+        </div>
+      </div>
+
+      <div class="mf-hero-card" role="img" aria-label="MacroFit meal and lifestyle image">
+        <div class="mf-hero-stat">
+          <span class="mf-stat-number">42 DAYS</span>
+          <span class="mf-stat-label">to build the kind of holiday season you are proud of.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="mf-section mf-hook" id="why-now">
+    <div class="mf-wrap mf-split">
+      <div>
+        <div class="mf-kicker">Why Now</div>
+        <h2 class="mf-h2">What if you did not wait for January?</h2>
+      </div>
+      <div class="mf-quote-card">
+        <p>The holidays can make it feel like you either have to be perfect or give up completely. But that is not how real, lasting progress works.</p>
+        <strong>There is another option.</strong>
+        <p>Keep your plan. Enjoy the moments that matter. Return to your next choice. Let 42 steady days carry you into December with more confidence—not another promise to start over.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-included" id="included">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">What's Included</div>
+        <h2 class="mf-h2">A little more structure for the busiest season.</h2>
+        <p class="mf-lede">Holiday Head Start layers accountability and fun onto the MacroFit plan you already know—without asking you to put real life on hold.</p>
+      </div>
+
+      <div class="mf-card-grid">
+        <article class="mf-benefit-card">
+          <div class="mf-icon">01</div>
+          <h3 class="mf-h3">Holiday Companion App</h3>
+          <p>One easy place for the daily mindset, challenge check-ins, and the pieces that help you stay connected between busy days.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">02</div>
+          <h3 class="mf-h3">A Weekly Focus</h3>
+          <p>A simple, doable focus each week so you always know what to return to when the season gets loud.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">03</div>
+          <h3 class="mf-h3">The Holiday Bingo Card</h3>
+          <p>It is back. A light, fun way to build momentum, celebrate small wins, and keep showing up alongside the group.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">04</div>
+          <h3 class="mf-h3">Community Accountability</h3>
+          <p>Share the real-life wins, the hard days, and the resets inside the MacroFit community with people who get it.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">05</div>
+          <h3 class="mf-h3">Scheduled Encouragement</h3>
+          <p>Receive the approved Holiday Head Start emails, texts, and reminders separately from regular MacroFit communication.</p>
+        </article>
+        <article class="mf-benefit-card">
+          <div class="mf-icon">06</div>
+          <h3 class="mf-h3">Your MacroFit Plan</h3>
+          <p>Your personalized plan remains the foundation. This challenge is the extra layer that helps you live it through the holidays.</p>
+        </article>
+      </div>
+
+      <div class="mf-actions" style="justify-content:center;">
+        <a class="mf-btn mf-btn-primary" href="#opt-in">Save My Spot →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-chats" id="how-it-works">
+    <div class="mf-wrap mf-split">
+      <div>
+        <div class="mf-kicker">How It Works</div>
+        <h2 class="mf-h2">You do not need a perfect season. You need a next step.</h2>
+        <p class="mf-lede">Once you register, you will receive the app-install details and challenge communication before the October 19 start. Then we keep it simple: check in, use your plan, and come back to yourself.</p>
+        <div class="mf-note">This is not a 42-day perfection contest. It is a commitment to keep showing up—with grace—for 42 real days.</div>
+      </div>
+
+      <div class="mf-week-list">
+        <div class="mf-week-row"><div class="mf-week-label">Now</div><div class="mf-week-topic">Save your spot so your Holiday Head Start communication is separate from regular MacroFit updates.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Before 10/19</div><div class="mf-week-topic">Watch for your registration confirmation, challenge details, and companion-app instructions.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Oct 19</div><div class="mf-week-topic">Day 1: begin with your plan, the first focus, and a decision to show up.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Each week</div><div class="mf-week-topic">Use the weekly focus, app check-in, Bingo Card, and community connection to keep momentum.</div></div>
+        <div class="mf-week-row"><div class="mf-week-label">Nov 29</div><div class="mf-week-topic">Finish the 42-day experience with proof that you can move through the holidays without starting over.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-challenges" id="challenge-arc">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">The Goal</div>
+        <h2 class="mf-h2">Keep yourself on your own team.</h2>
+        <p class="mf-lede">No all-or-nothing rules. No pretending the holidays are not happening. Just the habits that help you feel better inside the life you are already living.</p>
+      </div>
+
+      <div class="mf-timeline">
+        <article class="mf-challenge-card">
+          <div class="mf-challenge-number">01</div>
+          <h3 class="mf-h3">Keep your meals simple</h3>
+          <p>Lean on the plan and the foods that already make your week feel easier.</p>
+        </article>
+        <article class="mf-challenge-card">
+          <div class="mf-challenge-number">02</div>
+          <h3 class="mf-h3">Make room for real life</h3>
+          <p>Celebrate, travel, gather, and return to the next choice without making it mean you failed.</p>
+        </article>
+        <article class="mf-challenge-card">
+          <div class="mf-challenge-number">03</div>
+          <h3 class="mf-h3">Check in instead of checking out</h3>
+          <p>Use the companion app and community for the small moments that keep a hard day from becoming a hard month.</p>
+        </article>
+        <article class="mf-challenge-card">
+          <div class="mf-challenge-number">04</div>
+          <h3 class="mf-h3">Let it be fun</h3>
+          <p>Play along with the Holiday Bingo Card, share wins, and remember that progress can have personality.</p>
+        </article>
+      </div>
+
+      <div class="mf-actions" style="justify-content:center;margin-top:32px;">
+        <a class="mf-btn mf-btn-primary" href="#opt-in">Save My Spot →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-for-you" id="who-this-is-for">
+    <div class="mf-wrap mf-split">
+      <div>
+        <div class="mf-kicker">Made for Current Members</div>
+        <h2 class="mf-h2">This is for you if…</h2>
+        <p class="mf-lede">You are already a MacroFitter and you want support that helps you stay in the game through the season—not a reason to put your goals on pause.</p>
+        <div class="mf-actions">
+          <a class="mf-btn mf-btn-primary" href="#opt-in">Save My Spot →</a>
+        </div>
+      </div>
+
+      <div class="mf-check-list">
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You are tired of feeling like November and December erase all your momentum.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You want accountability that feels supportive—not intense or guilt-driven.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You want to enjoy the holidays and still take care of yourself.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You want the community and structure to help you return to your plan when life gets busy.</span></div>
+        <div class="mf-check-item"><span class="mf-check-dot">✓</span><span>You would rather build results before resolutions than begin January from scratch.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section" id="about-chelsea">
+    <div class="mf-wrap mf-split">
+      <div class="mf-chelsea-photo-card">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663244988692/hPivTpWLsaNlNfIc.jpeg" alt="Chelsea, MacroFit founder, holding a macro-friendly meal" loading="lazy">
+      </div>
+      <div>
+        <div class="mf-kicker">From Chelsea</div>
+        <h2 class="mf-h2">The holidays are not a reason to disappear on yourself.</h2>
+        <p class="mf-lede">I built MacroFit around real life because real life has birthdays, travel, family dinners, parties, and weeks that do not go exactly to plan.</p>
+        <p class="mf-body">Holiday Head Start is not about doing every day perfectly. It is about remembering that one meal, one choice, or one tough week does not have to become your whole story.</p>
+        <p class="mf-body"><strong>We are going to keep showing up together—before January asks us to begin again.</strong></p>
+        <div class="mf-actions"><a class="mf-btn mf-btn-primary" href="#opt-in">Save My Spot →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-faq" id="faq">
+    <div class="mf-wrap">
+      <div class="mf-section-head">
+        <div class="mf-kicker">FAQ</div>
+        <h2 class="mf-h2">Questions before you save your spot?</h2>
+        <p class="mf-lede">A few quick answers before Holiday Head Start begins.</p>
+      </div>
+
+      <div class="mf-faq-list">
+        <div class="mf-faq-item"><h3>Who is this challenge for?</h3><p>Holiday Head Start is designed for current paid MacroFit members. This registration page makes sure challenge communication is sent separately from your regular MacroFit updates.</p></div>
+        <div class="mf-faq-item"><h3>When does the challenge run?</h3><p>It starts Monday, October 19, 2026 and ends Sunday, November 29, 2026. All challenge communication is scheduled in Central Time.</p></div>
+        <div class="mf-faq-item"><h3>Why do I need to register if I am already a MacroFitter?</h3><p>Registration gives us permission to send the Holiday Head Start-specific texts, emails, app details, and reminders without mixing them into your normal MacroFit communication.</p></div>
+        <div class="mf-faq-item"><h3>What if I have a busy week or miss a day?</h3><p>That is part of the point. Come back to the next choice, use the app and community for support, and keep going. Consistency over perfection.</p></div>
+        <div class="mf-faq-item"><h3>What if I am not a MacroFit member yet?</h3><p>The full challenge experience is reserved for current members. <a href="https://macrofit.com/signup" style="color:var(--mf-pink);font-weight:900;">Build My MacroFit Plan here.</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-final" id="opt-in">
+    <div class="mf-wrap mf-final-grid">
+      <div>
+        <div class="mf-kicker">Save Your Spot</div>
+        <h2 class="mf-h2">Make this the season you keep going.</h2>
+        <p class="mf-lede">Holiday Head Start runs October 19–November 29. Register below so you receive every challenge update, companion-app instruction, and reminder meant for the group.</p>
+        <p class="mf-fine-print">This is a current-member registration page. If you are not a paid MacroFit member, start with <a href="https://macrofit.com/signup" style="color:rgba(255,255,255,0.85);text-decoration:underline;">Build My MacroFit Plan</a>.</p>
+      </div>
+
+      <div class="mf-form-box">
+        <h3 class="mf-h3" style="margin-bottom:6px;">Holiday Head Start Registration</h3>
+        <p class="mf-body" style="font-size:0.9rem;margin-bottom:16px;">Complete the quick form below to receive the Holiday Head Start details separately from regular MacroFit updates.</p>
+
+        <!-- GHL Form Embed — Holiday Head Start 2026 Registration: DGxYECQSEkBQEkicldtI -->
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/DGxYECQSEkBQEkicldtI"
+          style="width:100%;height:810px;border:none;border-radius:8px;"
+          id="inline-DGxYECQSEkBQEkicldtI"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Holiday Head Start 2026 Registration"
+          data-height="810"
+          data-layout-iframe-id="inline-DGxYECQSEkBQEkicldtI"
+          data-form-id="DGxYECQSEkBQEkicldtI"
+          title="Holiday Head Start 2026 Registration"
+        ></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-section mf-section-tight" id="join-macrofit" style="background:var(--mf-cream);">
+    <div class="mf-wrap">
+      <div class="mf-nonmember-callout">
+        <div class="mf-nonmember-callout-text">
+          <h3>Not a MacroFit member yet?</h3>
+          <p>Holiday Head Start is built for current MacroFitters. Start with a plan that fits your real life, then come join us for the next challenge.</p>
+        </div>
+        <a class="mf-btn mf-btn-primary" href="https://macrofit.com/signup" target="_blank" rel="noopener" style="flex-shrink:0;">Build My MacroFit Plan →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mf-footer">
+    <div class="mf-wrap">MacroFit Holiday Head Start Challenge 2026 — Results Before Resolutions.</div>
+    <p class="mf-footer-legal">
+      By registering, you agree to our <a href="https://macrofitprogram.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://macrofitprogram.com/terms" target="_blank" rel="noopener">Terms of Service</a>.
+      &nbsp;&bull;&nbsp; MacroFit &bull; Lake Charles, LA &bull; <a href="mailto:info@macrofit.com">info@macrofit.com</a>
+    </p>
+  </footer>
+</div>

@@ -8,7 +8,7 @@
 
 ## Recommended enrollment model
 
-The cleanest approach is to make **GoHighLevel the single system of record for challenge registration**. The GoHighLevel landing page will hold the only official enrollment form, the participant status, consent records, tags, workflow entry, and reporting. ManyChat will operate as a short, helpful direct-message guide: it gives interested people the details they need, answers the first membership question, and sends them to the official registration page when they are ready.
+The cleanest approach is to make **GoHighLevel the single system of record for challenge registration**. The public MacroFit landing page at `macrofitprogram.com/holiday-head-start` will host the branded campaign explanation and embed the official GoHighLevel registration form. GoHighLevel will hold the participant status, consent records, tags, workflow entry, and reporting. ManyChat will operate as a short, helpful direct-message guide: it gives interested people the details they need, answers the first membership question, and sends them to the official registration page when they are ready.
 
 This avoids duplicate lists, keeps all consent captured in one form, prevents people who merely download the public companion app from entering member-only communications, and gives MacroFit one dependable participant segment before the first pre-launch message is sent. HighLevel supports visual landing pages, opt-ins, contact capture, tags, and behavior-based workflows in one environment.[3]
 
@@ -29,7 +29,7 @@ ManyChat’s External Request action can connect a conversation to another syste
 
 ### 1. The GoHighLevel landing page
 
-The page should be the campaign’s canonical registration URL. We will build it inside the same GoHighLevel sub-account that holds MacroFit contacts and workflows, then use that same link in email, text, the Facebook group, Instagram bio, organic posts, and the MacroFit site.
+The public MacroFit page is the campaign’s canonical registration URL. It embeds the GoHighLevel form in the same sub-account that holds MacroFit contacts and workflows, so campaign registration data and automation remain in one place. Use that public URL in email, text, the Facebook group, Instagram bio, organic posts, and ManyChat.
 
 The page should lead with the campaign name, the **Results Before Resolutions** tagline, and the October 19–November 29 challenge window. It should plainly say that the challenge is designed for current paid MacroFit members. A short benefit section should describe what participants receive once the final content plan is approved, such as the companion app, challenge prompts, accountability, community participation, and scheduled support.
 
@@ -151,6 +151,19 @@ The dashboard or saved GHL smart lists should show at least:
 7. **Run end-to-end QA.** Test every entry point on mobile, validate source attribution and tag application, check SMS consent behavior, validate Central Time waits, and confirm that a public-app visitor cannot enter the member workflow without intentional registration and verification.
 8. **Publish and monitor.** Publish the landing page, activate ManyChat after the page-link and source-attribution test passes, and monitor the `Needs Review` list daily during enrollment.
 
+## Implementation status — September 23, 2026
+
+The planned public landing page and core GoHighLevel assets have been created without changing the completed Summer Lock In campaign:
+
+| Asset | Current state | Required next action |
+|---|---|---|
+| Canonical registration page | Public MacroFit route built at `macrofitprogram.com/holiday-head-start`; it contains the approved dates, member-first positioning, direct non-member CTA, a branded registration section, and UTM forwarding into the form. | Publish after the form and registration workflow pass end-to-end QA. |
+| GHL member funnel | `Holiday Head Start 2026 MEMBERS` was cloned from `Summer Lock In 2026 MEMBERS`. | Treat it as a preserved GHL staging copy; the public MacroFit page is the canonical campaign URL. |
+| GHL registration form | `Holiday Head Start 2026 Registration` was cloned from the Summer Challenge form. Its form ID is `DGxYECQSEkBQEkicldtI`. | Replace the remaining Summer Lock In references in consent disclosure, set the Holiday confirmation/thank-you action, and attach the new registration-and-verification workflow. |
+| Current cloned form fields | First name, last name, required phone, required email, a required current-member Yes/No question, non-marketing SMS consent, and marketing SMS consent. | Keep consent checkboxes unchecked; confirm whether phone remains required and use the approved Holiday SMS disclosure. Do not add form submitters to the participant path until paid membership is verified. |
+
+The public page forwards only `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` to the embedded form. For the first ManyChat member button, use `https://macrofitprogram.com/holiday-head-start?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026`.
+
 ## Decisions needed before build begins
 
 The following four decisions determine the exact setup:
@@ -162,7 +175,7 @@ The following four decisions determine the exact setup:
 
 ## Account access required for implementation
 
-No GoHighLevel or ManyChat connector is currently configured for this task. When you are ready to build, I will need access to the MacroFit GoHighLevel sub-account and ManyChat workspace through an approved connected account or browser session. We will first inspect the prior summer funnel and workflows, then make the new assets in the live accounts without disturbing the finished Summer Lock In automation.
+GoHighLevel browser access is connected and the Holiday form/funnel copies now exist in the MacroFit sub-account. ManyChat remains to be opened when the duplicated Holiday information flow is ready for its copy and destination-link update. The Summer Lock In form, funnel, and finished automation remain unchanged.
 
 ## References
 

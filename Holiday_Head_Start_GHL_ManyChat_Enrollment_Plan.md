@@ -138,6 +138,23 @@ Build the following workflow as a **draft only**. It must not be published or al
 | Immediate messaging | None until the confirmation copy, sender identity, and launch schedule are approved. |
 | Workflow status | **Draft.** Do not publish before a two-path test contact confirms the correct tags and zero member messaging for the No branch. |
 
+### New-member conversion handoff
+
+The prospect conversion page does **not** collect Holiday Head Start registration before a purchase. It sends a prospect to MacroFit enrollment first. Once the payment integration applies the existing `macrofitter` tag, the prospect is an active MacroFit member and can be invited to the short challenge-registration form.
+
+Create a separate, short **draft** workflow named **`HHS 2026 — New Member Invitation`**. Keep it separate from the existing New MacroFitter onboarding workflow so the Holiday campaign can be paused or retired without disturbing the core onboarding sequence.
+
+| Step | Configuration |
+|---|---|
+| Entry trigger | **Contact Tag Added** → existing `macrofitter` tag (the Stripe/Zapier-paid-member signal already used by the New MacroFitter onboarding workflow). |
+| Timing | Wait 15 minutes, so the normal MacroFit welcome SMS and welcome email arrive first. |
+| Message | Send `holiday-head-start-new-member-invitation.html` with the subject **“You’re a MacroFitter—now save your Holiday Head Start spot.”** |
+| CTA destination | `https://macrofitprogram.com/holiday-head-start?utm_source=ghl&utm_medium=new-member-email&utm_campaign=holiday-head-start-2026` |
+| Registration outcome | The member completes the same short Holiday form, selects **Yes, I’m doing Macrofit now**, and receives `HHS-2026-Registered`. Only then do challenge-specific emails or opted-in texts begin. |
+| Campaign control | Keep this workflow in draft until the enrollment window and message schedule are approved. Pause it after the registration cutoff; do not alter the permanent New MacroFitter onboarding workflow. |
+
+This creates a clean, auditable path: **prospect page → MacroFit purchase → `macrofitter` tag → new-member invitation → Holiday registration form → `HHS-2026-Registered`**. A member never has to discover the form on their own, and a prospect cannot receive member-only campaign content merely by visiting the page.
+
 ## Tracking and reporting
 
 The campaign should report the complete path from discovery to registration. The source tags and hidden page parameters will make it possible to compare landing-page registrations with ManyChat registrations.
@@ -174,6 +191,7 @@ The planned public landing page and core GoHighLevel assets have been created wi
 | GHL member funnel | `Holiday Head Start 2026 MEMBERS` was cloned from `Summer Lock In 2026 MEMBERS`. | Treat it as a preserved GHL staging copy; the public MacroFit page is the canonical campaign URL. |
 | GHL registration form | `Holiday Head Start 2026 Registration` was cloned from the Summer Challenge form. Its form ID is `DGxYECQSEkBQEkicldtI`. The non-marketing SMS disclosure now names Holiday Head Start Challenge. | Set the Holiday confirmation/thank-you action and attach the new registration-and-verification workflow. |
 | Current cloned form fields | First name, last name, required phone, required email, a required current-member Yes/No question, non-marketing SMS consent, and marketing SMS consent. | Keep consent checkboxes unchecked; confirm whether phone remains required. Do not add form submitters to the participant path until paid membership is verified. |
+| New-member Holiday handoff | Branded new-member invitation email source is ready. It directs paid members to the short Holiday form with GHL source attribution. | Build the separate `HHS 2026 — New Member Invitation` workflow in draft; wait 15 minutes after the existing `macrofitter` trigger before sending. |
 
 The public page forwards only `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` to the embedded form. For the first ManyChat member button, use `https://macrofitprogram.com/holiday-head-start?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026`.
 

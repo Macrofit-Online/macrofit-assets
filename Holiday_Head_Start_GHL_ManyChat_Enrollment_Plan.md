@@ -87,25 +87,23 @@ Use a small, standardized set of fields so that registration data remains usable
 
 | Field | Purpose |
 |---|---|
-| Holiday Head Start 2026 registration status | Tracks Requested, Member Verified, Registered, Needs Review, or Ineligible. |
+| Holiday Head Start 2026 registration status | Tracks Registered or Not a Member according to the selected form answer. |
 | Holiday Head Start source | Captures GHL landing page, ManyChat/Instagram DM, Facebook Messenger, email, Facebook group, or another approved source. |
 | Holiday Head Start SMS consent | Stores the response used for challenge text eligibility. |
-| Membership verification result | Stores the internal paid-member check outcome. |
+| Membership verification result | Reserved for a future billing-based audit; it is not used by the initial Summer-style form-answer branch. |
 | Registration timestamp | Records when the person intentionally registered. |
 
 ### Tags
 
 Tags should be specific enough to report on the campaign but simple enough that the team can recognize them quickly:
 
-- `HHS-2026-Registration-Requested`
-- `HHS-2026-Member-Verified`
 - `HHS-2026-Registered`
-- `HHS-2026-Needs-Review`
+- `HHS-2026-Not-a-Member`
 - `HHS-2026-Source-Landing-Page`
 - `HHS-2026-Source-ManyChat`
 - `HHS-2026-SMS-Opted-In`
 
-Existing membership and payment-status tags should remain the source of truth for whether a person is an active MacroFit member. The exact existing tag, opportunity stage, subscription record, or payment integration that proves “current paid” must be identified before the workflow goes live.
+The initial workflow deliberately uses the member's form answer, **“Yes, I’m doing MacroFit now,”** as the branch gate. Existing membership or payment-status data can be added later as an audit layer, but it is not required for the current draft.
 
 ## GoHighLevel workflow structure
 
@@ -113,21 +111,20 @@ The workflow should be built as a short registration-and-verification workflow, 
 
 | Workflow | Entry trigger | Core actions | Exit condition |
 |---|---|---|
-| **HHS 2026 — Registration and Verification** | Holiday Head Start landing-page form submission | Apply source tag from the page/UTM data; normalize contact data; check active-member marker; classify member; send confirmation or support path. | Participant reaches `HHS-2026-Registered` or `HHS-2026-Needs-Review`. |
+| **HHS 2026 — Registration and Verification** | Holiday Head Start landing-page form submission | Branch on the current-member form answer; apply a participant tag to the Yes branch and a non-member tag to the No branch. | Contact reaches `HHS-2026-Registered` or `HHS-2026-Not-a-Member`. |
 | **HHS 2026 — Member Pre-Launch** | `HHS-2026-Registered` tag | Send only the approved registration confirmation, app-install instructions, and pre-launch reminders. | Ends at the October 19 activation time. |
 | **HHS 2026 — Challenge Content** | `HHS-2026-Registered` tag plus the scheduled Central Time campaign start | Deliver approved email and SMS messages for active participants only. | Ends after November 29 and moves people to the approved post-challenge experience. |
 
 The first workflow should branch as follows:
 
-1. **Verified current member:** add `HHS-2026-Member-Verified` and `HHS-2026-Registered`, then send the registration confirmation.
-2. **Member cannot be verified automatically:** add `HHS-2026-Needs-Review`, send a calm support message, and create a manual-review task. Do not send member-only launch messages until the tag is resolved.
-3. **Not a member:** the person should normally have exited through the ManyChat non-member branch before reaching the registration form. If they complete the form anyway, do not apply the participant tag. Send only the direct signup destination if they intentionally requested it.
+1. **Current MacroFitter answer:** add `HHS-2026-Registered`. This one tag is the member's Holiday Head Start participant tag.
+2. **No or any other answer:** add `HHS-2026-Not-a-Member`. Do not apply the participant tag or enroll the contact in member-only communication. The landing page's direct **Build My MacroFit Plan** link remains the appropriate conversion path.
 
 All time-delayed messages must be set and checked in **Central Time**. The workflow must be tested with both a future registration and a late registration to confirm that it never backfills or sends past-dated messages.
 
 ### Selected initial gate and draft workflow configuration
 
-For this campaign, the user-selected initial eligibility signal is the registration-form answer **“Yes, I’m doing MacroFit now.”** This mirrors the Summer-style branch and is sufficient for the initial draft; the form answer is not a substitute for a future billing-based audit if that becomes available.
+For this campaign, the user-selected initial eligibility signal is the registration-form answer **“Yes, I’m doing MacroFit now.”** This mirrors the Summer-style branch and is sufficient for the initial draft; the form answer is not a substitute for a future billing-based audit if that becomes available. Because the selected Yes branch itself is the registration event for current members, use a single participant tag—`HHS-2026-Registered`—rather than a separate `Registration-Requested` intermediate tag.
 
 Build the following workflow as a **draft only**. It must not be published or allowed to send Holiday content until all email/SMS dates and the registration confirmation are approved:
 
@@ -136,7 +133,7 @@ Build the following workflow as a **draft only**. It must not be published or al
 | Workflow name | `HHS 2026 — Registration and Verification` |
 | Entry trigger | **Form Submitted** → `Holiday Head Start 2026 Registration` (form ID `DGxYECQSEkBQEkicldtI`) |
 | Branch condition | **Are you currently a Macrofit member?** equals **Yes, I’m doing Macrofit now** |
-| Yes branch | Add `HHS-2026-Registration-Requested` and `HHS-2026-Registered`; retain UTM/source fields for reporting; leave the participant in draft workflow status pending the approved confirmation message. |
+| Yes branch | Add `HHS-2026-Registered`; retain UTM/source fields for reporting; leave the participant in draft workflow status pending the approved confirmation message. |
 | No branch | Add `HHS-2026-Not-a-Member`; do **not** apply a participant tag or enroll the contact in member-only communication. The public landing page already presents **Build My MacroFit Plan** as the appropriate destination. |
 | Immediate messaging | None until the confirmation copy, sender identity, and launch schedule are approved. |
 | Workflow status | **Draft.** Do not publish before a two-path test contact confirms the correct tags and zero member messaging for the No branch. |
@@ -147,9 +144,9 @@ The campaign should report the complete path from discovery to registration. The
 
 The dashboard or saved GHL smart lists should show at least:
 
-- Registration requests by source
-- Verified paid members
-- Registrations awaiting manual review
+- Registrations by source
+- Registered participants
+- Contacts identifying as not current members
 - SMS-consented participants
 - Landing-page conversion rate
 - ManyChat conversation-to-registration rate

@@ -138,22 +138,22 @@ Build the following workflow as a **draft only**. It must not be published or al
 | Immediate messaging | None until the confirmation copy, sender identity, and launch schedule are approved. |
 | Workflow status | **Draft.** Do not publish before a two-path test contact confirms the correct tags and zero member messaging for the No branch. |
 
-### New-member conversion handoff
+### New-purchaser conversion handoff — live September 24, 2026
 
-The prospect conversion page does **not** collect Holiday Head Start registration before a purchase. It sends a prospect to MacroFit enrollment first. Once the payment integration applies the existing `macrofitter` tag, the prospect is an active MacroFit member and can be invited to the short challenge-registration form.
+The prospect conversion page does **not** collect Holiday Head Start registration before a purchase. It sends a prospect to MacroFit enrollment first. A dedicated, published purchase bridge now recognizes the relevant paid MacroFit invoice, adds a Holiday-specific purchaser tag in GoHighLevel, and sends the invitation without relying on the general MacroFitter onboarding workflow.
 
-Create a separate, short **draft** workflow named **`HHS 2026 — New Member Invitation`**. Keep it separate from the existing New MacroFitter onboarding workflow so the Holiday campaign can be paused or retired without disturbing the core onboarding sequence.
-
-| Step | Configuration |
+| Component | Live configuration |
 |---|---|
-| Entry trigger | **Contact Tag Added** → existing `macrofitter` tag (the Stripe/Zapier-paid-member signal already used by the New MacroFitter onboarding workflow). |
-| Timing | Wait 15 minutes, so the normal MacroFit welcome SMS and welcome email arrive first. |
-| Message | Send `holiday-head-start-new-member-invitation.html` with the subject **“You’re a MacroFitter—now save your Holiday Head Start spot.”** |
-| CTA destination | `https://macrofitprogram.com/holiday-head-start?utm_source=ghl&utm_medium=new-member-email&utm_campaign=holiday-head-start-2026` |
-| Registration outcome | The member completes the same short Holiday form, selects **Yes, I’m doing Macrofit now**, and receives `HHS-2026-Registered`. Only then do challenge-specific emails or opted-in texts begin. |
-| Campaign control | Keep this workflow in draft until the enrollment window and message schedule are approved. Pause it after the registration cutoff; do not alter the permanent New MacroFitter onboarding workflow. |
+| Zapier bridge | **MacroFit Paid Invoice to GHL — Draft** is published as version `v1`. It uses **Stripe: New Invoice**, followed by **Filter by Zapier**. The filter requires `Lines Price Product` to exactly match `prod_V4xmMW8GTPYspe`, preventing unrelated paid invoices from entering this path. |
+| GoHighLevel contact update | LeadConnector **Add/Update Contact** uses the Stripe customer email, sets **Mark as Lead** to `false`, adds `hhs-2026-new-purchaser`, and records source `Stripe Paid Purchase`. |
+| Dedicated invitation tag | `hhs-2026-new-purchaser` was created in GHL with the description “Stripe-paid MacroFit purchaser; triggers the Holiday Head Start invitation.” |
+| Invitation workflow | **`HHS 2026 — New Purchaser Invitation`** is published. It triggers when `hhs-2026-new-purchaser` is added, waits 15 minutes, then sends the approved purchaser invitation email. |
+| Email | `holiday-head-start-new-member-invitation.html` is sent with subject **“You’re a MacroFitter—now save your Holiday Head Start spot.”** Its CTA is `https://macrofitprogram.com/holiday-head-start?utm_source=ghl&utm_medium=new-member-email&utm_campaign=holiday-head-start-2026`. |
+| Registration outcome | The member completes the short Holiday form, selects **Yes, I’m doing MacroFit now**, and receives `HHS-2026-Registered`. Only then should challenge-specific emails or opted-in texts begin. |
 
-This creates a clean, auditable path: **prospect page → MacroFit purchase → `macrofitter` tag → new-member invitation → Holiday registration form → `HHS-2026-Registered`**. A member never has to discover the form on their own, and a prospect cannot receive member-only campaign content merely by visiting the page.
+This creates a clean, auditable path: **prospect page → paid invoice for the filtered MacroFit product → `hhs-2026-new-purchaser` → 15-minute wait → Holiday invitation → Holiday registration form → `HHS-2026-Registered`**. It does not activate, depend on, or change the separate general MacroFitter onboarding workflow.
+
+> **Validation note:** The Zapier product filter passed its built-in test. The LeadConnector contact-action test was intentionally skipped because the available Stripe sample record was a real customer email; verify the first real qualifying purchase in Zapier Runs and the matching GHL contact before relying on it as evidence of end-to-end delivery.
 
 ## Tracking and reporting
 
@@ -187,11 +187,11 @@ The planned public landing page and core GoHighLevel assets have been created wi
 
 | Asset | Current state | Required next action |
 |---|---|---|
-| Canonical registration page | Public MacroFit route built at `macrofitprogram.com/holiday-head-start`; it contains the approved dates, member-first positioning, direct non-member CTA, a branded registration section, and UTM forwarding into the form. | Publish after the form and registration workflow pass end-to-end QA. |
+| Canonical registration page | Public MacroFit route built at `macrofitprogram.com/holiday-head-start`; it contains the approved dates, member-first positioning, direct non-member CTA, a branded registration section, and UTM forwarding into the form. | Complete an end-to-end paid-purchase test and confirm the correct registration result. |
 | GHL member funnel | `Holiday Head Start 2026 MEMBERS` was cloned from `Summer Lock In 2026 MEMBERS`. | Treat it as a preserved GHL staging copy; the public MacroFit page is the canonical campaign URL. |
-| GHL registration form | `Holiday Head Start 2026 Registration` was cloned from the Summer Challenge form. Its form ID is `DGxYECQSEkBQEkicldtI`. The non-marketing SMS disclosure now names Holiday Head Start Challenge. | Set the Holiday confirmation/thank-you action and attach the new registration-and-verification workflow. |
+| GHL registration form | `Holiday Head Start 2026 Registration` was cloned from the Summer Challenge form. Its form ID is `DGxYECQSEkBQEkicldtI`. The non-marketing SMS disclosure and confirmation/thank-you language now name Holiday Head Start Challenge. | Continue registration-path QA with member and non-member contacts. |
 | Current cloned form fields | First name, last name, required phone, required email, a required current-member Yes/No question, non-marketing SMS consent, and marketing SMS consent. | Keep consent checkboxes unchecked; confirm whether phone remains required. Do not add form submitters to the participant path until paid membership is verified. |
-| New-member Holiday handoff | Branded new-member invitation email source is ready. It directs paid members to the short Holiday form with GHL source attribution. | Build the separate `HHS 2026 — New Member Invitation` workflow in draft; wait 15 minutes after the existing `macrofitter` trigger before sending. |
+| New-purchaser Holiday handoff | The branded purchaser invitation email is attached to the published `HHS 2026 — New Purchaser Invitation` workflow. Zapier v1 applies `hhs-2026-new-purchaser` only after the configured Stripe product filter passes, then the workflow waits 15 minutes before sending the registration link. | Verify the first live matching purchase in Zapier Runs and GHL contact history; this new path remains independent from the general MacroFitter onboarding workflow. |
 | ManyChat non-member branch | The revised message, `Explore MacroFit` button, and `See Member Options` deep link are saved in the stopped **Holiday Head Start Challenge** automation. Both URLs preserve source tracking; the second is configured with `#membership`. | Confirm `HHS15` is active in checkout, add the optional ManyChat-only interest tag if desired, test Instagram and Facebook Messenger on mobile, then activate only when the campaign is ready. |
 
 The public page forwards only `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` to the embedded form. For the first ManyChat member button, use `https://macrofitprogram.com/holiday-head-start?utm_source=manychat&utm_medium=instagram-dm&utm_campaign=holiday-head-start-2026`.

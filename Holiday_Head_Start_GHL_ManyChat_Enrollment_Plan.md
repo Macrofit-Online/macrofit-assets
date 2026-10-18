@@ -122,6 +122,35 @@ The first workflow should branch as follows:
 
 All time-delayed messages must be set and checked in **Central Time**. The workflow must be tested with both a future registration and a late registration to confirm that it never backfills or sends past-dated messages.
 
+### Date-wait and bulk-enrollment safeguard — October 16, 2026
+
+**Do not edit the date or time of a Wait action after contacts have already entered it.** HighLevel keeps each contact already in that wait on its existing scheduled wait; changing the canvas only affects contacts who reach the step afterward.[4] This caused the initial Holiday app email recovery issue: 76 bulk-enrolled contacts retained the earlier Saturday wait after the wait was changed to Friday, while three contacts entering later used the revised Friday setting.
+
+For future scheduled sends, use this operating sequence:
+
+1. Finalize and publish the workflow with all date/time waits set to their intended Central Time dates **before** adding a batch.
+2. Add contacts in bulk only while their next date-specific wait is still in the future. The Contacts → Trigger automation bulk action is supported for published workflows, but bulk enrollment does not retroactively refresh a wait already created for a contact.[4][5]
+3. For any person who joins after a scheduled communication has passed, set that Wait action’s **If this date has already passed** behavior to **Skip all outbound communication actions till next wait or event start date action**. This prevents a late enrollee from receiving old campaign email or SMS messages.[4]
+4. If a message must be recovered after contacts are already paused at an old wait, use a dedicated one-time catch-up workflow or manually advance only that paused cohort; do not retime the live Wait step and expect existing contacts to refresh.
+
+**Current recovery status:** The 76 recovered contacts were manually moved past the stale Friday wait and are now combined with the three earlier contacts at the next, already-future Saturday wait (79 total). Because they entered that Saturday wait after the recovery action, it has a fresh scheduled release and should run automatically if the workflow remains published.
+
+### SMS delivery safeguard — October 18, 2026
+
+The 80 contacts advanced past the **Save App SMS** action and into the next Sunday wait. That proves the workflow timing path ran, but it does **not** prove every text was delivered: a workflow continues after attempting an SMS action even when outbound messaging is restricted or an individual message fails.[6] Because a test recipient did not receive the text and the SMS statistics showed zero recorded deliveries, treat the Saturday send as **unverified** until the delivery error is identified.
+
+Before any additional Holiday SMS action is allowed to run:
+
+1. Open **Save App SMS → Statistics → Failed → View details**, or the recipient’s **Conversations** record, and record the exact returned SMS error code.
+2. Check **Settings → Phone System → Messaging → Restriction History** for an account-level sending restriction.[6]
+3. Verify the workflow uses an active SMS-capable MacroFit sending number and that its Toll-Free or A2P registration is approved. Common account-wide blocks include unverified Toll-Free registration (`30032`), A2P registration/campaign association issues (`30034`), and outbound messaging disabled (`30037`).[7]
+4. Check the affected contact’s phone is a valid mobile number in E.164 format and that Text Messages DND/opt-out is not enabled. Do not retry until the underlying error is resolved.[7]
+5. Keep the Sunday email live because email is independent. Pause or remove future SMS actions only if the diagnosis confirms an account-wide sending failure; after a repair, test a single consented internal contact before retrying any member cohort.
+
+Failed SMS actions are not automatically retried after the restriction ends, so recovery must be deliberate and limited to the affected, still-consented contacts.[6]
+
+**Follow-up verification:** A fresh one-person SMS test sent successfully after the Saturday workflow run. This confirms that outbound SMS is currently functioning. The Saturday failure should be treated as an isolated execution/contact issue unless the next scheduled Holiday SMS shows a broader delivery problem. Keep the remaining scheduled SMS actions unchanged, and verify the next action’s delivery statistics after it runs.
+
 ### Selected initial gate and draft workflow configuration
 
 For this campaign, the user-selected initial eligibility signal is the registration-form answer **“Yes, I’m doing MacroFit now.”** This mirrors the Summer-style branch and is sufficient for the initial draft; the form answer is not a substitute for a future billing-based audit if that becomes available. Because the selected Yes branch itself is the registration event for current members, use a single participant tag—`HHS-2026-Registered`—rather than a separate `Registration-Requested` intermediate tag.
@@ -214,3 +243,7 @@ GoHighLevel browser access is connected and the Holiday form/funnel copies now e
 [1]: https://help.gohighlevel.com/support/solutions/articles/48001158874-manychat-to-highlevel-integration "Manychat to HighLevel Integration"
 [2]: https://help.manychat.com/hc/en-us/articles/14281285374364-Dev-Tools-External-request "Dev Tools: External request"
 [3]: https://www.gohighlevel.com/no-code-website-builder "GoHighLevel No-Code Website Builder"
+[4]: https://help.gohighlevel.com/support/solutions/articles/155000002470-workflow-action-wait "Workflow Wait Action Setup and Options in HighLevel"
+[5]: https://help.gohighlevel.com/support/solutions/articles/155000007595-how-to-add-contacts-in-bulk-to-a-workflow "How to Add Contacts in Bulk to a Workflow"
+[6]: https://help.gohighlevel.com/support/solutions/articles/48001213941-lc-phone-messaging-policy "LC Phone Messaging Policy"
+[7]: https://help.gohighlevel.com/support/solutions/articles/48001208912-understanding-common-sms-delivery-errors "Understanding Common SMS Delivery Errors in HighLevel"

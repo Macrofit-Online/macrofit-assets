@@ -371,6 +371,7 @@ Tiny Halloween reminder: decide before you are standing in front of the candy bo
 ## W2-FRI — Flexibility email
 
 **Send:** Friday, October 30 at 8:00 AM CT  
+**Asset status:** Coded HTML asset; not scheduled or sent  
 **Subject A:** Enjoy the treat. Keep the pattern.  
 **Subject B:** One fun night does not undo your week.  
 **Preview text:** Flexibility is a skill—not a reason to feel guilty.  

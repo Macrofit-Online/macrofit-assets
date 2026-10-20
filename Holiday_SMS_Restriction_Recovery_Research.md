@@ -10,6 +10,15 @@ The Day 1 Holiday Head Start SMS action attempted 77 contacts. The action report
 
 This is an **account-level sending restriction**, not evidence that the Day 1 message wording itself was rejected. The stated retry time has passed as of the diagnosis time.
 
+## Restriction History verification
+
+HighLevel Restriction History confirms that the Holiday Head Start lock was triggered by **delivery errors**, not recipient opt-outs:
+
+- **Holiday Head Start — October 19, 2026:** warning at a 37.93% error rate, then temporary restriction at a **51.28% error rate** after **39 sent, 20 errors, 0 opt-outs**.
+- **Summer Lock In — July 13, 2026:** warning at a 38.46% error rate, then temporary restriction at a **46.51% error rate** after **43 sent, 20 errors, 1 opt-out**.
+
+The repeat pattern strongly indicates that the account-level restriction is reached at **20 delivery errors** in these campaign batches. It does **not** establish that the message copy caused the individual errors. The remaining root-cause task is to review the first 20 individual, pre-restriction failures for their carrier/number-level error codes, then audit sender/A2P status and number quality before another bulk SMS.
+
 ## HighLevel’s documented behavior
 
 HighLevel identifies temporary SMS restrictions caused by high opt-out rates or high delivery-error rates. Its stated lockout thresholds are approximately **3% opt-outs** or **10% delivery errors**, after which SMS sending is locked for 24 hours. The Restriction History log identifies the specific reason and metrics.

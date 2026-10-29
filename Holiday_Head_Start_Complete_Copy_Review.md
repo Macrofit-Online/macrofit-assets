@@ -416,9 +416,10 @@ No Monday punishment required. One night does not need a cleanup plan. Return to
 **App theme:** Stop Chasing Fast  
 **Weekly challenge:** Non-Scale Win Challenge
 
-## W3-MON — Non-scale win email
+## W3-MON — Non-scale win + Step-A-Thon email
 
 **Send:** Monday, November 2 at 8:00 AM CT  
+**Asset status:** Coded HTML asset; not scheduled or sent
 **Subject A:** The scale is not the only proof that this is working.  
 **Subject B:** Let’s look for a different kind of win this week.  
 **Preview text:** Energy, confidence, routines, clothes, sleep—notice what is changing.  
@@ -428,19 +429,36 @@ No Monday punishment required. One night does not need a cleanup plan. Return to
 
 Hey {{contact.first_name}},
 
-By Week 3, it is easy to start looking for dramatic proof that every choice is “working.” But progress is often quieter than that.
+Welcome to Week 3 of our Holiday Head Start Challenge!
 
-It can look like less food stress at 4 PM. A restaurant meal that does not turn into an all-weekend spiral. More energy for a walk. A grocery trip that feels less overwhelming. Pants fitting differently. A better night of sleep. Realizing you know what to do next instead of starting over every Monday.
+By now, I hope you're starting to notice some positive changes. And I'm not just talking about the number on the scale!
 
-Those things count.
+Maybe your clothes are fitting a little better, you're feeling more energetic, you're less overwhelmed by meal prepping, or you're finally getting into a good routine.
 
-### This week’s challenge: Non-Scale Win
+Those are all wins, and they deserve some recognition!
 
-Find one win this week that has nothing to do with a number on the scale. Then share it in the group.
+### 🎉 Challenge #1: Non-Scale Win
 
-We are not ignoring body goals. We are just refusing to let one number be the only evidence that you are becoming more consistent, more capable, and more in control.
+This week, I want you to recognize ONE positive change that has nothing to do with the scale.
 
-The Week 2 shirt winner will be announced in the Facebook group today. Jump in, celebrate someone else, and let the group see your win too.
+It can be something big or small! Share your non-scale win in our Facebook group. Sometimes we get so focused on weight loss that we overlook all the other progress we're making.
+
+### 👟 Challenge #2: STEP-A-THON! $50 Prize!
+
+We're adding a little friendly competition this week!
+
+The person who logs the MOST steps from Monday through Sunday will win a $50 Macrofit gift card!
+
+Here's how it works:
+
+- Get as many steps as you can each day!
+- Post your daily step count in our Facebook group EVERY day, Monday through Sunday.
+- The person with the highest TOTAL steps for the week wins!
+- You MUST post your steps in the group each day to qualify.
+
+Whether you're walking the neighborhood, hitting the treadmill, or squeezing in extra movement throughout your day, it all adds up!
+
+Let's have some fun with Week 3!
 
 **CTA: Open This Week’s Challenge**
 

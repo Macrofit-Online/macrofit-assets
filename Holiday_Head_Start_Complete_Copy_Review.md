@@ -474,33 +474,52 @@ Quick question: what feels easier than it did two weeks ago? More energy, less d
 
 ---
 
-## W3-FRI — Trust the boring process email
+## W3-FRI — Week 3 Day 5 email
 
 **Send:** Friday, November 6 at 8:00 AM CT  
+**Asset status:** Coded HTML asset; not scheduled or sent
 **Subject A:** Progress usually looks boring before it looks dramatic.  
 **Subject B:** The quiet wins are still wins.  
 **Preview text:** You are building a pattern, not auditioning for a perfect week.  
-**Primary CTA:** Share a Non-Scale Win → https://www.facebook.com/groups/macrofitonline
+**Primary CTA:** Share Your Progress in the Facebook Group → https://www.facebook.com/groups/macrofitonline
 
 ### Copy
 
 Hey {{contact.first_name}},
 
-A lot of people quit a plan right before the part where it starts to become normal.
+We're wrapping up the first five days of Week 3, and I want to remind you of something important.
 
-The newness wears off. The results might not feel flashy every day. Life keeps happening. And suddenly, it is tempting to go look for something more intense, more restrictive, or more exciting.
+You don't have to be perfect to make progress. You just have to keep showing up!
 
-But the boring stuff is where confidence comes from.
+By now, some of that initial excitement may be wearing off. That's normal! But this is where the real habits start to form.
 
-You are learning how to make choices without turning food into a full-time job. You are building a pattern you can take into a restaurant, a holiday, a stressful week, and a normal Tuesday.
+You're learning how to plan your meals, make better choices, and stay consistent even when life gets busy. The goal isn't to follow a plan perfectly for a few weeks. It's to build habits you can actually maintain long-term!
 
-That is not small.
+And don't forget, progress isn't always measured by the scale.
 
-Your group prompt: **What is one non-scale win you have noticed so far?**
+### 🎉 THIS WEEK'S NON-SCALE WIN CHALLENGE
 
-And if you have a completed Bingo row, do not forget to screenshot it and post it in the group. The first 20 qualifying row posts receive a MacroFit notebook.
+What's one positive change you've noticed since starting the challenge?
 
-**CTA: Share a Non-Scale Win**
+Maybe your clothes fit differently, you have more energy, you're sleeping better, or meal prepping is finally becoming part of your routine.
+
+Share your win in our Facebook group! We'd love to hear it!
+
+### 👟 STEP-A-THON UPDATE: $50 GIFT CARD!
+
+Our step challenge is still going strong, and there's plenty of time to get those steps in!
+
+The person with the MOST total steps from Monday through Sunday wins a $50 Macrofit gift card!
+
+A few reminders:
+
+- Every step counts! Keep moving throughout your day.
+- You MUST post your daily steps in our Facebook group EVERY day to qualify.
+- The challenge ends Sunday, so don't forget to keep moving AND posting over the weekend!
+
+Finish Week 3 strong! 💪
+
+**CTA: Share Your Progress in the Facebook Group**
 
 — Chelsea
 

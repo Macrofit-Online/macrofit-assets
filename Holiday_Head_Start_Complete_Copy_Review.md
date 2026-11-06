@@ -624,6 +624,7 @@ Low motivation is not a character flaw. Do not wait to “feel like it.” Make 
 **Asset status:** Approved copy supplied November 6; coded HTML asset; not scheduled or sent
 **HTML asset:** `emails/holiday-head-start-week-4-friday.html`
 **Copy treatment:** November 6 correction — replaced the weekly-winner T-shirt paragraph with the same approved 20-point Side Quest section used in Monday's email. All other wording retained; decoded the trailing `&#x20;` to a space. App unchanged.
+**Layout correction:** November 6 — added 28px of space between the KEEP GOING banner and the T-shirt Side Quest card. Wording unchanged.
 **Subject A:** What promise did you keep this week?  
 **Subject B:** The follow-through matters more than the mood.  
 **Preview text:** Perfect or not, those little wins count. Share yours with the group!

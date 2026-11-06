@@ -542,36 +542,55 @@ You do not need a faster answer. You need to repeat what is working. Take 5 minu
 ## W4-MON — Promise-keeper email
 
 **Send:** Monday, November 9 at 8:00 AM CT  
+**Asset status:** Approved copy supplied November 6; coded HTML asset; not scheduled or sent
+**HTML asset:** `emails/holiday-head-start-week-4-monday.html`
+**Copy cleanup:** Minor spelling, capitalization, and punctuation corrections only; Chelsea's voice and all five examples retained.
 **Subject A:** Keep one promise to yourself today.  
 **Subject B:** Motivation is not the boss of your next choice.  
-**Preview text:** Choose one small promise. Keep it. Let that be enough for today.  
+**Preview text:** Choose one small promise. Keep it—even on the days you don't feel like it.
 **Primary CTA:** Open This Week’s Challenge → https://macrofitprogram.com/holiday-head-start/app
 
 ### Copy
 
 Hey {{contact.first_name}},
 
-Some days you are going to feel motivated. Some days you are going to feel tired, irritated, busy, or just completely over deciding what to eat.
+Week 4 is here! And it's time to address the elephant in the room—you're likely hitting your groove and thinking “WHY HAVEN'T I LOST 10LBS YET”. Motivation may be starting to wane because the shiny new thing has lost its luster—but it's time to address this truth:
 
-That does not mean you are failing. It means you are a person with a real life.
+**You're not going to always feel motivated.**
 
-This week is not about forcing yourself through some huge, miserable standard. It is about building self-trust through one small promise at a time.
+It's not talked about enough, but it's true. Some days you're going to be excited to follow your plan, cook your meals, and get your steps in. Other days, you're going to be exhausted, busy, and the last thing you want to do is go grab your meal prep… you're going to want to eat the delicious Little Debbie Christmas tree cake instead.
 
-### This week’s challenge: Promise-Keeper
+And that's exactly why we can't rely on motivation alone! Motivation comes and goes. It's the little things we continue doing on the days we DON'T feel like it that really start to make a difference.
 
-Pick one promise you can keep each day this week.
+**Let me repeat that again to emphasize it: it's the things you CONTINUE doing on the days you DO NOT FEEL LIKE IT, that make a difference.**
 
-Maybe it is packing the lunch you planned. Drinking your water. Taking the after-dinner walk. Opening the app before the day gets away from you. Ordering the meal you decided on instead of making a last-minute choice you know will leave you feeling frustrated.
+THAT is when you really start working on your discipline muscle—because discipline has to be worked just like everything else. It strengthens through practicing it… not through caving in at every desire we have.
 
-Keep it simple enough that you can actually follow through.
+So here's your challenge for Week 4!
 
-The goal is not to prove you are “disciplined.” The goal is to remember that you can depend on yourself—even on the days you do not feel especially motivated.
+Super cheesy name, but we'll call it the **Promise-Keeper Challenge**
 
-The Week 3 shirt winner will be announced in the Facebook group today. Go hype her up.
+I want you to pick ONE small thing that you're going to commit to doing every day this week.
 
-**CTA: Open This Week’s Challenge**
+Maybe it's:
 
-— Chelsea
+- Getting your steps in.
+- Eating your vegetables.
+- Eating a meal that aligns with your goals BEFORE you get too hungry to just grab anything.
+- Sticking to your planned meals and snacks.
+- Getting to bed at a decent time.
+
+It doesn't have to be anything crazy. Just something you struggle with sometimes but you know you can realistically accomplish.
+
+And when you don't feel like doing it? That's when I really want you to follow through!
+
+Also, don't forget about our T-shirt challenge! We're giving away a Macrofit T-shirt each week to someone who's actively participating in our Facebook group. Share your progress, join the conversations, and encourage each other!
+
+**CTA: OPEN THIS WEEK'S CHALLENGE**
+
+Let's have a great Week 4!
+
+Chelsea
 
 ---
 

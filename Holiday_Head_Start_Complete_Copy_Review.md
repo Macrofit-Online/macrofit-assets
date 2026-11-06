@@ -623,7 +623,7 @@ Low motivation is not a character flaw. Do not wait to “feel like it.” Make 
 **Send:** Friday, November 13 at 8:00 AM CT  
 **Asset status:** Approved copy supplied November 6; coded HTML asset; not scheduled or sent
 **HTML asset:** `emails/holiday-head-start-week-4-friday.html`
-**Copy treatment:** Wording retained; decoded the trailing `&#x20;` to a space. Weekly participation shirt reminder retained as supplied, separate from the 20-point Side Quest. App unchanged.
+**Copy treatment:** November 6 correction — replaced the weekly-winner T-shirt paragraph with the same approved 20-point Side Quest section used in Monday's email. All other wording retained; decoded the trailing `&#x20;` to a space. App unchanged.
 **Subject A:** What promise did you keep this week?  
 **Subject B:** The follow-through matters more than the mood.  
 **Preview text:** Perfect or not, those little wins count. Share yours with the group!
@@ -651,7 +651,22 @@ And I want you to start recognizing those little wins because they really do add
 
 So, KEEP GOING- you're doing amazing!
 
-And don't forget, we're giving away another Macrofit T-shirt! We're choosing our weekly winners based on participation in the group, so don't be shy! Share your wins, comment on someone else's post, and help keep this little community going strong.
+### Your T-shirt Side Quest
+
+**Earn Your MacroFit Tee!**
+
+Also, don't forget about our T-shirt Side Quest! Help spread the word about MacroFit, earn points, and work toward a FREE tee!
+
+- **3 points:** Write a genuine review on Facebook, Google, or the App Store.
+- **1 point:** Share a MacroFit Online post on your personal page.
+- **1 point:** Tag us in a post sharing your meal prep, workouts, progress, inches lost, or another win.
+- **5 points:** Share your own transformation on your page and tag us! Fully clothed pictures are absolutely welcome.
+
+Track your points in the side app and save screenshots as you go. The **first 20 eligible paid MacroFit members** to reach **20 points** and email their screenshots to **info@Macrofit.com** will receive a tee after our team verifies their submission!
+
+**One post or review counts once—no double counting! A transformation post that tags us earns 5 points, not 6.**
+
+Keep your posts public and your posts/reviews genuine and honest. Clearly disclose when a promotional post earns points toward a free shirt. Platform policies still apply. Reaching 20 points doesn't automatically reserve a tee—your screenshots need to be verified first.
 
 [SHARE YOUR WEEK 4 WIN](https://www.facebook.com/groups/macrofitonline)
 

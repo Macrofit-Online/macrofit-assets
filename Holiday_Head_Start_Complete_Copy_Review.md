@@ -621,30 +621,43 @@ Low motivation is not a character flaw. Do not wait to “feel like it.” Make 
 ## W4-FRI — Promise-keeper email
 
 **Send:** Friday, November 13 at 8:00 AM CT  
+**Asset status:** Approved copy supplied November 6; coded HTML asset; not scheduled or sent
+**HTML asset:** `emails/holiday-head-start-week-4-friday.html`
+**Copy treatment:** Wording retained; decoded the trailing `&#x20;` to a space. Weekly participation shirt reminder retained as supplied, separate from the 20-point Side Quest. App unchanged.
 **Subject A:** What promise did you keep this week?  
 **Subject B:** The follow-through matters more than the mood.  
-**Preview text:** Your confidence is built in the moments you show up anyway.  
-**Primary CTA:** Share Your Promise → https://www.facebook.com/groups/macrofitonline
+**Preview text:** Perfect or not, those little wins count. Share yours with the group!
+**Primary CTA:** SHARE YOUR WEEK 4 WIN → https://www.facebook.com/groups/macrofitonline
 
 ### Copy
 
 Hey {{contact.first_name}},
 
-There is a certain kind of confidence that comes from keeping a promise to yourself—especially when nobody else would have known if you skipped it.
+Happy Friday!
 
-It does not have to be a huge thing.
+Alright, let's hear it- how'd you do with your promise this week?
 
-Maybe you kept your planned breakfast even though the morning was chaotic. Maybe you went for the walk. Maybe you chose a meal that supported you instead of letting the day turn into “whatever is easiest” because you were tired.
+Maybe you got your steps in every day. Maybe you stuck to your plan 100%. Maybe you finally started getting to bed earlier.
 
-Small follow-through builds a different relationship with yourself. It tells you: *I can trust myself to keep going.*
+Or maybe you didn't do it perfectly, but you did a whole lot better than you would've a few weeks ago- and that counts too!
 
-Your group prompt today: **What is one promise you kept this week, even when you did not feel like it?**
+Macrofit isn't about being perfect- it's about being consistent. Consistency is what you're doing MOST of the time. In order to start creating habits with consistency, we have to start. Starting looks like sometimes doing it. Then doing it a bit more. Then getting in enough of a routine or getting used to it enough that there's a lot less friction preventing you from doing it in the first place.
 
-Share it. Encourage someone else. The weekly shirt winner is chosen from meaningful group participation, and the real point is that somebody in the group may need to see your post more than you realize.
+We can be so hard on ourselves when we *want* to do something, but can't always execute it. Starting. Practicing discipline (even if we fail) is how we get to the point of consistency.
 
-**CTA: Share Your Promise**
+I think sometimes we get so caught up in what we DIDN'T do that we completely overlook all the things we're doing right.
 
-— Chelsea
+And I want you to start recognizing those little wins because they really do add up.
+
+So, KEEP GOING- you're doing amazing!
+
+And don't forget, we're giving away another Macrofit T-shirt! We're choosing our weekly winners based on participation in the group, so don't be shy! Share your wins, comment on someone else's post, and help keep this little community going strong.
+
+[SHARE YOUR WEEK 4 WIN](https://www.facebook.com/groups/macrofitonline)
+
+Hope you have a great weekend!
+
+Chelsea
 
 ---
 

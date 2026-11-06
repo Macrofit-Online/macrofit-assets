@@ -545,6 +545,7 @@ You do not need a faster answer. You need to repeat what is working. Take 5 minu
 **Asset status:** Approved copy supplied November 6; coded HTML asset; not scheduled or sent
 **HTML asset:** `emails/holiday-head-start-week-4-monday.html`
 **Copy cleanup:** Minor spelling, capitalization, and punctuation corrections only; Chelsea's voice and all five examples retained.
+**T-shirt section revision:** November 6 — replaced the weekly giveaway reminder with the app's 20-point Side Quest at Chelsea's request. Email-only change; app unchanged.
 **Subject A:** Keep one promise to yourself today.  
 **Subject B:** Motivation is not the boss of your next choice.  
 **Preview text:** Choose one small promise. Keep it—even on the days you don't feel like it.
@@ -584,7 +585,22 @@ It doesn't have to be anything crazy. Just something you struggle with sometimes
 
 And when you don't feel like doing it? That's when I really want you to follow through!
 
-Also, don't forget about our T-shirt challenge! We're giving away a Macrofit T-shirt each week to someone who's actively participating in our Facebook group. Share your progress, join the conversations, and encourage each other!
+### Your T-shirt Side Quest
+
+**Earn Your MacroFit Tee!**
+
+Also, don't forget about our T-shirt Side Quest! Help spread the word about MacroFit, earn points, and work toward a FREE tee!
+
+- **3 points:** Write a genuine review on Facebook, Google, or the App Store.
+- **1 point:** Share a MacroFit Online post on your personal page.
+- **1 point:** Tag us in a post sharing your meal prep, workouts, progress, inches lost, or another win.
+- **5 points:** Share your own transformation on your page and tag us! Fully clothed pictures are absolutely welcome.
+
+Track your points in the side app and save screenshots as you go. The **first 20 eligible paid MacroFit members** to reach **20 points** and email their screenshots to **info@Macrofit.com** will receive a tee after our team verifies their submission!
+
+**One post or review counts once—no double counting! A transformation post that tags us earns 5 points, not 6.**
+
+Keep your posts public and your posts/reviews genuine and honest. Clearly disclose when a promotional post earns points toward a free shirt. Platform policies still apply. Reaching 20 points doesn't automatically reserve a tee—your screenshots need to be verified first.
 
 **CTA: OPEN THIS WEEK'S CHALLENGE**
 

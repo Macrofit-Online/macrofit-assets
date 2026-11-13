@@ -685,66 +685,75 @@ Before the week starts: what is the one thing that usually makes your plan harde
 
 ---
 
-# Part 7 — Week 5: Meal Prep Photos + Workout Selfies
+# Part 7 — Week 5: KEEP GOING!
 
 **Dates:** Monday, November 16–Sunday, November 22
-**Week 5 direction:** Meal Prep Photo Contest + Workout Selfie Contest in the Facebook group; separate 20-point T-shirt Side Quest remains active.
-**Meal prep focus:** Primarily Sunday, November 15, and Monday, November 16; these are sharing focus days, not a hard deadline.
-**Workout selfie focus:** Throughout November 16–22.
-**App alignment:** Weekly goal, habits, reflection, and Facebook prompts updated for both contests. Meal-prep prompt begins Sunday, November 15; Week 5 card and workout-selfie prompts begin Monday, November 16. Existing T-shirt Side Quest and no-double-counting logic preserved; no automatic points for group contest posts or daily stars.
-**App checkpoint:** `e4cd7f48`; PWA cache `v22`. Full tests (54), typecheck, production build, phone layout and Central-date transition checks passed. Saved for publication; NOT verified live.
-**Email QA:** Copy/packet agreement, exact personalization, unsubscribe, group/app links, and 320/375/390/800px layouts verified.
-**Review status:** Drafted and coded November 13 from approved contest direction; email wording for Chelsea review; NOT scheduled/sent; prize/judging details not supplied.
+**Week 5 direction:** KEEP GOING! Meal Prep Photo Contest + Workout Selfie Challenge, using the user-supplied wording approved November 13.
+**Meal prep submissions:** Sunday, November 15–Tuesday, November 17, in the Macrofit Facebook group.
+**Meal prep voting:** Tuesday, November 17 NIGHT, on the MAIN Macrofit Facebook page. No exact time or voting end date specified. MAIN page URL is unknown; retain the approved sentence as plain text and do not invent a link.
+**Meal prep prizes:** 1st Place: $40 gift card; 2nd Place: $20 gift card; 3rd Place: $20 gift card; 4th Place: $10 gift card; 5th Place: $10 gift card. Gift-card brand unspecified; do not label these Macrofit gift cards.
+**Workout selfie focus:** Throughout November 16–22, in the Facebook group; $50 gift cards to winners. Winner count and selection/judging method unspecified; do not invent them.
+**T-shirt Side Quest:** Remains app-only for this Week 5 approved email; no T-shirt paragraph added to W5-MON. Existing 20-point rules and no-double-counting remain unchanged. Group contest posts and daily app stars do not automatically earn Side Quest points.
+**App alignment:** KEEP GOING! theme, weekly goal, habits, reflection, all supplied prizes, Tuesday-night MAIN-page voting, and Facebook prompts aligned with the approved copy. Meal-prep submissions November 15–17; workout selfies November 16–22. Tuesday's daily prompt includes meal prep, voting that night, and selfies. Existing T-shirt Side Quest and no-double-counting logic preserved; no automatic points for group contest posts or daily stars.
+**App checkpoint:** `88eb7108`; PWA cache `v23`. Full tests (54), typecheck, production build, phone layout and Central-date transition checks passed. Saved for publication; this revised checkpoint is NOT verified live.
+**Email copy treatment and QA:** Exact user-approved body wording and order verified; whitespace normalization only. Greeting is `Hey Macrofitters!` with no personalization. Fall-leaves/plum mobile table layout retained, with spaced cards and mobile-readable prize rows. Group CTA and secondary app link are navigational additions only; footer and `{{unsubscribe_url}}` retained. Copy/packet agreement, correct links, all supplied prizes, unsubscribe, and 320/375/390/800px layouts verified for this recode.
+**Review status:** Approved copy supplied and coded November 13, 2026; NOT scheduled/sent. Unspecified contest details remain unspecified.
 **Remaining Week 5 drafts:** W5-WED, W5-FRI, and W5-SUN below remain unchanged future proposed entries from the older direction. They need later review against the new contests and are NOT approved.
 
-## W5-MON — Meal prep photos + workout selfies kickoff email
+## W5-MON — KEEP GOING! kickoff email
 
 **Proposed send:** Monday, November 16 at 8:00 AM CT; NOT scheduled/sent
-**Asset status:** Drafted and coded November 13 from approved contest direction; email wording for Chelsea review; NOT scheduled/sent; prize/judging details not supplied.
+**Asset status:** Approved copy supplied and coded November 13, 2026; NOT scheduled/sent.
 **HTML asset:** `emails/holiday-head-start-week-5-monday.html`
-**Subject suggestion:** Meal prep pics. Workout selfies. Let’s see yours!
-**Preview text:** Two photo contests this week—and the T-shirt Side Quest is still on!
+**Subject suggestion (optional):** Keep Going! Week 5 is bringing the fun.
+**Preview text:** Meal prep photos, workout selfies, and gift cards—let’s KEEP GOING!
 **Primary CTA:** Share Your Week 5 Photos → https://www.facebook.com/groups/macrofitonline
 **Secondary text link:** Open Your Challenge App → https://macrofitprogram.com/holiday-head-start/app
-**Contest guardrails:** Photos go in the Facebook group, not app uploads. No prize amounts, winner selection, judging rules, daily posting requirement, or hard meal-prep deadline have been added. Group contest posts and daily app stars do not automatically earn Side Quest points.
+**Contest guardrails:** Photo submissions go in the Facebook group, not app uploads. Meal prep submissions run Sunday, November 15–Tuesday, November 17; voting starts Tuesday, November 17 NIGHT on the MAIN Macrofit Facebook page, with no invented exact time, voting end date, or MAIN page link. Prize values are $40/$20/$20/$10/$10 for meal prep and $50 gift cards to workout-selfie winners; no gift-card brand, workout winner count, selection/judging method, or daily posting requirement supplied or added. T-shirt Side Quest remains app-only under its existing 20-point/no-double-counting rules, with no paragraph added to this body. Group contest posts and daily app stars do not automatically earn Side Quest points.
 
 ### Copy
 
-Hey {{contact.first_name}},
+Hey Macrofitters!
 
-Week 5 is here, and we're bringing a little extra fun to the Facebook group! This week, November 16–22, we've got TWO photo contests: meal prep pics and workout selfies.
+Welcome to WEEK 5 of our Holiday Head Start Challenge!
 
-**Let's see what you're up to!**
+This week's theme is **KEEP GOING!**
 
-Not the perfectly staged version. The real-life version! A few meals ready for a busy day. A walk you made time for. Those little things are worth sharing, and your photo might give another Macrofitter an idea they needed.
+We're officially in the home stretch! And with the holidays creeping up, this is usually when life starts getting a little chaotic. But remember, you DO NOT have to be perfect! You just need to keep showing up, following your plan, and doing what you can.
 
-### Meal Prep Photo Contest
+You've already put in FOUR weeks of work. So I'm not about to let you throw in the towel now!
 
-Most of our meal-prep sharing will happen Sunday, November 15, and Monday, November 16. If you prepped yesterday, let's see it! If your prep happens later, share that too.
+And because we like to keep things FUN, we've got TWO challenges happening this week!
 
-You don't need a fridge full of matching containers. Chopped veggies, a couple of lunches, or breakfast ready to grab—simple meal prep counts! Snap a photo and post it in our Facebook group.
+**CONTEST #1: MEAL PREP PHOTO CONTEST**
 
-### Workout Selfie Contest
+Sunday through Tuesday, snap a picture of your meal prep and post it in our Macrofit Facebook group! Doesn't have to be fancy. We just want to see what you're cooking!
 
-Throughout November 16–22, share a workout selfie in the group! A walk, Pilates, yoga, a run, a gym session—it doesn't have to be anything extreme. Choose movement that fits your life.
+Tuesday night, we'll put the photos up for voting on our MAIN Macrofit Facebook page!
 
-Both contests happen in the **Facebook group**, not through photo uploads in the app. And while you're there, give someone else a little encouragement!
+**PRIZES:**
 
-### Your T-shirt Side Quest Is Still On!
+- 1st Place: $40 gift card
+- 2nd Place: $20 gift card
+- 3rd Place: $20 gift card
+- 4th Place: $10 gift card
+- 5th Place: $10 gift card
 
-This is separate from our photo contests—not a weekly participation prize. Track qualifying Side Quest points in the side app and save your screenshots.
+**CONTEST #2: WORKOUT SELFIE CHALLENGE**
 
-The **first 20 eligible paid MacroFit members** to reach **20 points** and email their screenshots to **info@Macrofit.com** will receive a tee after team verification. One post or review counts once—no double counting!
+All week long, we're challenging you to share your workout selfies in our Facebook group!
 
-**Group contest posts and daily app stars do NOT automatically earn Side Quest points.**
+Gym workout, home workout, whatever you're doing, snap that selfie and share it with us!
 
-[Share Your Week 5 Photos](https://www.facebook.com/groups/macrofitonline)
+We're giving away **$50 gift cards** to our winners!
 
-[Open Your Challenge App](https://macrofitprogram.com/holiday-head-start/app)
+And here's your little reminder for Week 5:
 
-Can't wait to see your photos! Let's have a fun Week 5!
+You don't need to start over every Monday. You don't need to wait until January 1st. You just need to keep doing the little things that have gotten you this far. One meal, one workout, one day at a time, and one CHOICE at a time.
 
-Chelsea
+**Let's make Week 5 a good one!**
+
+Chelsea & the Macrofit Team
 
 ---
 

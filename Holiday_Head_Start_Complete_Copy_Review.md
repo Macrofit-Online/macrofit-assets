@@ -685,48 +685,66 @@ Before the week starts: what is the one thing that usually makes your plan harde
 
 ---
 
-# Part 7 — Week 5: Keep Going
+# Part 7 — Week 5: Meal Prep Photos + Workout Selfies
 
-**Dates:** Monday, November 16–Sunday, November 22  
-**App theme:** This Is Where It Counts  
-**Weekly challenge:** No-Coast Challenge
+**Dates:** Monday, November 16–Sunday, November 22
+**Week 5 direction:** Meal Prep Photo Contest + Workout Selfie Contest in the Facebook group; separate 20-point T-shirt Side Quest remains active.
+**Meal prep focus:** Primarily Sunday, November 15, and Monday, November 16; these are sharing focus days, not a hard deadline.
+**Workout selfie focus:** Throughout November 16–22.
+**App alignment:** Weekly goal, habits, reflection, and Facebook prompts updated for both contests. Meal-prep prompt begins Sunday, November 15; Week 5 card and workout-selfie prompts begin Monday, November 16. Existing T-shirt Side Quest and no-double-counting logic preserved; no automatic points for group contest posts or daily stars.
+**App checkpoint:** `e4cd7f48`; PWA cache `v22`. Full tests (54), typecheck, production build, phone layout and Central-date transition checks passed. Saved for publication; NOT verified live.
+**Email QA:** Copy/packet agreement, exact personalization, unsubscribe, group/app links, and 320/375/390/800px layouts verified.
+**Review status:** Drafted and coded November 13 from approved contest direction; email wording for Chelsea review; NOT scheduled/sent; prize/judging details not supplied.
+**Remaining Week 5 drafts:** W5-WED, W5-FRI, and W5-SUN below remain unchanged future proposed entries from the older direction. They need later review against the new contests and are NOT approved.
 
-## W5-MON — No-coast email
+## W5-MON — Meal prep photos + workout selfies kickoff email
 
-**Send:** Monday, November 16 at 8:00 AM CT  
-**Subject A:** This is where the habit gets real.  
-**Subject B:** The excitement wore off. You do not have to.  
-**Preview text:** Match your Week 1 effort—not with perfection, but with intention.  
-**Primary CTA:** Open This Week’s Challenge → https://macrofitprogram.com/holiday-head-start/app
+**Proposed send:** Monday, November 16 at 8:00 AM CT; NOT scheduled/sent
+**Asset status:** Drafted and coded November 13 from approved contest direction; email wording for Chelsea review; NOT scheduled/sent; prize/judging details not supplied.
+**HTML asset:** `emails/holiday-head-start-week-5-monday.html`
+**Subject suggestion:** Meal prep pics. Workout selfies. Let’s see yours!
+**Preview text:** Two photo contests this week—and the T-shirt Side Quest is still on!
+**Primary CTA:** Share Your Week 5 Photos → https://www.facebook.com/groups/macrofitonline
+**Secondary text link:** Open Your Challenge App → https://macrofitprogram.com/holiday-head-start/app
+**Contest guardrails:** Photos go in the Facebook group, not app uploads. No prize amounts, winner selection, judging rules, daily posting requirement, or hard meal-prep deadline have been added. Group contest posts and daily app stars do not automatically earn Side Quest points.
 
 ### Copy
 
 Hey {{contact.first_name}},
 
-We are in Week 5.
+Week 5 is here, and we're bringing a little extra fun to the Facebook group! This week, November 16–22, we've got TWO photo contests: meal prep pics and workout selfies.
 
-This is often the part where people quietly start drifting—not because they do not care, but because the newness is gone and life is still full.
+**Let's see what you're up to!**
 
-That is normal.
+Not the perfectly staged version. The real-life version! A few meals ready for a busy day. A walk you made time for. Those little things are worth sharing, and your photo might give another Macrofitter an idea they needed.
 
-The exciting part is that you are not relying on excitement anymore. You are practicing what it looks like to keep going after the novelty wears off. That is where a habit starts becoming something you can actually keep.
+### Meal Prep Photo Contest
 
-### This week’s challenge: No-Coast
+Most of our meal-prep sharing will happen Sunday, November 15, and Monday, November 16. If you prepped yesterday, let's see it! If your prep happens later, share that too.
 
-Bring the same intention you had in Week 1.
+You don't need a fridge full of matching containers. Chopped veggies, a couple of lunches, or breakfast ready to grab—simple meal prep counts! Snap a photo and post it in our Facebook group.
 
-Not more pressure. Not a dramatic “finish strong” personality change. Just the same basic decisions:
+### Workout Selfie Contest
 
-- Check the plan.
-- Make the next meal easier.
-- Mark off the daily wins you accomplish.
-- Get back to normal quickly when real life happens.
+Throughout November 16–22, share a workout selfie in the group! A walk, Pilates, yoga, a run, a gym session—it doesn't have to be anything extreme. Choose movement that fits your life.
 
-The Week 4 shirt winner will be announced in the Facebook group today. And this week, start looking ahead to Thanksgiving. The goal is not to avoid the holiday. The goal is to walk into it with a plan you actually want to follow.
+Both contests happen in the **Facebook group**, not through photo uploads in the app. And while you're there, give someone else a little encouragement!
 
-**CTA: Open This Week’s Challenge**
+### Your T-shirt Side Quest Is Still On!
 
-— Chelsea
+This is separate from our photo contests—not a weekly participation prize. Track qualifying Side Quest points in the side app and save your screenshots.
+
+The **first 20 eligible paid MacroFit members** to reach **20 points** and email their screenshots to **info@Macrofit.com** will receive a tee after team verification. One post or review counts once—no double counting!
+
+**Group contest posts and daily app stars do NOT automatically earn Side Quest points.**
+
+[Share Your Week 5 Photos](https://www.facebook.com/groups/macrofitonline)
+
+[Open Your Challenge App](https://macrofitprogram.com/holiday-head-start/app)
+
+Can't wait to see your photos! Let's have a fun Week 5!
+
+Chelsea
 
 ---
 

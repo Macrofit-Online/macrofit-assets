@@ -692,13 +692,13 @@ Before the week starts: what is the one thing that usually makes your plan harde
 **Meal prep submissions:** Sunday, November 15–Tuesday, November 17, in the Macrofit Facebook group.
 **Meal prep voting:** Tuesday, November 17 NIGHT, on the MAIN Macrofit Facebook page. No exact time or voting end date specified. MAIN page URL is unknown; retain the approved sentence as plain text and do not invent a link.
 **Meal prep prizes:** 1st Place: $40 gift card; 2nd Place: $20 gift card; 3rd Place: $20 gift card; 4th Place: $10 gift card; 5th Place: $10 gift card. Gift-card brand unspecified; do not label these Macrofit gift cards.
-**Workout selfie focus:** Throughout November 16–22, in the Facebook group; $50 gift cards to winners. Winner count and selection/judging method unspecified; do not invent them.
+**Workout selfie focus:** Throughout November 16–22, in the Facebook group; a $50 gift card for ONE winner, confirmed November 16, 2026. Monday's original plural wording is preserved below as historical approved copy and superseded by this singular-winner correction for the current app checkpoint and Friday email. Selection/judging method unspecified; do not invent it.
 **T-shirt Side Quest:** Remains app-only for this Week 5 approved email; no T-shirt paragraph added to W5-MON. Existing 20-point rules and no-double-counting remain unchanged. Group contest posts and daily app stars do not automatically earn Side Quest points.
 **App alignment:** KEEP GOING! theme, weekly goal, habits, reflection, all supplied prizes, Tuesday-night MAIN-page voting, and Facebook prompts aligned with the approved copy. Meal-prep submissions November 15–17; workout selfies November 16–22. Tuesday's daily prompt includes meal prep, voting that night, and selfies. Existing T-shirt Side Quest and no-double-counting logic preserved; no automatic points for group contest posts or daily stars.
-**App checkpoint:** `88eb7108`; PWA cache `v23`. Full tests (54), typecheck, production build, phone layout and Central-date transition checks passed. Saved for publication; this revised checkpoint is NOT verified live.
+**App checkpoint:** `d3f8d7eb`; PWA cache `v24`, reflecting the November 16 singular-winner correction. Saved checkpoint only; NOT verified live. Prior `88eb7108` / `v23` QA recorded full tests (54), typecheck, production build, phone layout and Central-date transition checks passed.
 **Email copy treatment and QA:** Exact user-approved body wording and order verified; whitespace normalization only. Greeting is `Hey Macrofitters!` with no personalization. Fall-leaves/plum mobile table layout retained, with spaced cards and mobile-readable prize rows. Group CTA and secondary app link are navigational additions only; footer and `{{unsubscribe_url}}` retained. Copy/packet agreement, correct links, all supplied prizes, unsubscribe, and 320/375/390/800px layouts verified for this recode.
 **Review status:** Approved copy supplied and coded November 13, 2026; NOT scheduled/sent. Unspecified contest details remain unspecified.
-**Remaining Week 5 drafts:** W5-WED, W5-FRI, and W5-SUN below remain unchanged future proposed entries from the older direction. They need later review against the new contests and are NOT approved.
+**Remaining Week 5 drafts:** ONLY W5-WED and W5-SUN below remain unchanged future proposed entries from the older direction. They need later review against the new contests and are NOT approved. W5-FRI is now approved and coded November 16, 2026; NOT scheduled/sent.
 
 ## W5-MON — KEEP GOING! kickoff email
 
@@ -765,40 +765,50 @@ The newness wearing off does not mean this is not working. It means you are prac
 
 ---
 
-## W5-FRI — Thanksgiving preview email
+## W5-FRI — KEEP GOING! Friday email
 
-**Send:** Friday, November 20 at 8:00 AM CT  
-**Subject A:** You have been practicing, not just participating.  
-**Subject B:** Your Thanksgiving plan starts before Thursday.  
-**Preview text:** A holiday meal does not need to turn into a holiday season of starting over.  
-**Primary CTA:** Share What’s Helping You → https://www.facebook.com/groups/macrofitonline
+**Proposed send:** Friday, November 20 at 8:00 AM CT; existing proposed date/time only, NOT scheduled/sent.
+**Asset status:** Approved copy supplied and coded November 16, 2026; NOT scheduled/sent.
+**HTML asset:** `emails/holiday-head-start-week-5-friday.html`
+**Subject suggestion (optional):** Keep your appointment with yourself.
+**Preview text:** Keep your appointments with yourself—and share that workout selfie!
+**Primary CTA:** Share Your Workout Selfie → https://www.facebook.com/groups/macrofitonline
+**Secondary text link:** Open Your Challenge App → https://macrofitprogram.com/holiday-head-start/app
+**Copy treatment:** Exact user-approved body and paragraph order retained, including the sign-off. Greeting is `Hey Macrofitters!` with no personalization; the entire second half of the appointments paragraph is bold. No T-shirt reminder, meal-prep contest update, or judging rules added. The preview, header, navigational links, and unsubscribe footer are outside `approved-copy`; sign-off uses HTML `&amp;`. Email-only change; app unchanged by this email coding task.
 
 ### Copy
 
-Hey {{contact.first_name}},
+Hey Macrofitters!
 
-Five weeks ago, this may have felt like one more thing to try.
+Happy Friday! We're wrapping up Week 5 of our Holiday Head Start Challenge, and I have one little reminder for you today.
 
-Now you have five weeks of evidence that you can make a plan, adjust when life gets loud, and keep going without turning every imperfect choice into a reason to quit.
+**KEEP GOING!**
 
-That is a big deal.
+I know we're getting close to Thanksgiving. Schedules are getting busy, holiday plans are being made, and it's easy to start slipping into that "I'll get back on track after the holidays" mindset.
 
-Next week is Thanksgiving. And the goal is not to white-knuckle your way through it or pretend you do not want your favorite food.
+NOPE. Not this year!
 
-The goal is to decide ahead of time:
+You've already put in five weeks of work. Don't let the next few weeks undo the habits you've been building.
 
-- Which meals you want to keep normal.
-- What you are genuinely excited to enjoy on Thanksgiving.
-- What is not actually worth eating just because it happens to be there.
-- How you want Friday to feel—normal, not punished.
+One thing I really want you to focus on is CONTINUING to **make appointments with yourself and actually show up for them. Do this through the remainder of the year and you'll be shocked where you're able to start out for the new year.**
 
-Your group prompt: **What has helped you stay consistent so far, even after the motivation faded?**
+If you can make time for everyone else's schedules, you can make time for your own health, too. Put that workout on your calendar. Set aside time to meal prep. Make that walk happen.
 
-Share the real answer. Your routine might be the exact idea somebody else needs before Thanksgiving week.
+And if this week hasn't gone exactly as planned? Who cares! You still have today, tomorrow, and Sunday to make some good choices.
 
-**CTA: Share What’s Helping You**
+**ONE MORE CHALLENGE REMINDER!**
 
-— Chelsea
+Our Workout Selfie Challenge is still going strong! Post your workout selfies in our Macrofit Facebook group for a chance to win a $50 gift card!
+
+Gym, home workout, whatever you're doing, we want to see it!
+
+**Let's finish Week 5 STRONG!**
+
+Next week is our FINAL week of the challenge, and I want you heading into Thanksgiving feeling proud of what you've accomplished, not like you're starting over.
+
+Keep showing up, Macrofitters!
+
+Chelsea & the Macrofit Team
 
 ---
 

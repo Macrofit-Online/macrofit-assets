@@ -836,7 +836,7 @@ Thanksgiving is part of real life—not a detour from it. Tonight, decide which 
 **Preview text:** Your Thanksgiving game plan, plate tips, and a normal return to your plan on Friday.  
 **Primary CTA:** Open Your Thanksgiving Game Plan → https://macrofitprogram.com/holiday-head-start/app  
 **Graphic:** `emails/assets/holiday-head-start-thanksgiving-plate.jpg` — quarter lean protein (turkey breast, not legs), quarter high-fiber vegetables (watch heavily oiled/butter ones), half Thanksgiving favorites. No corner leaves; revised caption supplied by Chelsea. Hosted URL: https://macrofitprogram.com/manus-storage/holiday-head-start-thanksgiving-plate_0b6f8ef5.jpg  
-**App alignment:** Existing Week 6 Thanksgiving Game Plan, normal meals, enjoying Thanksgiving without guilt, and returning to normal the next day match this email. Bingo and the separate 20-point Side Quest are unchanged. No app edits or website publication performed; detailed plate illustration/tips are email additions.
+**App alignment:** Existing Week 6 Thanksgiving Game Plan, normal meals, enjoying Thanksgiving without guilt, and returning to normal the next day match this email. Bingo is unchanged. Chelsea requested removal of the 20-point T-shirt Side Quest paragraph from this email November 20; the separate Side Quest remains in the app unchanged. No app edits or website publication performed; detailed plate illustration/tips are email additions.
 
 ### Copy
 
@@ -876,8 +876,6 @@ Remember that your eyes can be bigger than your stomach. What we **WANT** to eat
 **The goal isn’t to leave Thanksgiving feeling deprived. It’s to leave feeling satisfied—not like you need to unbutton your pants and lie down for three hours!**
 
 And keep working on Bingo! Completed rows and full-card blackouts still count when you post your screenshot in the Facebook group.
-
-Your 20-point T-shirt Side Quest is still going, too! Keep tracking your points in the side app and saving screenshots as you go.
 
 **CTA: Open Your Thanksgiving Game Plan**
 

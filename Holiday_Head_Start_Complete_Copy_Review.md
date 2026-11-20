@@ -828,36 +828,60 @@ Thanksgiving is part of real life—not a detour from it. Tonight, decide which 
 
 ## W6-MON — Thanksgiving-week email
 
-**Send:** Monday, November 23 at 8:00 AM CT  
-**Subject A:** Thanksgiving week: real life is part of the plan.  
-**Subject B:** You can enjoy Thursday and still take care of yourself.  
-**Preview text:** The goal is not restriction. It is a plan you can come back to.  
-**Primary CTA:** Open Your Thanksgiving Game Plan → https://macrofitprogram.com/holiday-head-start/app
+**Send (proposed only):** Monday, November 23 at 8:00 AM CT  
+**Status:** Coded preview requested November 20, 2026; awaiting Chelsea’s final review. NOT loaded into GHL, scheduled, or sent.  
+**HTML:** `emails/holiday-head-start-week-6-monday.html`  
+**Subject A (proposed):** Thanksgiving week: real life is part of the plan.  
+**Subject B (proposed):** Enjoy Thanksgiving. Keep your momentum.  
+**Preview text:** Your Thanksgiving game plan, plate tips, and a normal return to your plan on Friday.  
+**Primary CTA:** Open Your Thanksgiving Game Plan → https://macrofitprogram.com/holiday-head-start/app  
+**Graphic:** `emails/assets/holiday-head-start-thanksgiving-plate.jpg` — quarter lean protein (turkey breast, not legs), quarter high-fiber vegetables (watch heavily oiled/butter ones), half Thanksgiving favorites. No corner leaves; revised caption supplied by Chelsea. Hosted URL: https://macrofitprogram.com/manus-storage/holiday-head-start-thanksgiving-plate_2889b118.jpg  
+**App alignment:** Existing Week 6 Thanksgiving Game Plan, normal meals, enjoying Thanksgiving without guilt, and returning to normal the next day match this email. Bingo and the separate 20-point Side Quest are unchanged. No app edits or website publication performed; detailed plate illustration/tips are email additions.
 
 ### Copy
 
 Hey {{contact.first_name}},
 
-Welcome to the final week of Holiday Head Start.
+Welcome to the final week of Holiday Head Start!
 
 Thanksgiving week is the perfect time to practice what this challenge has been about from the beginning: food and real life do not have to be on opposite teams.
 
 You can enjoy Thanksgiving. You can eat at a restaurant. You can have family traditions. You can have a busy schedule. And you can still make choices that support how you want to feel.
 
-### This week’s challenge: Thanksgiving Game Plan
+### THIS WEEK’S CHALLENGE: THANKSGIVING GAME PLAN
 
 Decide now:
 
 - What meals will stay normal this week.
 - What foods you are actually excited to enjoy Thursday.
-- What you will skip because it is not worth it *to you*—not because you are punishing yourself.
+- What you will skip because it is not worth it to you—not because you are punishing yourself.
 - What Friday looks like: a normal return to your plan, no guilt required.
 
-You do not need to “make up for” Thanksgiving. You do not need to earn your food beforehand. You just need enough clarity to enjoy the day without losing the pattern you have built.
+You do not need to “make up for” Thanksgiving. You don’t need to “earn” your food. You also don’t need to heavily restrict yourself afterwards. You just need to realize you **CAN enjoy your day and get right back on plan on Friday.** If you have multiple events to attend, make smart choices with your food!
 
-The Week 5 shirt winner will be announced in the group today. And keep working on Bingo: completed rows and full-card blackouts still count when you post your screenshot in the Facebook group.
+### HERE’S HOW I APPROACH MY THANKSGIVING PLATE
+
+Keep it simple:
+
+- Fill about ¼ of your plate with lean protein.
+- Fill about ¼ with high-fiber vegetables. When you have the option, go a little lighter on the oil and butter.
+- Use the rest of your plate for the things you actually want! Yes, your Thanksgiving favorites belong there, too.
+
+I personally get just one spoonful of all the things I want to try. That gives me about two bites of everything so I can enjoy it all without ending up overstuffed and miserable.
+
+I use the same philosophy with desserts! I’d rather have a little of the things I’m excited about and actually enjoy them than load up a plate and feel uncomfortable afterward.
+
+Remember that your eyes can be bigger than your stomach. What we **WANT** to eat and what we **CAN** eat while still feeling great are often two different things.
+
+**The goal isn’t to leave Thanksgiving feeling deprived. It’s to leave feeling satisfied—not like you need to unbutton your pants and lie down for three hours!**
+
+And keep working on Bingo! Completed rows and full-card blackouts still count when you post your screenshot in the Facebook group.
+
+Your 20-point T-shirt Side Quest is still going, too! Keep tracking your points in the side app and saving screenshots as you go.
 
 **CTA: Open Your Thanksgiving Game Plan**
+
+Enjoy your favorites. Enjoy your people. Then keep going.
 
 — Chelsea
 

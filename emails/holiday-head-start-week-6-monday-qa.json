@@ -1,0 +1,32 @@
+{
+  "status": "Coded preview; pending final review; not scheduled or sent",
+  "copy_match": true,
+  "packet_match": true,
+  "links_and_merge_tags": true,
+  "viewport_checks": [
+    {
+      "width": 320,
+      "overflow": false,
+      "image_loaded": true,
+      "button_height": 76
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "image_loaded": true,
+      "button_height": 55
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "image_loaded": true,
+      "button_height": 55
+    },
+    {
+      "width": 800,
+      "overflow": false,
+      "image_loaded": true,
+      "button_height": 55
+    }
+  ]
+}

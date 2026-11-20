@@ -835,7 +835,7 @@ Thanksgiving is part of real life—not a detour from it. Tonight, decide which 
 **Subject B (proposed):** Enjoy Thanksgiving. Keep your momentum.  
 **Preview text:** Your Thanksgiving game plan, plate tips, and a normal return to your plan on Friday.  
 **Primary CTA:** Open Your Thanksgiving Game Plan → https://macrofitprogram.com/holiday-head-start/app  
-**Graphic:** `emails/assets/holiday-head-start-thanksgiving-plate.jpg` — quarter lean protein (turkey breast, not legs), quarter high-fiber vegetables (watch heavily oiled/butter ones), half Thanksgiving favorites. No corner leaves; revised caption supplied by Chelsea. Hosted URL: https://macrofitprogram.com/manus-storage/holiday-head-start-thanksgiving-plate_2889b118.jpg  
+**Graphic:** `emails/assets/holiday-head-start-thanksgiving-plate.jpg` — quarter lean protein (turkey breast, not legs), quarter high-fiber vegetables (watch heavily oiled/butter ones), half Thanksgiving favorites. No corner leaves; revised caption supplied by Chelsea. Hosted URL: https://macrofitprogram.com/manus-storage/holiday-head-start-thanksgiving-plate_0b6f8ef5.jpg  
 **App alignment:** Existing Week 6 Thanksgiving Game Plan, normal meals, enjoying Thanksgiving without guilt, and returning to normal the next day match this email. Bingo and the separate 20-point Side Quest are unchanged. No app edits or website publication performed; detailed plate illustration/tips are email additions.
 
 ### Copy

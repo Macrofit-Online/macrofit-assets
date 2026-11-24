@@ -895,11 +895,15 @@ Tomorrow gets easier when you decide today. Keep your normal meals where you can
 
 ## W6-FRI — Day-after-Thanksgiving email
 
-**Send:** Friday, November 27 at 8:00 AM CT  
-**Subject A:** No punishment. No “making up for it.”  
-**Subject B:** Yesterday is over. Today, return to normal.  
-**Preview text:** Getting back to normal quickly is one of the most useful skills you can build.  
-**Primary CTA:** Open Today’s App → https://macrofitprogram.com/holiday-head-start/app
+**Send (proposed only):** Friday, November 27 at 8:00 AM CT  
+**Status:** Chelsea supplied exact revised body November 24, 2026; coded for GHL use. NOT loaded into GHL, scheduled, or sent.  
+**HTML:** `emails/holiday-head-start-week-6-friday.html`  
+**Subject A (proposed):** No punishment. Just KEEP GOING!  
+**Subject B (proposed):** Yesterday is over. Today, return to normal.  
+**Preview text:** Yesterday was part of real life. Today, get back to your plan—no guilt required.  
+**Primary CTA:** Open Your Challenge App → https://macrofitprogram.com/holiday-head-start/app  
+**App alignment:** Current Week 6 focus already includes enjoying Thanksgiving without guilt and getting back to normal the next day. No app edits or website publication needed. No added Bingo, prizes, or T-shirt Side Quest section.  
+**Copy handling:** Exact six supplied paragraphs retained. Standard greeting, app CTA and Chelsea sign-off added; no body wording rewritten.
 
 ### Copy
 
@@ -913,11 +917,11 @@ Today, the win is simple: **return to normal.**
 
 Drink your water. Eat the meals that make you feel good. Take a walk if it sounds nice. Open the app and mark off what you accomplished.
 
-That quick return is not about being strict. It is about building the skill of not letting one meal, one day, or one holiday turn into a long stretch of feeling disconnected from yourself.
+That quick return is not about being strict. It is about building the skill of not letting one meal, one day, or one holiday turn into a long stretch of feeling disconnected from yourself and your goals.
 
-You have two days left in Holiday Head Start. Use them to notice what you are proud of—not just physically, but in how you handled food, real life, and the moments that used to throw you off.
+You have two days left in Holiday Head Start, so use them to get back on track and notice what you are proud of—not just physically, but in how you handled food, real life, and the moments that used to throw you off.
 
-**CTA: Open Today’s App**
+**CTA: Open Your Challenge App**
 
 — Chelsea
 

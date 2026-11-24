@@ -1,0 +1,30 @@
+{
+  "status": "Coded only; NOT loaded, scheduled, or sent",
+  "exact_body_match": true,
+  "packet_match": true,
+  "merge_tags_and_links": true,
+  "app_week6_theme_aligned": true,
+  "app_unchanged": true,
+  "viewport_checks": [
+    {
+      "width": 320,
+      "no_overflow": true,
+      "button_height": 55
+    },
+    {
+      "width": 375,
+      "no_overflow": true,
+      "button_height": 55
+    },
+    {
+      "width": 390,
+      "no_overflow": true,
+      "button_height": 55
+    },
+    {
+      "width": 800,
+      "no_overflow": true,
+      "button_height": 55
+    }
+  ]
+}
